@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -51,7 +52,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginDidTouch:" destination="Hmz-2K-UuH" eventType="touchUpInside" id="N6j-2S-woO"/>
-                                    <segue destination="etp-l4-0cR" kind="show" id="dja-SY-3rH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Jk-ik-wNa">
@@ -72,6 +72,7 @@
                     <connections>
                         <outlet property="textFieldLoginEmail" destination="tjm-WR-bb7" id="nm4-dA-WpG"/>
                         <outlet property="textFieldLoginPassword" destination="CjY-oK-g12" id="Skh-7r-SQj"/>
+                        <segue destination="etp-l4-0cR" kind="show" identifier="toMap" id="SI7-Eg-IyZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="61n-UY-uIC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -201,7 +202,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="5oh-4v-Ndg" kind="show" id="iou-y4-nqp"/>
+                                    <segue destination="5oh-4v-Ndg" kind="show" id="gk7-kf-jHx"/>
                                 </connections>
                             </button>
                             <pickerView tag="5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hpu-YY-29j">
@@ -222,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rBP-kw-hLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3928" y="248"/>
+            <point key="canvasLocation" x="4043" y="248"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="O8d-Hq-xKt">
@@ -256,7 +257,7 @@
                                 <state key="normal" title="Add Deal"/>
                             </button>
                             <connections>
-                                <segue destination="Gjo-QP-3C3" kind="show" id="mka-cD-zCb"/>
+                                <segue destination="Gjo-QP-3C3" kind="show" id="6jS-cw-Jty"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="sFE-PT-Cha">
@@ -266,7 +267,7 @@
                                 <state key="normal" title="Filter"/>
                             </button>
                             <connections>
-                                <segue destination="giV-HS-0hP" kind="show" id="zph-5S-0Gx"/>
+                                <segue destination="giV-HS-0hP" kind="show" id="v1Y-wo-cj4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -358,6 +359,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iou-y4-nqp"/>
+        <segue reference="gk7-kf-jHx"/>
     </inferredMetricsTieBreakers>
 </document>
