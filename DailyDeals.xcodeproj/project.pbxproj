@@ -7,38 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21C0474A1E27B63F00FD8964 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C047491E27B63F00FD8964 /* AppDelegate.swift */; };
-		21C0474F1E27B63F00FD8964 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C0474D1E27B63F00FD8964 /* Main.storyboard */; };
-		21C047511E27B63F00FD8964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21C047501E27B63F00FD8964 /* Assets.xcassets */; };
-		21C047541E27B63F00FD8964 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C047521E27B63F00FD8964 /* LaunchScreen.storyboard */; };
-		21C0475C1E27B6BF00FD8964 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21C0475B1E27B6BF00FD8964 /* GoogleService-Info.plist */; };
-		21C0475E1E27C41100FD8964 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C0475D1E27C41100FD8964 /* LoginViewController.swift */; };
-		21C047621E27C47400FD8964 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C047611E27C47400FD8964 /* SignUpViewController.swift */; };
-		21C047641E27C48D00FD8964 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C047631E27C48D00FD8964 /* MapViewController.swift */; };
-		21C047661E27C4A100FD8964 /* SearchDealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C047651E27C4A100FD8964 /* SearchDealViewController.swift */; };
-		21C047681E27C4CE00FD8964 /* AddDealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C047671E27C4CE00FD8964 /* AddDealViewController.swift */; };
 		21C0476A1E27CAA600FD8964 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C047691E27CAA600FD8964 /* CoreLocation.framework */; };
-		21CBBCD61E28D8F70025B6A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBCD51E28D8F70025B6A3 /* User.swift */; };
+		21CBBCD81E28E5D00025B6A3 /* DailyDeals in Resources */ = {isa = PBXBuildFile; fileRef = 21CBBCD71E28E5D00025B6A3 /* DailyDeals */; };
 		B4881E3E5D4524AF22BF0953 /* Pods_DailyDeals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C47B5A19219205909B78111 /* Pods_DailyDeals.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		14954EA5E7DBF7D9262A5CFF /* Pods-DailyDeals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDeals.release.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDeals/Pods-DailyDeals.release.xcconfig"; sourceTree = "<group>"; };
 		21C047461E27B63F00FD8964 /* DailyDeals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyDeals.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		21C047491E27B63F00FD8964 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		21C0474E1E27B63F00FD8964 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		21C047501E27B63F00FD8964 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		21C047531E27B63F00FD8964 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		21C047551E27B63F00FD8964 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21C0475B1E27B6BF00FD8964 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		21C0475D1E27C41100FD8964 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		21C047611E27C47400FD8964 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		21C047631E27C48D00FD8964 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		21C047651E27C4A100FD8964 /* SearchDealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDealViewController.swift; sourceTree = "<group>"; };
-		21C047671E27C4CE00FD8964 /* AddDealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDealViewController.swift; sourceTree = "<group>"; };
 		21C047691E27CAA600FD8964 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		21C0476B1E27D95A00FD8964 /* DailyDeals.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DailyDeals.entitlements; sourceTree = "<group>"; };
-		21CBBCD51E28D8F70025B6A3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../User.swift; sourceTree = "<group>"; };
+		21CBBCD71E28E5D00025B6A3 /* DailyDeals */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DailyDeals; sourceTree = "<group>"; };
 		7BF2372F2F92A5D780571762 /* Pods-DailyDeals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDeals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDeals/Pods-DailyDeals.debug.xcconfig"; sourceTree = "<group>"; };
 		8C47B5A19219205909B78111 /* Pods_DailyDeals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyDeals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -59,7 +37,7 @@
 		21C0473D1E27B63F00FD8964 = {
 			isa = PBXGroup;
 			children = (
-				21C047481E27B63F00FD8964 /* DailyDeals */,
+				21CBBCD71E28E5D00025B6A3 /* DailyDeals */,
 				21C047471E27B63F00FD8964 /* Products */,
 				B4EC8F97C2E38B5FE3D3B0C5 /* Pods */,
 				AD0C1442753A9B4868D1EF16 /* Frameworks */,
@@ -72,26 +50,6 @@
 				21C047461E27B63F00FD8964 /* DailyDeals.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		21C047481E27B63F00FD8964 /* DailyDeals */ = {
-			isa = PBXGroup;
-			children = (
-				21C0476B1E27D95A00FD8964 /* DailyDeals.entitlements */,
-				21C0474D1E27B63F00FD8964 /* Main.storyboard */,
-				21C047491E27B63F00FD8964 /* AppDelegate.swift */,
-				21C0475D1E27C41100FD8964 /* LoginViewController.swift */,
-				21CBBCD51E28D8F70025B6A3 /* User.swift */,
-				21C047671E27C4CE00FD8964 /* AddDealViewController.swift */,
-				21C047611E27C47400FD8964 /* SignUpViewController.swift */,
-				21C047631E27C48D00FD8964 /* MapViewController.swift */,
-				21C047651E27C4A100FD8964 /* SearchDealViewController.swift */,
-				21C047501E27B63F00FD8964 /* Assets.xcassets */,
-				21C047521E27B63F00FD8964 /* LaunchScreen.storyboard */,
-				21C047551E27B63F00FD8964 /* Info.plist */,
-				21C0475B1E27B6BF00FD8964 /* GoogleService-Info.plist */,
-			);
-			path = DailyDeals;
 			sourceTree = "<group>";
 		};
 		AD0C1442753A9B4868D1EF16 /* Frameworks */ = {
@@ -180,10 +138,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21C047541E27B63F00FD8964 /* LaunchScreen.storyboard in Resources */,
-				21C0475C1E27B6BF00FD8964 /* GoogleService-Info.plist in Resources */,
-				21C047511E27B63F00FD8964 /* Assets.xcassets in Resources */,
-				21C0474F1E27B63F00FD8964 /* Main.storyboard in Resources */,
+				21CBBCD81E28E5D00025B6A3 /* DailyDeals in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,36 +197,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21C047681E27C4CE00FD8964 /* AddDealViewController.swift in Sources */,
-				21C047621E27C47400FD8964 /* SignUpViewController.swift in Sources */,
-				21C0475E1E27C41100FD8964 /* LoginViewController.swift in Sources */,
-				21C0474A1E27B63F00FD8964 /* AppDelegate.swift in Sources */,
-				21C047641E27C48D00FD8964 /* MapViewController.swift in Sources */,
-				21C047661E27C4A100FD8964 /* SearchDealViewController.swift in Sources */,
-				21CBBCD61E28D8F70025B6A3 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		21C0474D1E27B63F00FD8964 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				21C0474E1E27B63F00FD8964 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		21C047521E27B63F00FD8964 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				21C047531E27B63F00FD8964 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		21C047561E27B63F00FD8964 /* Debug */ = {
