@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
+    // MARK: Outlets
     @IBOutlet weak var textFieldLoginEmail: UITextField!
     @IBOutlet weak var textFieldLoginPassword: UITextField!
     
@@ -24,14 +25,14 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginDidTouch(_ sender: Any) {
-//        FIRAuth.auth()!.signIn(withEmail: textFieldLoginEmail.text!,
-//                               password: textFieldLoginPassword.text!) {
-//            (user, error) in
-//            if error != nil {
-//                    self.alert(title: "Error with loggig in", message: "Enter a valid email and password.")
-//            }
+        FIRAuth.auth()!.signIn(withEmail: textFieldLoginEmail.text!,
+                               password: textFieldLoginPassword.text!) {
+            (user, error) in
+            if error != nil {
+                    self.alert(title: "Error with loggig in", message: "Enter a valid email and password.")
+            }
             self.performSegue(withIdentifier: "toMap", sender: self)
-//        }
+        }
     }
     
     func alert(title: String, message: String) {

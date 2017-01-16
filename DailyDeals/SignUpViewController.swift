@@ -15,13 +15,10 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var textFieldEmail: UITextField!
     @IBOutlet weak var textFieldPassword: UITextField!
     @IBOutlet weak var textFieldConfirm: UITextField!
-    @IBOutlet weak var ControllerType: UISegmentedControl!
-    @IBOutlet weak var textFieldCompanyName: UITextField!
-    
+    @IBOutlet weak var ControllerType: UISegmentedControl!    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     override func didReceiveMemoryWarning() {

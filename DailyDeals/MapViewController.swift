@@ -19,6 +19,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let locationPin:CLLocationCoordinate2D = CLLocationCoordinate2DMake(52.36218321674424, 4.8935338)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = locationPin
+        annotation.title = "Second main course for free"
+        annotation.subtitle = "New Albina"
+        mapView.addAnnotation(annotation)
     }
     
     override func didReceiveMemoryWarning() {
