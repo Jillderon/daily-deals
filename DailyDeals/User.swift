@@ -14,14 +14,15 @@ struct User {
     
     let uid: String
     let email: String
-    let type: String
+    var type: Int?
     
     init(authData: FIRUser) {
         uid = authData.uid
         email = authData.email!
+
     }
     
-    init(uid: String, email: String, type: String) {
+    init(uid: String, email: String, type: Int) {
         self.uid = uid
         self.email = email
         self.type = type
@@ -31,7 +32,7 @@ struct User {
         return [
             "uid": uid,
             "email": email,
-            "type": type 
+            "type": type ?? 0
         ]
     }
     

@@ -216,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rBP-kw-hLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3986" y="250"/>
+            <point key="canvasLocation" x="3461" y="250"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="O8d-Hq-xKt">
@@ -274,7 +274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="54x-lz-o2T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3136.875" y="248.2394366197183"/>
+            <point key="canvasLocation" x="2805" y="249"/>
         </scene>
         <!--Add Deal View Controller-->
         <scene sceneID="FIK-Jn-epg">
@@ -339,7 +339,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="3136.875" y="969.71830985915494"/>
+            <point key="canvasLocation" x="2805" y="976"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="czT-dD-a8A">
@@ -357,7 +357,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWc-kv-u6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2284" y="250"/>
+            <point key="canvasLocation" x="2130" y="250"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

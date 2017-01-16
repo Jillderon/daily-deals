@@ -27,8 +27,12 @@ class AddDealViewController: UIViewController {
     }
     
     @IBAction func AddDeal(_ sender: Any) {
+        guard textfieldNameDeal.text != "" && textfieldNameCompany.text != "" else {
+            return
+        }
+        
         let activity = Activity(nameDeal: textfieldNameDeal.text!, nameCompany: textfieldNameCompany.text!)
-        let activityRef = self.reference.child(textfieldNameDeal.text!.lowercased())
+        let activityRef = self.reference.child(self.textfieldNameDeal.text!.lowercased())
         activityRef.setValue(activity.toAnyObject())
     }
     

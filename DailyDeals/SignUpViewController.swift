@@ -12,6 +12,10 @@ import FirebaseAuth
 
 class SignUpViewController: UIViewController {
 
+    // MARK: Variables
+    let ref = FIRDatabase.database().reference(withPath: "users")
+    
+    // MARK: Outlets
     @IBOutlet weak var textFieldEmail: UITextField!
     @IBOutlet weak var textFieldPassword: UITextField!
     @IBOutlet weak var textFieldConfirm: UITextField!
@@ -49,6 +53,11 @@ class SignUpViewController: UIViewController {
                 self.alert(title: "Error to register", message: "Error with database")
                 return
             }
+            
+            let user = User(uid: user.uid, email: self.textFieldEmail.text!, type: ControllerType.selectedSegmentIndex)
+            let userRef = self.ref.child(self.textFieldEmail.text!)
+            userRef.setValue(user.toAnyObject())
+            
             FIRAuth.auth()!.signIn(withEmail: self.textFieldEmail.text!, password: self.textFieldPassword.text!)
             
         }
