@@ -27,6 +27,11 @@ This document will provide as a logbook for the overall process of the final pro
 ## Tuesday day 7 - 17/01/2017
 - Add content PROCESS.md 
 - get data back from Firebase Database 
+- Hide navigation bar at MapViewController (http://stackoverflow.com/questions/29209453/how-to-hide-a-navigation-bar-from-first-viewcontroller-in-swift)
+
+- From address to longitude and latitude: 
+  https://cocoacasts.com/forward-and-reverse-geocoding-with-clgeocoder-part-1/
+  http://stackoverflow.com/questions/38156145/mapkit-swift-converting-address-to-coordinated
 
 
 

@@ -21,7 +21,6 @@ class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPick
         return activities[row]
     }
     
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return activities.count
     }
