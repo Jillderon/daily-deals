@@ -25,7 +25,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         readDatabase()
-        addPins()
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,56 +42,51 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             let nameCompany = snapshotDict["nameCompany"]
             let address = snapshotDict["address"]
             self.activities.append(Activity(nameDeal: nameDeal!, nameCompany: nameCompany!, address: address!))
+            self.addPins()
         })
     }
     
     func addPins() {
-        print("hij komt wel in de functie..")
-        print("ACTIVITIES")
         print(self.activities)
         for activity in activities {
             addPin(activity: activity)
-            print("..maar hij komt niet in de loop")
         }
     }
     
     func addPin(activity: Activity) {
-        for activity in activities {
-            // Create address string
-            let location = "Netherlands, Amsterdam," + activity.address
-            var coordinate = CLLocationCoordinate2D()
-            print("COORDINATE2")
-            print(coordinate)
-            
-            // Geocode Address String
-            let geoCoder = CLGeocoder()
-            geoCoder.geocodeAddressString(location) { (placemarks, error) in
-                if let error = error {
-                    print("Unable to Forward Geocode Address (\(error))")
-                } else {
-                    var locationPin: CLLocation?
-                    if let placemarks = placemarks, placemarks.count > 0 {
-                        locationPin = placemarks.first?.location
-                    }
-                    
-                    if let locationPin = locationPin {
-                        coordinate = locationPin.coordinate
-                        print("COORDINATE:")
-                        print(coordinate)
-                    }
-                    
-                }
-                
-                
-                // Place annotation
-                let annotation = MKPointAnnotation()
-                annotation.coordinate = coordinate
-                annotation.title = activity.nameDeal
-                annotation.subtitle = activity.nameCompany
-                self.mapView.addAnnotation(annotation)
-            }
+        // Create address string
+        let location = "Netherlands, Amsterdam," + activity.address
+        var coordinate = CLLocationCoordinate2D()
 
+            
+        // Geocode Address String
+        let geoCoder = CLGeocoder()
+        
+        geoCoder.geocodeAddressString(location) { (placemarks, error) in
+            if let error = error {
+                print("Unable to Forward Geocode Address (\(error))")
+            } else {
+                var locationPin: CLLocation?
+                if let placemarks = placemarks, placemarks.count > 0 {
+                        locationPin = placemarks.first?.location
+                }
+            
+                if let locationPin = locationPin {
+                    coordinate = locationPin.coordinate
+                    
+                    print("COORDINATE")
+                    print(coordinate)
+                    
+                    // Place annotation
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = coordinate
+                    annotation.title = activity.nameDeal
+                    annotation.subtitle = activity.nameCompany
+                    self.mapView.addAnnotation(annotation)                }
+            }
         }
+        
+
     }
  
     func determineMyCurrentLocation() {
