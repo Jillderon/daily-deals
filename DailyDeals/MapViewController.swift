@@ -1,7 +1,6 @@
 //
 //  MapViewController.swift
 //  DailyDeals
-//  self.mapView.showsUserLocation = true
 //
 //
 //  Created by practicum on 12/01/17.
@@ -11,21 +10,27 @@
 import UIKit
 import MapKit
 import CoreLocation
+import FirebaseDatabase
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
 
-    @IBOutlet weak var mapView: MKMapView!
+    // MARK: Variables
     var locationManager: CLLocationManager!
-
+//    let ref = FIRDatabase.database().reference(withPath: "activities")
+    var ref: FIRDAtabaseReference?
+    
+    
+    //    var databaseHandle: FIRDatabaseHandle
+    var activities = [Activity]()
+    
+    // MARK: Outlets
+    @IBOutlet weak var mapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let locationPin:CLLocationCoordinate2D = CLLocationCoordinate2DMake(52.36218321674424, 4.8935338)
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = locationPin
-        annotation.title = "Second main course for free"
-        annotation.subtitle = "New Albina"
-        mapView.addAnnotation(annotation)
+        readDatabase()
+        addPins()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,6 +40,31 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         determineMyCurrentLocation()
+    }
+    
+    func addPins() {
+        
+    }
+    
+    func readDatabase() {
+//        ref = FIRDatabase.database().reference()
+        
+        ref.child("activities").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
+            
+            for item in snapshot.children {
+                let activity = Activity(snapshot: item as! FIRDatasnapshot)
+                activities.append(activity)
+            }
+            
+//            guard let snapshotDict = snapshot.value as? [String: String] else {
+//                return
+//            }
+//            
+//            let nameDeal = snapshotDict["nameDeal"]
+//            let nameCompany = snapshotDict["nameCompany"]
+//            let address = snapshotDict["address"]
+//            self.activities.append(Activity(nameDeal: nameDeal!, nameCompany: nameCompany!, address: address!))
+        })
     }
     
     func determineMyCurrentLocation() {

@@ -14,12 +14,14 @@ struct Activity {
     let key: String
     let nameDeal: String
     let nameCompany: String
+    let address: String
     let ref: FIRDatabaseReference?
     
-    init(nameDeal: String, nameCompany: String, key: String = "") {
+    init(nameDeal: String, nameCompany: String, address: String, key: String = "") {
         self.key = key
         self.nameDeal = nameDeal
         self.nameCompany = nameCompany
+        self.address = address
         self.ref = nil
     }
     
@@ -28,6 +30,7 @@ struct Activity {
         let snapshotValue = snapshot.value! as! [String: AnyObject]
         nameDeal = snapshotValue["nameDeal"] as! String
         nameCompany = snapshotValue["nameCompany"] as! String
+        address = snapshotValue["address"] as! String
         ref = snapshot.ref
     }
     
@@ -35,6 +38,7 @@ struct Activity {
         return [
             "nameDeal" : nameDeal,
             "nameCompany" : nameCompany,
+            "address" : address
         ]
     }
 

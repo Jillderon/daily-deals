@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hmz-2K-UuH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="etp-l4-0cR">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -279,7 +279,6 @@
         <!--Add Deal View Controller-->
         <scene sceneID="FIK-Jn-epg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AMU-wy-il5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Gjo-QP-3C3" customClass="AddDealViewController" customModule="DailyDeals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yfc-mz-m3r"/>
@@ -318,7 +317,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ox-hS-W2R">
-                                <rect key="frame" x="30" y="218" width="260" height="33"/>
+                                <rect key="frame" x="30" y="268" width="260" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99160850050000005" green="0.58425903320000006" blue="0.42443481090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
@@ -330,14 +329,24 @@
                                     <action selector="signUpDidTouch:" destination="laV-WP-FXC" eventType="touchUpInside" id="xYe-Gu-q2V"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m3A-io-AhD">
+                                <rect key="frame" x="30" y="218" width="260" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.29204627869999999" green="0.65247046949999998" blue="0.49190118910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="textfieldAddress" destination="m3A-io-AhD" id="80r-nW-C54"/>
                         <outlet property="textfieldNameCompany" destination="LTV-2S-y4S" id="EPk-B0-grk"/>
                         <outlet property="textfieldNameDeal" destination="lJe-zW-wkH" id="UsY-cu-HvO"/>
+                        <segue destination="5oh-4v-Ndg" kind="show" identifier="toMapAgain" id="aln-Ej-pyU"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AMU-wy-il5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2805" y="976"/>
         </scene>
@@ -362,6 +371,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Gbb-D2-nhN"/>
-        <segue reference="bvh-0C-h5c"/>
+        <segue reference="aln-Ej-pyU"/>
     </inferredMetricsTieBreakers>
 </document>

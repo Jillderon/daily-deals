@@ -20,6 +20,7 @@
 		21CBBCED1E28F8C50025B6A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBCE31E28F8C50025B6A3 /* User.swift */; };
 		21CBBCEF1E28F9800025B6A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21CBBCEE1E28F9800025B6A3 /* Main.storyboard */; };
 		21CBBCF11E28F9870025B6A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21CBBCF01E28F9870025B6A3 /* LaunchScreen.storyboard */; };
+		21E658101E2E570100828EF9 /* PROCESS.md in Sources */ = {isa = PBXBuildFile; fileRef = 21E6580F1E2E570100828EF9 /* PROCESS.md */; };
 		21F1C6AA1E2CD6BC00C5C4CC /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F1C6A91E2CD6BC00C5C4CC /* Activity.swift */; };
 		B4881E3E5D4524AF22BF0953 /* Pods_DailyDeals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C47B5A19219205909B78111 /* Pods_DailyDeals.framework */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 		21CBBCE31E28F8C50025B6A3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = DailyDeals/User.swift; sourceTree = "<group>"; };
 		21CBBCEE1E28F9800025B6A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = DailyDeals/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21CBBCF01E28F9870025B6A3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DailyDeals/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		21E6580F1E2E570100828EF9 /* PROCESS.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = PROCESS.md; sourceTree = "<group>"; };
 		21F1C6A91E2CD6BC00C5C4CC /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		7BF2372F2F92A5D780571762 /* Pods-DailyDeals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDeals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDeals/Pods-DailyDeals.debug.xcconfig"; sourceTree = "<group>"; };
 		8C47B5A19219205909B78111 /* Pods_DailyDeals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyDeals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +70,7 @@
 				21CBBCDB1E28F8C50025B6A3 /* Assets.xcassets */,
 				21CBBCDD1E28F8C50025B6A3 /* DailyDeals.entitlements */,
 				21CBBCDA1E28F8C50025B6A3 /* AppDelegate.swift */,
+				21E6580F1E2E570100828EF9 /* PROCESS.md */,
 				21CBBCDE1E28F8C50025B6A3 /* Info.plist */,
 				210E08781E28FE7800161828 /* GoogleService-Info.plist */,
 				21C047471E27B63F00FD8964 /* Products */,
@@ -268,6 +271,7 @@
 				21CBBCE51E28F8C50025B6A3 /* AppDelegate.swift in Sources */,
 				21CBBCE41E28F8C50025B6A3 /* AddDealViewController.swift in Sources */,
 				21CBBCEA1E28F8C50025B6A3 /* MapViewController.swift in Sources */,
+				21E658101E2E570100828EF9 /* PROCESS.md in Sources */,
 				21CBBCEB1E28F8C50025B6A3 /* SearchDealViewController.swift in Sources */,
 				21F1C6AA1E2CD6BC00C5C4CC /* Activity.swift in Sources */,
 				21CBBCED1E28F8C50025B6A3 /* User.swift in Sources */,
