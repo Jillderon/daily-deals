@@ -54,9 +54,9 @@ class SignUpViewController: UIViewController {
                 return
             }
             
-            let user = User(uid: user.uid, email: self.textFieldEmail.text!, type: ControllerType.selectedSegmentIndex)
-            let userRef = self.ref.child(self.textFieldEmail.text!)
-            userRef.setValue(user.toAnyObject())
+//            let user = User(uid: user.uid, email: self.textFieldEmail.text!, type: ControllerType.selectedSegmentIndex)
+//            let userRef = self.ref.child(self.textFieldEmail.text!)
+//            userRef.setValue(user.toAnyObject())
             
             FIRAuth.auth()!.signIn(withEmail: self.textFieldEmail.text!, password: self.textFieldPassword.text!)
             
