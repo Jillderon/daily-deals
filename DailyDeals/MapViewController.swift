@@ -73,20 +73,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             
                 if let locationPin = locationPin {
                     coordinate = locationPin.coordinate
-                    
-                    print("COORDINATE")
-                    print(coordinate)
-                    
-                    // Place annotation
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = coordinate
-                    annotation.title = activity.nameDeal
-                    annotation.subtitle = activity.nameCompany
-                    self.mapView.addAnnotation(annotation)                }
+                    self.placeAnnotation(activity: activity, coordinate: coordinate)
+                }
             }
         }
         
-
+    }
+    
+    func placeAnnotation(activity: Activity, coordinate: CLLocationCoordinate2D) {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        annotation.title = activity.nameDeal
+        annotation.subtitle = activity.nameCompany
+        self.mapView.addAnnotation(annotation)
     }
  
     func determineMyCurrentLocation() {
@@ -98,7 +97,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
         }
-        
     }
 
     func locationManager(_  manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
