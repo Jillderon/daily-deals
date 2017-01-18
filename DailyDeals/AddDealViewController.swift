@@ -10,11 +10,27 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class AddDealViewController: UIViewController {
+class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var textfieldNameDeal: UITextField!
     @IBOutlet weak var textfieldNameCompany: UITextField!
     @IBOutlet weak var textfieldAddress: UITextField!
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var pickerDate: UIDatePicker!
+    
+    let activities = ["Shopping", "Food", "Hotels", "Activities", "Festivals", "Party", "Other"]
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return activities[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return activities.count
+    }
     
     let reference = FIRDatabase.database().reference(withPath: "activities")
     

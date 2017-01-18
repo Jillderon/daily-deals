@@ -11,7 +11,7 @@ import UIKit
 class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var pickerView: UIPickerView!
-    let activities = ["Shopping", "Food", "Hotels", "Activities", "Festivals", "Other"]
+    let activities = ["Shopping", "Food", "Hotels", "Activities", "Festivals", "Party"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

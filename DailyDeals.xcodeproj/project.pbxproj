@@ -20,6 +20,7 @@
 		21CBBCED1E28F8C50025B6A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBCE31E28F8C50025B6A3 /* User.swift */; };
 		21CBBCEF1E28F9800025B6A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21CBBCEE1E28F9800025B6A3 /* Main.storyboard */; };
 		21CBBCF11E28F9870025B6A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21CBBCF01E28F9870025B6A3 /* LaunchScreen.storyboard */; };
+		21E61A361E2F749A004224CE /* CostumAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E61A351E2F749A004224CE /* CostumAnnotation.swift */; };
 		21E658101E2E570100828EF9 /* PROCESS.md in Sources */ = {isa = PBXBuildFile; fileRef = 21E6580F1E2E570100828EF9 /* PROCESS.md */; };
 		21F1C6AA1E2CD6BC00C5C4CC /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F1C6A91E2CD6BC00C5C4CC /* Activity.swift */; };
 		B4881E3E5D4524AF22BF0953 /* Pods_DailyDeals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C47B5A19219205909B78111 /* Pods_DailyDeals.framework */; };
@@ -42,6 +43,7 @@
 		21CBBCE31E28F8C50025B6A3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = DailyDeals/User.swift; sourceTree = "<group>"; };
 		21CBBCEE1E28F9800025B6A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = DailyDeals/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21CBBCF01E28F9870025B6A3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DailyDeals/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		21E61A351E2F749A004224CE /* CostumAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostumAnnotation.swift; sourceTree = "<group>"; };
 		21E6580F1E2E570100828EF9 /* PROCESS.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = PROCESS.md; sourceTree = "<group>"; };
 		21F1C6A91E2CD6BC00C5C4CC /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		7BF2372F2F92A5D780571762 /* Pods-DailyDeals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDeals.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDeals/Pods-DailyDeals.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				21CBBCDF1E28F8C50025B6A3 /* LoginViewController.swift */,
 				21CBBCD91E28F8C50025B6A3 /* AddDealViewController.swift */,
 				21CBBCE01E28F8C50025B6A3 /* MapViewController.swift */,
+				21E61A351E2F749A004224CE /* CostumAnnotation.swift */,
 				21CBBCE11E28F8C50025B6A3 /* SearchDealViewController.swift */,
 				21CBBCE21E28F8C50025B6A3 /* SignUpViewController.swift */,
 			);
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21CBBCEC1E28F8C50025B6A3 /* SignUpViewController.swift in Sources */,
+				21E61A361E2F749A004224CE /* CostumAnnotation.swift in Sources */,
 				21CBBCE91E28F8C50025B6A3 /* LoginViewController.swift in Sources */,
 				21CBBCE51E28F8C50025B6A3 /* AppDelegate.swift in Sources */,
 				21CBBCE41E28F8C50025B6A3 /* AddDealViewController.swift in Sources */,

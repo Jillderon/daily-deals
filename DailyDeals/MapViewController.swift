@@ -114,6 +114,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         print("Error \(error)")
     }
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         determineMyCurrentLocation()
