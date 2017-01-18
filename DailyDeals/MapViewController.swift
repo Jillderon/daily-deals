@@ -41,13 +41,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             let nameDeal = snapshotDict["nameDeal"]
             let nameCompany = snapshotDict["nameCompany"]
             let address = snapshotDict["address"]
-            self.activities.append(Activity(nameDeal: nameDeal!, nameCompany: nameCompany!, address: address!))
+            let category = snapshotDict["category"]
+            self.activities.append(Activity(nameDeal: nameDeal!, nameCompany: nameCompany!, address: address!, category: category!))
             self.addPins()
         })
     }
     
     func addPins() {
-        print(self.activities)
         for activity in activities {
             addPin(activity: activity)
         }

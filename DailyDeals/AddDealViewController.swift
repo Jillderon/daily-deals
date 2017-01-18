@@ -12,13 +12,19 @@ import FirebaseDatabase
 
 class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    // MARK: Outlets
     @IBOutlet weak var textfieldNameDeal: UITextField!
     @IBOutlet weak var textfieldNameCompany: UITextField!
     @IBOutlet weak var textfieldAddress: UITextField!
     @IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var pickerDate: UIDatePicker!
+    @IBOutlet weak var datePicker: UIDatePicker!
+ 
     
+    // MARK: Variables
     let activities = ["Shopping", "Food", "Hotels", "Activities", "Festivals", "Party", "Other"]
+    let reference = FIRDatabase.database().reference(withPath: "activities")
+    var PlacementAnswer = 0
+   
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -32,10 +38,15 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         return activities.count
     }
     
-    let reference = FIRDatabase.database().reference(withPath: "activities")
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        PlacementAnswer = row
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pickerView.delegate = self
+        pickerView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,7 +59,8 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             return
         }
         
-        let activity = Activity(nameDeal: textfieldNameDeal.text!, nameCompany: textfieldNameCompany.text!, address: textfieldAddress.text!)
+        
+        let activity = Activity(nameDeal: textfieldNameDeal.text!, nameCompany: textfieldNameCompany.text!, address: textfieldAddress.text!, category: activities[PlacementAnswer])
         let activityRef = self.reference.child(self.textfieldNameDeal.text!.lowercased())
         activityRef.setValue(activity.toAnyObject())
         self.performSegue(withIdentifier: "toMapAgain", sender: self)

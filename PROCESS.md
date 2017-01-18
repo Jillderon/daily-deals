@@ -36,4 +36,5 @@ This document will provide as a logbook for the overall process of the final pro
 - Remove annotations after some given time (added by the company as a date + time)
   http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-it-after-some-time/32136056
 - pickerview with categories in AddDealViewController (https://www.youtube.com/watch?v=oHkEUibsShM)
+- pickerview with dates in AddDealViewController (https://www.ioscreator.com/tutorials/display-date-date-picker-ios8-swift)
 

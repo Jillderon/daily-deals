@@ -322,6 +322,7 @@
                                 <date key="date" timeIntervalSinceReferenceDate="506428369.13507402">
                                     <!--2017-01-18 10:32:49 +0000-->
                                 </date>
+                                <locale key="locale" localeIdentifier="nl"/>
                             </datePicker>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oL6-f8-Bdd">
                                 <rect key="frame" x="0.0" y="239" width="320" height="100"/>
@@ -362,7 +363,7 @@
                         <color key="backgroundColor" red="0.29204627869999999" green="0.65247046949999998" blue="0.49190118910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="pickerDate" destination="UAJ-dm-Ttb" id="Pdt-Rf-sbq"/>
+                        <outlet property="datePicker" destination="UAJ-dm-Ttb" id="ldr-56-MGo"/>
                         <outlet property="pickerView" destination="oL6-f8-Bdd" id="BFS-67-9Lj"/>
                         <outlet property="textfieldAddress" destination="m3A-io-AhD" id="80r-nW-C54"/>
                         <outlet property="textfieldNameCompany" destination="LTV-2S-y4S" id="EPk-B0-grk"/>
