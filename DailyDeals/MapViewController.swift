@@ -35,16 +35,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func showButtons() {
-        
         // Retrieve data from Firebase.
         ref = FIRDatabase.database().reference()
         ref?.child("Users").observe(.value, with: { snapshot in
             for item in snapshot.children {
                 let userData = User(snapshot: item as! FIRDataSnapshot)
                 if userData.uid == (FIRAuth.auth()?.currentUser?.uid)! {
-                    if userData.type! == 0 {
-                       self.addDealButton.isHidden = true
-                    } else {
+                    if userData.type! == 1 {
                         self.addDealButton.isHidden = false
                     }
                 }
@@ -101,6 +98,21 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    @IBAction func signOutDidTouch(_ sender: Any) {
+        signOut()
+        self.performSegue(withIdentifier: "toLoginAgain", sender: self)
+    }
+    
+    func signOut() {
+        let firebaseAuth = FIRAuth.auth()
+        do {
+            try firebaseAuth?.signOut()
+            dismiss(animated: true, completion: nil)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
     func placeAnnotation(activity: Activity, coordinate: CLLocationCoordinate2D) {
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
@@ -134,8 +146,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error \(error)")
     }
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
