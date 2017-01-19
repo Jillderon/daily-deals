@@ -45,10 +45,12 @@ http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-
 - Hide addDealButton for user account (http://stackoverflow.com/questions/30065010/how-to-hide-show-a-button-in-swift)
 - State restoration (https://www.raywenderlich.com/117471/state-restoration-tutorial)
 - Add sign out 
-- I want to filter different deals trough categories. So I need to know how to filter data I get from Firebase (http://stackoverflow.com/questions/39647742/how-to-filter-firebase-data-in-swift)
+- Segue information form the SearchDealViewController to the MapViewController. Is needed to filter deals later on. 
+
 
 ## Friday day 10 - 20/01/2017
 - Ask Julian: pickerview with dates in AddDealViewController, so you can remove annotations after some given time (added by the company as a date + time) 
+- I want to filter different deals trough categories. So I need to know how to filter data I get from Firebase (http://stackoverflow.com/questions/39647742/how-to-filter-firebase-data-in-swift)
 
 
 

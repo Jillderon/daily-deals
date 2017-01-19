@@ -148,7 +148,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelDidTouch:" destination="laV-WP-FXC" eventType="touchUpInside" id="2fm-Y2-gXV"/>
                                     <segue destination="Hmz-2K-UuH" kind="show" id="BDa-BB-ouW"/>
                                 </connections>
                             </button>
@@ -423,8 +422,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="BDa-BB-ouW"/>
+        <segue reference="Gbb-D2-nhN"/>
         <segue reference="gsD-By-eoK"/>
-        <segue reference="CGf-LG-X13"/>
-        <segue reference="SI7-Eg-IyZ"/>
     </inferredMetricsTieBreakers>
 </document>
