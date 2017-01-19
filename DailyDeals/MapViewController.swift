@@ -11,6 +11,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import FirebaseDatabase
+import FirebaseAuth
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -21,14 +22,34 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     // MARK: Outlets
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var addDealButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showButtons()
         readDatabase()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func showButtons() {
+        
+        // Retrieve data from Firebase.
+        ref = FIRDatabase.database().reference()
+        ref?.child("Users").observe(.value, with: { snapshot in
+            for item in snapshot.children {
+                let userData = User(snapshot: item as! FIRDataSnapshot)
+                if userData.uid == (FIRAuth.auth()?.currentUser?.uid)! {
+                    if userData.type! == 0 {
+                       self.addDealButton.isHidden = true
+                    } else {
+                        self.addDealButton.isHidden = false
+                    }
+                }
+            }
+        })
     }
     
     func readDatabase() {

@@ -41,5 +41,8 @@ http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-
 
 ## Tuesday day 9 - 19/01/2017 
 - Working on stylebook 
-- 
+- Hide addDealButton for user account (http://stackoverflow.com/questions/30065010/how-to-hide-show-a-button-in-swift)
+- State restoration (https://www.raywenderlich.com/117471/state-restoration-tutorial)
+
+
 

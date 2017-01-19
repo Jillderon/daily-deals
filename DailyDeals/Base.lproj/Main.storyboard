@@ -148,7 +148,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelDidTouch:" destination="laV-WP-FXC" eventType="touchUpInside" id="2fm-Y2-gXV"/>
                                     <segue destination="Hmz-2K-UuH" kind="show" id="BDa-BB-ouW"/>
                                 </connections>
                             </button>
@@ -233,7 +232,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6GI-sX-0h1">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wMh-Xc-jfF">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wMh-Xc-jfF">
                                 <rect key="frame" x="16" y="518" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99160850050000005" green="0.58425903320000006" blue="0.42443481090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -269,6 +268,7 @@
                     <navigationItem key="navigationItem" id="HEv-0t-nMW"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="addDealButton" destination="wMh-Xc-jfF" id="WJ1-0l-ca4"/>
                         <outlet property="mapView" destination="6GI-sX-0h1" id="PRq-o1-Isd"/>
                     </connections>
                 </viewController>
