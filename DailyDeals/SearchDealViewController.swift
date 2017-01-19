@@ -10,8 +10,12 @@ import UIKit
 
 class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
+    // MARK: Outlets.
     @IBOutlet weak var pickerView: UIPickerView!
-    let activities = ["Shopping", "Food", "Hotels", "Activities", "Festivals", "Party"]
+    
+    // MARK: Variables. 
+    let activities = ["Shopping", "Food", "Hotels", "Activities", "Festivals", "Party", "Other"]
+    var category = String()
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -24,6 +28,10 @@ class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPick
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return activities.count
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.category = activities[row]
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,5 +40,17 @@ class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPick
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toMapAgain" {
+            let destination = segue.destination as? MapViewController
+            destination?.receivedCategory = self.category
+        }
+    }
+    
+    @IBAction func didTouchSearch(_ sender: UIButton) {
+        performSegue(withIdentifier: "toMapAgain", sender: nil)
+    }
+
 
 }

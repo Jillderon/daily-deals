@@ -19,15 +19,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager: CLLocationManager!
     var ref: FIRDatabaseReference?
     var activities = [Activity]()
+    var receivedCategory = String()
     
     // MARK: Outlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addDealButton: UIButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showButtons()
         readDatabase()
+        print(self.receivedCategory)
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,6 +46,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 if userData.uid == (FIRAuth.auth()?.currentUser?.uid)! {
                     if userData.type! == 1 {
                         self.addDealButton.isHidden = false
+                    } else {
+                        self.addDealButton.isHidden = true
                     }
                 }
             }
@@ -64,6 +69,37 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             self.addPins()
         })
     }
+    
+//    func readDatabase() {
+//        if receivedCategory == "" {
+//            ref = FIRDatabase.database().reference()
+//            ref?.child("activities").queryOrderedByKey().observe(.value, with: { (snapshot) in
+//                guard let snapshotDict = snapshot.value as? [String: String] else {
+//                    return
+//                }
+//                
+//                let nameDeal = snapshotDict["nameDeal"]
+//                let nameCompany = snapshotDict["nameCompany"]
+//                let address = snapshotDict["address"]
+//                let category = snapshotDict["category"]
+//                self.activities.append(Activity(nameDeal: nameDeal!, nameCompany: nameCompany!, address: address!, category: category!))
+//                self.addPins()
+//            })
+//        } else {
+//            ref = FIRDatabase.database().reference()
+//            ref?.child("activities").queryOrdered(byChild: "type").queryEqual(toValue: receivedCategory).observe(.value, with: { (snapshot) in
+//                guard let snapshotDict = snapshot.value as? [String: String] else {
+//                    return
+//                }
+//                let nameDeal = snapshotDict["nameDeal"]
+//                let nameCompany = snapshotDict["nameCompany"]
+//                let address = snapshotDict["address"]
+//                let category = snapshotDict["category"]
+//                self.activities.append(Activity(nameDeal: nameDeal!, nameCompany: nameCompany!, address: address!, category: category!))
+//                self.addPins()
+//            })
+//        }
+//    }
     
     func addPins() {
         for activity in activities {

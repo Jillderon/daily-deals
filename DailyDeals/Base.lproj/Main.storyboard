@@ -203,8 +203,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="didTouchSearch:" destination="giV-HS-0hP" eventType="touchUpInside" id="Mc7-Hf-kor"/>
                                     <action selector="loginDidTouch:" destination="Hmz-2K-UuH" eventType="touchUpInside" id="1cm-ue-pIt"/>
-                                    <segue destination="5oh-4v-Ndg" kind="show" id="bvh-0C-h5c"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -212,11 +212,12 @@
                     </view>
                     <connections>
                         <outlet property="pickerView" destination="Hpu-YY-29j" id="gNi-5J-HpS"/>
+                        <segue destination="5oh-4v-Ndg" kind="show" identifier="toMapAgain" id="gsD-By-eoK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rBP-kw-hLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3461" y="250"/>
+            <point key="canvasLocation" x="4148" y="250"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="O8d-Hq-xKt">
@@ -258,18 +259,6 @@
                                     <action selector="signOutDidTouch:" destination="5oh-4v-Ndg" eventType="touchUpInside" id="CSh-kX-28d"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wMh-Xc-jfF">
-                                <rect key="frame" x="0.0" y="532" width="71" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.99160850050000005" green="0.58425903320000006" blue="0.42443481090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                <state key="normal" title="Add Deal">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Gjo-QP-3C3" kind="show" id="Mec-2s-Hx7"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I25-iv-4AO">
                                 <rect key="frame" x="87" y="532" width="77" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -280,6 +269,18 @@
                                 </state>
                                 <connections>
                                     <segue destination="giV-HS-0hP" kind="show" id="adZ-Lz-7ER"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wMh-Xc-jfF">
+                                <rect key="frame" x="8" y="534" width="71" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99160850050000005" green="0.58425903320000006" blue="0.42443481090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <state key="normal" title="Add Deal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Gjo-QP-3C3" kind="show" id="Mec-2s-Hx7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -294,6 +295,7 @@
                     <navigationItem key="navigationItem" id="HEv-0t-nMW"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="addDealButton" destination="wMh-Xc-jfF" id="Qlr-NV-VhY"/>
                         <outlet property="mapView" destination="6GI-sX-0h1" id="PRq-o1-Isd"/>
                         <segue destination="Hmz-2K-UuH" kind="show" identifier="toLoginAgain" id="CGf-LG-X13"/>
                     </connections>
@@ -315,35 +317,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LTV-2S-y4S">
-                                <rect key="frame" x="30" y="142" width="260" height="30"/>
+                                <rect key="frame" x="30" y="148" width="260" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Deal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvK-BA-VUK">
-                                <rect key="frame" x="49" y="28" width="223" height="88"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="51"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m3A-io-AhD">
-                                <rect key="frame" x="30" y="180" width="260" height="30"/>
+                                <rect key="frame" x="30" y="186" width="260" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name Deal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lJe-zW-wkH">
-                                <rect key="frame" x="30" y="104" width="260" height="30"/>
+                                <rect key="frame" x="30" y="110" width="260" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="UAJ-dm-Ttb">
-                                <rect key="frame" x="0.0" y="354" width="320" height="103"/>
+                                <rect key="frame" x="0.0" y="378" width="320" height="103"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="506428369.13507402">
                                     <!--2017-01-18 10:32:49 +0000-->
@@ -351,7 +346,7 @@
                                 <locale key="locale" localeIdentifier="nl"/>
                             </datePicker>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oL6-f8-Bdd">
-                                <rect key="frame" x="0.0" y="239" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="241" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Gjo-QP-3C3" id="Tpb-YQ-fTO"/>
@@ -366,7 +361,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Valid until: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgd-ru-lUU">
-                                <rect key="frame" x="119" y="342" width="83" height="21"/>
+                                <rect key="frame" x="119" y="349" width="83" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -385,6 +380,13 @@
                                     <action selector="signUpDidTouch:" destination="laV-WP-FXC" eventType="touchUpInside" id="xYe-Gu-q2V"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Deal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvK-BA-VUK">
+                                <rect key="frame" x="49" y="40" width="223" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="51"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.29204627869999999" green="0.65247046949999998" blue="0.49190118910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -421,8 +423,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="gsD-By-eoK"/>
         <segue reference="CGf-LG-X13"/>
-        <segue reference="bvh-0C-h5c"/>
         <segue reference="SI7-Eg-IyZ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -44,10 +44,16 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        informationPickerview()
+    }
+    
+    func informationPickerview() {
         pickerView.delegate = self
         pickerView.dataSource = self
+        let middleOfPicker = activities.count / 2
+        pickerView.selectRow(middleOfPicker, inComponent: 0, animated: true)
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -58,7 +64,6 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             self.alert(title: "Error with adding deal", message: "Enter the title of the deal and the name and address of the company")
             return
         }
-        
         
         let activity = Activity(nameDeal: textfieldNameDeal.text!, nameCompany: textfieldNameCompany.text!, address: textfieldAddress.text!, category: activities[PlacementAnswer])
         let activityRef = self.reference.child(self.textfieldNameDeal.text!.lowercased())
