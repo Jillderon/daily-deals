@@ -33,8 +33,13 @@ This document will provide as a logbook for the overall process of the final pro
   http://stackoverflow.com/questions/38156145/mapkit-swift-converting-address-to-coordinated
 
 ## Wednesday day 8 - 18/01/2017
-- Remove annotations after some given time (added by the company as a date + time)
-  http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-it-after-some-time/32136056
 - pickerview with categories in AddDealViewController (https://www.youtube.com/watch?v=oHkEUibsShM)
-- pickerview with dates in AddDealViewController (https://www.ioscreator.com/tutorials/display-date-date-picker-ios8-swift)
+- Two different accounts needed. One for the users and one for companies. You need a segmented controller in the register (https://www.ioscreator.com/tutorials/segmented-control-tutorial-ios8-swift)
+- Didn't work out: pickerview with dates in AddDealViewController, so you can remove annotations after some given time (added by the company as a date + time) 
+http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-it-after-some-time/3213605 (https://www.ioscreator.com/tutorials/display-date-date-picker-ios8-swift)
+- Working on stylebook 
+
+## Tuesday day 9 - 19/01/2017 
+- Working on stylebook 
+- 
 
