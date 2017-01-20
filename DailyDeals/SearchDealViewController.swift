@@ -14,7 +14,7 @@ class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var pickerView: UIPickerView!
     
     // MARK: Variables. 
-    let activities = ["Shopping", "Food", "Hotels", "Activities", "Festivals", "Party", "Other"]
+    let activities = ["All Deals", "Shopping", "Food", "Hotels", "Activities", "Festivals", "Party", "Other"]
     var category = String()
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

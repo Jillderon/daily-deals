@@ -159,7 +159,7 @@
                         <outlet property="textFieldConfirm" destination="6sj-vH-FWt" id="dBj-AE-6kn"/>
                         <outlet property="textFieldEmail" destination="aeO-UX-7S4" id="RkE-Bp-sxr"/>
                         <outlet property="textFieldPassword" destination="M4a-Mw-7aS" id="Ybc-pY-aj9"/>
-                        <segue destination="etp-l4-0cR" kind="show" id="Gbb-D2-nhN"/>
+                        <segue destination="etp-l4-0cR" kind="show" identifier="toMap" id="Gbb-D2-nhN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3iv-Fm-fWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -294,7 +294,7 @@
                     <navigationItem key="navigationItem" id="HEv-0t-nMW"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="addDealButton" destination="wMh-Xc-jfF" id="Qlr-NV-VhY"/>
+                        <outlet property="addDealButton" destination="wMh-Xc-jfF" id="WRv-ZZ-DFf"/>
                         <outlet property="mapView" destination="6GI-sX-0h1" id="PRq-o1-Isd"/>
                         <segue destination="Hmz-2K-UuH" kind="show" identifier="toLoginAgain" id="CGf-LG-X13"/>
                     </connections>
@@ -400,7 +400,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMU-wy-il5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2805" y="975"/>
+            <point key="canvasLocation" x="2130" y="1043"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="czT-dD-a8A">
@@ -422,8 +422,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BDa-BB-ouW"/>
-        <segue reference="Gbb-D2-nhN"/>
+        <segue reference="CGf-LG-X13"/>
         <segue reference="gsD-By-eoK"/>
+        <segue reference="Gbb-D2-nhN"/>
     </inferredMetricsTieBreakers>
 </document>

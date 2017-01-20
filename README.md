@@ -22,4 +22,4 @@ It would be nice if a company can already schedule upcoming deals in their calen
 A similar application is the WeCity app. WeCity uses a specially designed algorithm to deliver tailored travel tips and recommendations. But it doesn't show (temporary) deals and as a business you can't add your company as an interesting activity!
 
 ## Design so far
-[![image1.jpg](https://s29.postimg.org/dwv8q90fb/image1.jpg)](https://postimg.org/image/d7cgdvzvn/)
+[![Screen Shot 2017-01-13 at 11.14.03.png](https://s28.postimg.org/tlqe7v5jx/Screen_Shot_2017_01_13_at_11_14_03.png)](https://postimg.org/image/v0rywl6mx/)

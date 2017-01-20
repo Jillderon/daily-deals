@@ -24,17 +24,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     // MARK: Outlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addDealButton: UIButton!
-
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        showButtons()
-        readDatabase()
-        print(self.receivedCategory)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    @IBAction func signOutDidTouch(_ sender: Any) {
+        signOut()
+        self.performSegue(withIdentifier: "toLoginAgain", sender: self)
     }
     
     func showButtons() {
@@ -66,42 +59,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             let address = snapshotDict["address"]
             let category = snapshotDict["category"]
             self.activities.append(Activity(nameDeal: nameDeal!, nameCompany: nameCompany!, address: address!, category: category!))
-            self.addPins()
+            self.addAllPins()
         })
     }
     
-//    func readDatabase() {
-//        if receivedCategory == "" {
-//            ref = FIRDatabase.database().reference()
-//            ref?.child("activities").queryOrderedByKey().observe(.value, with: { (snapshot) in
-//                guard let snapshotDict = snapshot.value as? [String: String] else {
-//                    return
-//                }
-//                
-//                let nameDeal = snapshotDict["nameDeal"]
-//                let nameCompany = snapshotDict["nameCompany"]
-//                let address = snapshotDict["address"]
-//                let category = snapshotDict["category"]
-//                self.activities.append(Activity(nameDeal: nameDeal!, nameCompany: nameCompany!, address: address!, category: category!))
-//                self.addPins()
-//            })
-//        } else {
-//            ref = FIRDatabase.database().reference()
-//            ref?.child("activities").queryOrdered(byChild: "type").queryEqual(toValue: receivedCategory).observe(.value, with: { (snapshot) in
-//                guard let snapshotDict = snapshot.value as? [String: String] else {
-//                    return
-//                }
-//                let nameDeal = snapshotDict["nameDeal"]
-//                let nameCompany = snapshotDict["nameCompany"]
-//                let address = snapshotDict["address"]
-//                let category = snapshotDict["category"]
-//                self.activities.append(Activity(nameDeal: nameDeal!, nameCompany: nameCompany!, address: address!, category: category!))
-//                self.addPins()
-//            })
-//        }
-//    }
-    
-    func addPins() {
+    func addAllPins() {
         for activity in activities {
             addPin(activity: activity)
         }
@@ -111,8 +73,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // Create address string
         let location = "Netherlands, Amsterdam," + activity.address
         var coordinate = CLLocationCoordinate2D()
-
-            
+        
+        
         // Geocode Address String
         let geoCoder = CLGeocoder()
         
@@ -122,9 +84,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             } else {
                 var locationPin: CLLocation?
                 if let placemarks = placemarks, placemarks.count > 0 {
-                        locationPin = placemarks.first?.location
+                    locationPin = placemarks.first?.location
                 }
-            
+                
                 if let locationPin = locationPin {
                     coordinate = locationPin.coordinate
                     self.placeAnnotation(activity: activity, coordinate: coordinate)
@@ -132,21 +94,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
         
-    }
-    
-    @IBAction func signOutDidTouch(_ sender: Any) {
-        signOut()
-        self.performSegue(withIdentifier: "toLoginAgain", sender: self)
-    }
-    
-    func signOut() {
-        let firebaseAuth = FIRAuth.auth()
-        do {
-            try firebaseAuth?.signOut()
-            dismiss(animated: true, completion: nil)
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
     }
     
     func placeAnnotation(activity: Activity, coordinate: CLLocationCoordinate2D) {
@@ -183,9 +130,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         print("Error \(error)")
     }
     
+    func signOut() {
+        let firebaseAuth = FIRAuth.auth()
+        do {
+            try firebaseAuth?.signOut()
+            dismiss(animated: true, completion: nil)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         determineMyCurrentLocation()
+        addAllPins()
         
         // Hide the navigation bar on the this view controller
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -193,9 +151,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+
         
         // Show the navigation bar on other view controllers
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        showButtons()
+        readDatabase()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
 
 }

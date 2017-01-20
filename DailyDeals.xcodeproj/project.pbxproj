@@ -20,6 +20,7 @@
 		21CBBCED1E28F8C50025B6A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBCE31E28F8C50025B6A3 /* User.swift */; };
 		21CBBCEF1E28F9800025B6A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21CBBCEE1E28F9800025B6A3 /* Main.storyboard */; };
 		21CBBCF11E28F9870025B6A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21CBBCF01E28F9870025B6A3 /* LaunchScreen.storyboard */; };
+		21DC77C51E3226E1000DB813 /* oldMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DC77C41E3226E1000DB813 /* oldMap.swift */; };
 		21E61A361E2F749A004224CE /* CostumAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E61A351E2F749A004224CE /* CostumAnnotation.swift */; };
 		21E658101E2E570100828EF9 /* PROCESS.md in Sources */ = {isa = PBXBuildFile; fileRef = 21E6580F1E2E570100828EF9 /* PROCESS.md */; };
 		21F1C6AA1E2CD6BC00C5C4CC /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F1C6A91E2CD6BC00C5C4CC /* Activity.swift */; };
@@ -43,6 +44,7 @@
 		21CBBCE31E28F8C50025B6A3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = DailyDeals/User.swift; sourceTree = "<group>"; };
 		21CBBCEE1E28F9800025B6A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = DailyDeals/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21CBBCF01E28F9870025B6A3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DailyDeals/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		21DC77C41E3226E1000DB813 /* oldMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oldMap.swift; sourceTree = "<group>"; };
 		21E61A351E2F749A004224CE /* CostumAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostumAnnotation.swift; sourceTree = "<group>"; };
 		21E6580F1E2E570100828EF9 /* PROCESS.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = PROCESS.md; sourceTree = "<group>"; };
 		21F1C6A91E2CD6BC00C5C4CC /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				21CBBCDF1E28F8C50025B6A3 /* LoginViewController.swift */,
 				21CBBCD91E28F8C50025B6A3 /* AddDealViewController.swift */,
 				21CBBCE01E28F8C50025B6A3 /* MapViewController.swift */,
+				21DC77C41E3226E1000DB813 /* oldMap.swift */,
 				21E61A351E2F749A004224CE /* CostumAnnotation.swift */,
 				21CBBCE11E28F8C50025B6A3 /* SearchDealViewController.swift */,
 				21CBBCE21E28F8C50025B6A3 /* SignUpViewController.swift */,
@@ -275,6 +278,7 @@
 				21CBBCE51E28F8C50025B6A3 /* AppDelegate.swift in Sources */,
 				21CBBCE41E28F8C50025B6A3 /* AddDealViewController.swift in Sources */,
 				21CBBCEA1E28F8C50025B6A3 /* MapViewController.swift in Sources */,
+				21DC77C51E3226E1000DB813 /* oldMap.swift in Sources */,
 				21E658101E2E570100828EF9 /* PROCESS.md in Sources */,
 				21CBBCEB1E28F8C50025B6A3 /* SearchDealViewController.swift in Sources */,
 				21F1C6AA1E2CD6BC00C5C4CC /* Activity.swift in Sources */,
