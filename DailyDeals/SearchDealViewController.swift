@@ -21,8 +21,9 @@ class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPick
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return activities[row]
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let str = activities[row]
+        return NSAttributedString(string: str, attributes: [NSForegroundColorAttributeName:UIColor.white])
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {

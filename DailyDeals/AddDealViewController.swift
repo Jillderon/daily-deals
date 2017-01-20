@@ -24,14 +24,14 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     let activities = ["Shopping", "Food", "Hotels", "Activities", "Festivals", "Party", "Other"]
     let reference = FIRDatabase.database().reference(withPath: "activities")
     var PlacementAnswer = 0
-   
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return activities[row]
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let str = activities[row]
+        return NSAttributedString(string: str, attributes: [NSForegroundColorAttributeName:UIColor.white])
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -52,6 +52,7 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         pickerView.dataSource = self
         let middleOfPicker = activities.count / 2
         pickerView.selectRow(middleOfPicker, inComponent: 0, animated: true)
+        datePicker.setValue(UIColor.white, forKey: "textColor")
     }
 
 
