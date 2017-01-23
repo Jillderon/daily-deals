@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var textFieldLoginEmail: UITextField!
     @IBOutlet weak var textFieldLoginPassword: UITextField!
+    @IBOutlet weak var ButtonLogin: UIButton!
     
     @IBAction func loginDidTouch(_ sender: Any) {
         FIRAuth.auth()!.signIn(withEmail: textFieldLoginEmail.text!,

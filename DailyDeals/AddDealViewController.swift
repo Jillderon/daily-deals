@@ -44,10 +44,10 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        informationPickerview()
+        informationPickers()
     }
     
-    func informationPickerview() {
+    func informationPickers() {
         pickerView.delegate = self
         pickerView.dataSource = self
         let middleOfPicker = activities.count / 2

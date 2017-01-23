@@ -53,6 +53,8 @@ http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-
 - I want to filter different deals trough categories. So I need to know how to filter data I get from Firebase (http://stackoverflow.com/questions/39647742/how-to-filter-firebase-data-in-swift). This goes wrong!! When you click on filter and the map opens again, the first time only two pins are displayed and the second time you filter and go to the map again, zero pins are displayed!! I don't seem to understand why this happens. 
 - Change color of the pickerView to white (http://stackoverflow.com/questions/40928383/how-to-change-the-font-color-inside-a-picker-view-swift) and also of the datePicker (http://stackoverflow.com/questions/28417217/set-text-color-and-font-for-uidatepicker-in-ios8-swift)
 
+## Monday day 11 - 23/01/2017 
+- I'm stuck on two functionality things. so I'm creating an app icon (https://makeappicon.com/) so I get the feeling that at least I got something accomplished today. 
 
 
 

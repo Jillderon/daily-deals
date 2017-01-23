@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		210E08791E28FE7800161828 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 210E08781E28FE7800161828 /* GoogleService-Info.plist */; };
+		2175693A1E3619C500FF0817 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217569391E3619C500FF0817 /* Functions.swift */; };
 		21C0476A1E27CAA600FD8964 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C047691E27CAA600FD8964 /* CoreLocation.framework */; };
 		21CBBCE41E28F8C50025B6A3 /* AddDealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBCD91E28F8C50025B6A3 /* AddDealViewController.swift */; };
 		21CBBCE51E28F8C50025B6A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBCDA1E28F8C50025B6A3 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		14954EA5E7DBF7D9262A5CFF /* Pods-DailyDeals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDeals.release.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDeals/Pods-DailyDeals.release.xcconfig"; sourceTree = "<group>"; };
 		210E08781E28FE7800161828 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		217569391E3619C500FF0817 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		21C047461E27B63F00FD8964 /* DailyDeals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyDeals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C047691E27CAA600FD8964 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		21CBBCD91E28F8C50025B6A3 /* AddDealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddDealViewController.swift; path = DailyDeals/AddDealViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				21CBBCE31E28F8C50025B6A3 /* User.swift */,
 				21F1C6A91E2CD6BC00C5C4CC /* Activity.swift */,
+				217569391E3619C500FF0817 /* Functions.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				21CBBCEB1E28F8C50025B6A3 /* SearchDealViewController.swift in Sources */,
 				21F1C6AA1E2CD6BC00C5C4CC /* Activity.swift in Sources */,
 				21CBBCED1E28F8C50025B6A3 /* User.swift in Sources */,
+				2175693A1E3619C500FF0817 /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

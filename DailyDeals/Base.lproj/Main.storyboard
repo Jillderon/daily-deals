@@ -45,7 +45,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPK-Ps-zkE">
                                 <rect key="frame" x="34" y="211" width="253" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.93020476011129527" green="0.44483524099182603" blue="0.24282582009025608" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.93020476009999997" green="0.44483524099999999" blue="0.24282582010000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -65,11 +65,20 @@
                                     <segue destination="laV-WP-FXC" kind="show" id="kG5-7o-a6p"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logomakr_3Ogh5S" translatesAutoresizingMaskIntoConstraints="NO" id="xqH-0j-s6e">
+                                <rect key="frame" x="0.0" y="365" width="320" height="203"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274509803926" green="0.6470588235294118" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="xqH-0j-s6e" firstAttribute="leading" secondItem="C84-fB-H50" secondAttribute="leading" id="C9E-K1-Mhv"/>
+                            <constraint firstAttribute="trailing" secondItem="xqH-0j-s6e" secondAttribute="trailing" id="Lz3-sn-m1x"/>
+                            <constraint firstItem="Nkg-MB-X0q" firstAttribute="top" secondItem="xqH-0j-s6e" secondAttribute="bottom" id="zEm-ak-ujl"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1at-tz-DFk"/>
                     <connections>
+                        <outlet property="ButtonLogin" destination="LPK-Ps-zkE" id="3Le-MT-0EL"/>
                         <outlet property="textFieldLoginEmail" destination="tjm-WR-bb7" id="nm4-dA-WpG"/>
                         <outlet property="textFieldLoginPassword" destination="CjY-oK-g12" id="Skh-7r-SQj"/>
                         <segue destination="etp-l4-0cR" kind="show" identifier="toMap" id="SI7-Eg-IyZ"/>
@@ -77,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="61n-UY-uIC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1215" y="251"/>
+            <point key="canvasLocation" x="1215" y="250.35211267605635"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="UOG-6c-gWn">
@@ -151,8 +160,16 @@
                                     <segue destination="Hmz-2K-UuH" kind="show" id="BDa-BB-ouW"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Logomakr_3Ogh5S" translatesAutoresizingMaskIntoConstraints="NO" id="IXJ-oi-vdk">
+                                <rect key="frame" x="0.0" y="376" width="320" height="193"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.95686274510000002" green="0.64705882349999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.94509803921568625" green="0.64313725490196083" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Nbf-AV-OoF" firstAttribute="top" secondItem="IXJ-oi-vdk" secondAttribute="bottom" id="32h-3b-3y5"/>
+                            <constraint firstItem="IXJ-oi-vdk" firstAttribute="leading" secondItem="YzA-oy-Klz" secondAttribute="leading" id="LxV-Hs-WZB"/>
+                            <constraint firstAttribute="trailing" secondItem="IXJ-oi-vdk" secondAttribute="trailing" id="ezd-qI-spw"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="ControllerType" destination="BOf-JI-qvU" id="WIF-nO-RsC"/>
@@ -164,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3iv-Fm-fWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1215" y="1210"/>
+            <point key="canvasLocation" x="1215" y="1209.5070422535211"/>
         </scene>
         <!--Search Deal View Controller-->
         <scene sceneID="zlt-Eb-kGu">
@@ -179,14 +196,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What to do? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFk-3h-AeE">
-                                <rect key="frame" x="18" y="72" width="284" height="88"/>
+                                <rect key="frame" x="18" y="62" width="284" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="51"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView tag="5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hpu-YY-29j">
-                                <rect key="frame" x="0.0" y="145" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="141" width="320" height="155"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="giV-HS-0hP" id="vjE-5y-y57"/>
@@ -194,7 +211,7 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDI-uw-ccZ">
-                                <rect key="frame" x="34" y="353" width="253" height="33"/>
+                                <rect key="frame" x="34" y="304" width="253" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93020476009999997" green="0.44483524099999999" blue="0.24282582010000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
@@ -206,8 +223,16 @@
                                     <action selector="loginDidTouch:" destination="Hmz-2K-UuH" eventType="touchUpInside" id="1cm-ue-pIt"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logomakr_3Ogh5S" translatesAutoresizingMaskIntoConstraints="NO" id="Yjt-wQ-uT8">
+                                <rect key="frame" x="0.0" y="365" width="320" height="203"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274510000002" green="0.64705882349999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Yjt-wQ-uT8" secondAttribute="trailing" id="38Z-WE-LKH"/>
+                            <constraint firstItem="z4M-v5-Ofu" firstAttribute="top" secondItem="Yjt-wQ-uT8" secondAttribute="bottom" id="Duj-5L-lZU"/>
+                            <constraint firstItem="Yjt-wQ-uT8" firstAttribute="leading" secondItem="4RT-L6-9xp" secondAttribute="leading" id="krK-TI-nKl"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="pickerView" destination="Hpu-YY-29j" id="gNi-5J-HpS"/>
@@ -216,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rBP-kw-hLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3887" y="250"/>
+            <point key="canvasLocation" x="3886.875" y="249.29577464788733"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="O8d-Hq-xKt">
@@ -409,9 +434,12 @@
             <point key="canvasLocation" x="2123" y="250"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logomakr_3Ogh5S" width="307" height="203"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aln-Ej-pyU"/>
-        <segue reference="CGf-LG-X13"/>
         <segue reference="Gbb-D2-nhN"/>
+        <segue reference="BDa-BB-ouW"/>
+        <segue reference="gsD-By-eoK"/>
     </inferredMetricsTieBreakers>
 </document>

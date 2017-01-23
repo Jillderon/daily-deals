@@ -36,6 +36,14 @@ class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPick
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        informationPickers()
+    }
+    
+    func informationPickers() {
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        let middleOfPicker = activities.count / 2
+        pickerView.selectRow(middleOfPicker, inComponent: 0, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
