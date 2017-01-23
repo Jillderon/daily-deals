@@ -55,6 +55,7 @@ http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-
 
 ## Monday day 11 - 23/01/2017 
 - I'm stuck on two functionality things. so I'm creating an app icon (https://makeappicon.com/) so I get the feeling that at least I got something accomplished today. 
+- Add pictures to my storyboard (the four little canal houses)
 
 
 
