@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
@@ -14,24 +15,25 @@ class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var pickerView: UIPickerView!
     
     // MARK: Variables. 
-    let activities = ["All Deals", "Shopping", "Food", "Hotels", "Activities", "Festivals", "Party", "Other"]
+    let activitiesCategories = ["All Deals", "Shopping", "Food", "Hotels", "Activities", "Festivals", "Party", "Other"]
     var category = String()
+    var activities = [Activity]()
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let str = activities[row]
+        let str = activitiesCategories[row]
         return NSAttributedString(string: str, attributes: [NSForegroundColorAttributeName:UIColor.white])
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return activities.count
+        return activitiesCategories.count
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.category = activities[row]
+        self.category = activitiesCategories[row]
     }
 
     override func viewDidLoad() {
@@ -42,7 +44,7 @@ class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPick
     func informationPickers() {
         pickerView.delegate = self
         pickerView.dataSource = self
-        let middleOfPicker = activities.count / 2
+        let middleOfPicker = activitiesCategories.count / 2
         pickerView.selectRow(middleOfPicker, inComponent: 0, animated: true)
     }
     
@@ -50,16 +52,39 @@ class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPick
         super.didReceiveMemoryWarning()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toMapAgain" {
-            let destination = segue.destination as? MapViewController
-            destination?.receivedCategory = self.category
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toMapAgain" {
+//            let destination = segue.destination as? MapViewController
+//            destination?.displayedActivities = self.activities
+//        }
+//    }
     
     @IBAction func didTouchSearch(_ sender: UIButton) {
-        performSegue(withIdentifier: "toMapAgain", sender: nil)
+        filterDeals()
+        
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "pinsFiltered"), object: activities)
+        self.navigationController?.popViewController(animated: true)
+        
+        
+//        performSegue(withIdentifier: "toMapAgain", sender: nil)
+    }
+    
+    func filterDeals() {
+        
+        var filteredActivities = [Activity]()
+
+        
+        for activity in activities {
+            if activity.category == category {
+                filteredActivities.append(activity)
+            }
+            
+        }
+        
+        self.activities = filteredActivities
+        
     }
 
+    
 
 }

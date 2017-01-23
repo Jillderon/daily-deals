@@ -17,8 +17,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 
     // MARK: Variables
     var locationManager: CLLocationManager!
-    var ref: FIRDatabaseReference?
+    var ref = FIRDatabase.database().reference()
     var activities = [Activity]()
+    var displayedActivities = [Activity]()
     var receivedCategory = String()
     
     // MARK: Outlets
@@ -32,8 +33,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     func showButtons() {
         // Retrieve data from Firebase.
-        ref = FIRDatabase.database().reference()
-        ref?.child("Users").observe(.value, with: { snapshot in
+        ref.child("Users").observe(.value, with: { snapshot in
             for item in snapshot.children {
                 let userData = User(snapshot: item as! FIRDataSnapshot)
                 if userData.uid == (FIRAuth.auth()?.currentUser?.uid)! {
@@ -48,8 +48,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func readDatabase() {
-        ref = FIRDatabase.database().reference()
-        ref?.child("activities").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
+        ref.child("activities").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
             guard let snapshotDict = snapshot.value as? [String: String] else {
                 return
             }
@@ -59,14 +58,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             let address = snapshotDict["address"]
             let category = snapshotDict["category"]
             self.activities.append(Activity(nameDeal: nameDeal!, nameCompany: nameCompany!, address: address!, category: category!))
+            self.displayedActivities.append(Activity(nameDeal: nameDeal!, nameCompany: nameCompany!, address: address!, category: category!))
             self.addAllPins()
         })
     }
     
     func addAllPins() {
-        for activity in activities {
+        for activity in displayedActivities {
             addPin(activity: activity)
         }
+        
+//        mapView.reloadInputViews()
     }
     
     func addPin(activity: Activity) {
@@ -143,7 +145,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         determineMyCurrentLocation()
-        readDatabase()
         
         // Hide the navigation bar on the this view controller
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -159,11 +160,29 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.reloadPins), name: Notification.Name(rawValue: "pinsFiltered"), object: nil)
+        
         showButtons()
+        readDatabase()
+    }
+    
+    func reloadPins(notification: NSNotification) {
+        mapView.removeAnnotations(mapView.annotations)
+
+        displayedActivities = notification.object as! [Activity]
+        addAllPins()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toFilterDeals" {
+            let destination = segue.destination as? SearchDealViewController
+            destination?.activities = self.activities
+        }
     }
 
 }

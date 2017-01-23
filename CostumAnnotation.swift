@@ -12,3 +12,7 @@
 //class CostumAnnotation: NSObject, MKAnnotation {
 //    //
 //}
+
+//// Configure your annotation view here
+//annotationView.canShowCallout = true
+//annotationView.image = UIImage(named: "yourImage")

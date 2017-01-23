@@ -73,8 +73,8 @@
 //        })
 //    }
 //    
-//    //    func readDatabase() {
-//    //        if receivedCategory == "" {
+//    //    func readDatabaseFiltered() {
+//    //        if receivedCategory == "All Deals" {
 //    //            ref.child("activities").queryOrderedByKey().observe(.value, with: { (snapshot) in
 //    //                guard let snapshotDict = snapshot.value as? [String: String] else {
 //    //                    return
