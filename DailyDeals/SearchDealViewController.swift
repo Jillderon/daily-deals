@@ -15,7 +15,7 @@ class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var pickerView: UIPickerView!
     
     // MARK: Variables. 
-    let activitiesCategories = ["All Deals", "Shopping", "Food", "Hotels", "Activities", "Festivals", "Party", "Other"]
+    let activitiesCategories = ["All Deals", "Shopping", "Food", "Hotels", "Activities", "Party", "Other"]
     var category = String()
     var activities = [Activity]()
     

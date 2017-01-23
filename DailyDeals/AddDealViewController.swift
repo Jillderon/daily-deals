@@ -21,7 +21,7 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
  
     
     // MARK: Variables
-    let activities = ["Shopping", "Food", "Hotels", "Activities", "Festivals", "Party", "Other"]
+    let activities = ["Shopping", "Food", "Hotels", "Activities", "Party", "Other"]
     let reference = FIRDatabase.database().reference(withPath: "activities")
     var PlacementAnswer = 0
     

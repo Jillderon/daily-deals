@@ -55,7 +55,8 @@ http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-
 ## Monday day 11 - 23/01/2017 
 - I'm creating an app icon (https://makeappicon.com/) so I get the feeling that at least I got something accomplished today. 
 - Add pictures to my storyboard (the four little canal houses)
-- costum image annotation -> https://www.mapbox.com/ios-sdk/examples/marker-image/ OR https://littlebitesofcocoa.com/70-custom-map-view-pins
+- costum image annotation -> https://www.mapbox.com/ios-sdk/examples/marker-image/ OR https://littlebitesofcocoa.com/70-custom-map-view-pins. I made my custom annotations with https://logomakr.com/
+- I got a problem: After filtering different deals by category, new pins don't get displayed on the map. I think 'remove all annotations' is the problem. Probably you can't reuse an already used and removed pin. How to fix this?
 
 ## Tuesday day 12 - 24/01/2017
 - Pickerview with dates in AddDealViewController, so you can remove annotations after some given time (added by the company as a date + time) 
