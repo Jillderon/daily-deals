@@ -19,8 +19,9 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var textFieldEmail: UITextField!
     @IBOutlet weak var textFieldPassword: UITextField!
     @IBOutlet weak var textFieldConfirm: UITextField!
-    @IBOutlet weak var ControllerType: UISegmentedControl!    
+    @IBOutlet weak var ControllerType: UISegmentedControl!
     
+    // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -29,6 +30,14 @@ class SignUpViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    func alert(title: String, message: String) {
+        let alertController = UIAlertController(title: title , message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: Actions
     @IBAction func signUpDidTouch(_ sender: Any) {
 
         // Check input for Sign Up.
@@ -71,13 +80,6 @@ class SignUpViewController: UIViewController {
             }
         }
         
-    }
-    
-    func alert(title: String, message: String) {
-        let alertController = UIAlertController(title: title , message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-        
-        self.present(alertController, animated: true, completion: nil)
     }
     
 }

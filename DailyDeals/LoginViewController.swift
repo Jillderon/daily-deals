@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var textFieldLoginPassword: UITextField!
     @IBOutlet weak var ButtonLogin: UIButton!
     
+    // MARK: Actions
     @IBAction func loginDidTouch(_ sender: Any) {
         FIRAuth.auth()!.signIn(withEmail: textFieldLoginEmail.text!,
                                password: textFieldLoginPassword.text!) {
@@ -32,6 +33,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    // MARK: Functions
     func alert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))

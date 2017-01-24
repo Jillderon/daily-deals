@@ -16,7 +16,10 @@ import FirebaseAuth
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     // MARK: Variables
-    let locationManager = CLLocationManager()
+    var locationManager = CLLocationManager()
+    var annotation: CustomAnnotation!
+    var pinAnnotationView: MKPinAnnotationView!
+    
     var ref = FIRDatabase.database().reference()
     var activities = [Activity]()
     var displayedActivities = [Activity]()
@@ -36,6 +39,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         checkLocationAuthorizationStatus()
     }
     
+    // MARK: Actions
+    @IBAction func signOutDidTouch(_ sender: Any) {
+        signOut()
+        self.performSegue(withIdentifier: "toLoginAgain", sender: self)
+    }
+    
+    // MARK: Functions
     func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedAlways {
             mapView.showsUserLocation = false
@@ -71,13 +81,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    // MARK: Actions
-    @IBAction func signOutDidTouch(_ sender: Any) {
-        signOut()
-        self.performSegue(withIdentifier: "toLoginAgain", sender: self)
-    }
-    
-    // MARK: Functions
     func showButtons() {
         // Retrieve data from Firebase.
         ref.child("Users").observe(.value, with: { snapshot in
@@ -115,7 +118,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             addPin(activity: activity)
         }
         
-        mapView.reloadInputViews()
+//        mapView.reloadInputViews()
     }
     
     func addPin(activity: Activity) {
@@ -147,16 +150,24 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func placeAnnotation(activity: Activity, coordinate: CLLocationCoordinate2D) {
         let annotation = CustomAnnotation()
-        annotation.imageName = UIImage(named: activity.category)
+        annotation.imageName = activity.category
         annotation.coordinate = coordinate
         annotation.title = activity.nameDeal
         annotation.subtitle = activity.nameCompany
-        
-        self.mapView.addAnnotation(annotation)
+        pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+        mapView.addAnnotation(pinAnnotationView.annotation!)
+
+//      // NOTE: Als je geen custom annotations wil gebruik je deze code!! 
+//        let annotation = MKPointAnnotation()
+//        annotation.coordinate = coordinate
+//        annotation.title = activity.nameDeal
+//        annotation.subtitle = activity.nameCompany
+//        self.mapView.addAnnotation(annotation)
     }
  
     func determineMyCurrentLocation() {
         self.mapView.delegate = self
+        locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.delegate = self
@@ -197,26 +208,22 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         addAllPins()
     }
     
-    // MARK: Custom Annotation
-    private func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        if !(annotation is CustomAnnotation) {
-            return nil
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let reuseIdentifier = "pin"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier:reuseIdentifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView?.canShowCallout = true
+        } else {
+            annotationView?.annotation = annotation
         }
         
-        let reuseId = "Location"
+        let customAnnotation = annotation as! CustomAnnotation
+        annotationView?.image = UIImage(named: customAnnotation.imageName)
         
-        var anView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
-        if anView == nil {
-            anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            anView!.canShowCallout = true
-        }
-        else {
-            anView!.annotation = annotation
-        }
-        let cpa = annotation as! CustomAnnotation
-        anView!.image = cpa.imageName
-        
-        return anView
+        return annotationView
     }
 
 }

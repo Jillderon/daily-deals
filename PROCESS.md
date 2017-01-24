@@ -59,16 +59,17 @@ http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-
 - After filtering different deals by category, new pins don't get displayed on the map. I think 'remove all annotations' is the problem. Probably you can't reuse an already used and removed pin. How to fix this? Fixed this with help from Julian (NotificationCenter and popping things of the view)!!
 
 ## Tuesday day 12 - 24/01/2017
-- Custom annotation for different categories on the MapView. http://stackoverflow.com/questions/38274115/ios-swift-mapkit-custom-annotation -> I did the excact same thing but it doens't work!! 
-- Filtering deals isn't working correctly! HELP!!!! Sometimes it does and than it doens't. Driving me crazy.
+- Filtering deals isn't working correctly! HELP!!!! Sometimes it does and than it doens't. Driving me crazy. After a while of testing filtering it shows: Unable to Forward Geocode Address (Error Domain=kCLErrorDomain Code=2 "(null)") (http://stackoverflow.com/questions/17867422/kclerrordomain-error-2-after-geocoding-repeatedly-with-clgeocoder) or it shows at the beginning: ERROR /BuildRoot/Library/Caches/com.apple.xbs/Sources/VectorKit_Sim/VectorKit-1230.32.8.29.9/GeoGL/GeoGL/GLCoreContext.cpp 1764: WARNING: Output of vertex shader 'v_gradient' not read by fragment shader (http://stackoverflow.com/questions/39608231/warning-output-of-vertex-shader-v-gradient-not-read-by-fragment-shader)
+
 
 
 ## Wednesday day 13 - 25/01/2017 
+TO DO: 
 - Pickerview with dates in AddDealViewController, so you can remove annotations after some given time (added by the company as a date + time). I find this really difficult! Only instructions on this I can find in stack overflow are written in javascript. 
+- Custom annotation for different categories on the MapView. http://stackoverflow.com/questions/38274115/ios-swift-mapkit-custom-annotation -> I did the excact same thing but it doens't work!! 
 
-TODO: 
-- Place annotation! -> costum annotation!!! -> http://stackoverflow.com/questions/38274115/ios-swift-mapkit-custom-annotation
-- Tijd als factor toevoegen aan firebase!!!!! 
+
+
 
 
 

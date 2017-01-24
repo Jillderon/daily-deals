@@ -47,19 +47,13 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         informationPickers()
     }
     
-    func informationPickers() {
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        let middleOfPicker = activities.count / 2
-        pickerView.selectRow(middleOfPicker, inComponent: 0, animated: true)
-        datePicker.setValue(UIColor.white, forKey: "textColor")
-    }
 
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: Actions
     @IBAction func AddDeal(_ sender: Any) {
         guard textfieldNameDeal.text != "" && textfieldNameCompany.text != "" && textfieldAddress.text != "" else {
             self.alert(title: "Error with adding deal", message: "Enter the title of the deal and the name and address of the company")
@@ -70,6 +64,14 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         let activityRef = self.reference.child(self.textfieldNameDeal.text!.lowercased())
         activityRef.setValue(activity.toAnyObject())
         self.performSegue(withIdentifier: "toMapAgain", sender: self)
+    }
+    
+    func informationPickers() {
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        let middleOfPicker = activities.count / 2
+        pickerView.selectRow(middleOfPicker, inComponent: 0, animated: true)
+        datePicker.setValue(UIColor.white, forKey: "textColor")
     }
     
     func alert(title: String, message: String) {
