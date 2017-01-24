@@ -13,10 +13,10 @@ import CoreLocation
 import FirebaseDatabase
 import FirebaseAuth
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     // MARK: Variables
-    var locationManager: CLLocationManager!
+    let locationManager = CLLocationManager()
     var ref = FIRDatabase.database().reference()
     var activities = [Activity]()
     var displayedActivities = [Activity]()
@@ -26,11 +26,58 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addDealButton: UIButton!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.reloadPins), name: Notification.Name(rawValue: "pinsFiltered"), object: nil)
+        
+        showButtons()
+        readDatabase()
+        checkLocationAuthorizationStatus()
+    }
+    
+    func checkLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedAlways {
+            mapView.showsUserLocation = false
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toFilterDeals" {
+            let destination = segue.destination as? SearchDealViewController
+            destination?.activities = self.activities
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        determineMyCurrentLocation()
+        
+        // Hide the navigation bar on the this view controller
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    // MARK: Actions
     @IBAction func signOutDidTouch(_ sender: Any) {
         signOut()
         self.performSegue(withIdentifier: "toLoginAgain", sender: self)
     }
     
+    // MARK: Functions
     func showButtons() {
         // Retrieve data from Firebase.
         ref.child("Users").observe(.value, with: { snapshot in
@@ -68,7 +115,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             addPin(activity: activity)
         }
         
-//        mapView.reloadInputViews()
+        mapView.reloadInputViews()
     }
     
     func addPin(activity: Activity) {
@@ -99,21 +146,22 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func placeAnnotation(activity: Activity, coordinate: CLLocationCoordinate2D) {
-        let annotation = MKPointAnnotation()
+        let annotation = CustomAnnotation()
+        annotation.imageName = UIImage(named: activity.category)
         annotation.coordinate = coordinate
         annotation.title = activity.nameDeal
         annotation.subtitle = activity.nameCompany
+        
         self.mapView.addAnnotation(annotation)
     }
  
     func determineMyCurrentLocation() {
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
+        self.mapView.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
+        locationManager.delegate = self
+        DispatchQueue.main.async {
+            self.locationManager.startUpdatingLocation()
         }
     }
 
@@ -142,31 +190,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        determineMyCurrentLocation()
-        
-        // Hide the navigation bar on the this view controller
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        
-        // Show the navigation bar on other view controllers
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.reloadPins), name: Notification.Name(rawValue: "pinsFiltered"), object: nil)
-        
-        showButtons()
-        readDatabase()
-    }
-    
     func reloadPins(notification: NSNotification) {
         mapView.removeAnnotations(mapView.annotations)
 
@@ -174,15 +197,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         addAllPins()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toFilterDeals" {
-            let destination = segue.destination as? SearchDealViewController
-            destination?.activities = self.activities
+    // MARK: Custom Annotation
+    private func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if !(annotation is CustomAnnotation) {
+            return nil
         }
+        
+        let reuseId = "Location"
+        
+        var anView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
+        if anView == nil {
+            anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            anView!.canShowCallout = true
+        }
+        else {
+            anView!.annotation = annotation
+        }
+        let cpa = annotation as! CustomAnnotation
+        anView!.image = cpa.imageName
+        
+        return anView
     }
 
 }

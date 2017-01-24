@@ -64,7 +64,6 @@ class SignUpViewController: UIViewController {
             userRef.setValue(user.toAnyObject())
             
             // Automatically login after signing up.
-            FIRAuth.auth()!.signIn(withEmail: self.textFieldEmail.text!, password: self.textFieldPassword.text!)
             FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
                 if user != nil {
                     self.performSegue(withIdentifier: "toMap", sender: nil)

@@ -52,33 +52,26 @@ class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPick
         super.didReceiveMemoryWarning()
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "toMapAgain" {
-//            let destination = segue.destination as? MapViewController
-//            destination?.displayedActivities = self.activities
-//        }
-//    }
-    
     @IBAction func didTouchSearch(_ sender: UIButton) {
         filterDeals()
         
         NotificationCenter.default.post(name: Notification.Name(rawValue: "pinsFiltered"), object: activities)
         self.navigationController?.popViewController(animated: true)
         
-        
-//        performSegue(withIdentifier: "toMapAgain", sender: nil)
     }
     
     func filterDeals() {
         
         var filteredActivities = [Activity]()
 
-        
-        for activity in activities {
-            if activity.category == category {
-                filteredActivities.append(activity)
+        if self.category == "All Deals" {
+            filteredActivities = self.activities
+        } else {
+            for activity in activities {
+                if activity.category == category {
+                    filteredActivities.append(activity)
+                }
             }
-            
         }
         
         self.activities = filteredActivities
