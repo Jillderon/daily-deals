@@ -431,6 +431,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="i5s-xo-Ukq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -446,8 +447,8 @@
         <image name="Logomakr_3Ogh5S" width="307" height="203"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CGf-LG-X13"/>
-        <segue reference="gsD-By-eoK"/>
+        <segue reference="Apn-vh-axF"/>
         <segue reference="SI7-Eg-IyZ"/>
+        <segue reference="CGf-LG-X13"/>
     </inferredMetricsTieBreakers>
 </document>

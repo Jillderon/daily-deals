@@ -18,6 +18,8 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var textfieldAddress: UITextField!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var datePicker: UIDatePicker!
+    var interval = Double()
+    var dateDeal = NSDate()
  
     
     // MARK: Variables
@@ -47,8 +49,6 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         informationPickers()
     }
     
-
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -59,8 +59,10 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             self.alert(title: "Error with adding deal", message: "Enter the title of the deal and the name and address of the company")
             return
         }
-        
-        let activity = Activity(nameDeal: textfieldNameDeal.text!, nameCompany: textfieldNameCompany.text!, address: textfieldAddress.text!, category: activities[PlacementAnswer])
+
+        dateDeal = datePicker.date as NSDate
+        interval = dateDeal.timeIntervalSince1970
+        let activity = Activity(nameDeal: textfieldNameDeal.text!, nameCompany: textfieldNameCompany.text!, address: textfieldAddress.text!, category: activities[PlacementAnswer], date: interval)
         let activityRef = self.reference.child(self.textfieldNameDeal.text!.lowercased())
         activityRef.setValue(activity.toAnyObject())
         self.performSegue(withIdentifier: "toMapAgain", sender: self)

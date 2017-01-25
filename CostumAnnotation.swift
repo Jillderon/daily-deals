@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class CustomAnnotation: MKPointAnnotation {
+class CustomPointAnnotation: MKPointAnnotation {
     var imageName: String!
 }
 

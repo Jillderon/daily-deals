@@ -17,9 +17,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     // MARK: Variables
     var locationManager = CLLocationManager()
-//    var annotation: CustomAnnotation!
-//    var pinAnnotationView: MKPinAnnotationView!
-    
+
     var ref = FIRDatabase.database().reference()
     var activities = [Activity]()
     var displayedActivities = [Activity]()
@@ -76,7 +74,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        
         // Show the navigation bar on other view controllers
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
@@ -99,7 +96,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func readDatabase() {
         ref.child("activities").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
-            guard let snapshotDict = snapshot.value as? [String: String] else {
+            guard let snapshotDict = snapshot.value as? [String: AnyObject] else {
                 return
             }
             
@@ -107,9 +104,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let nameCompany = snapshotDict["nameCompany"]
             let address = snapshotDict["address"]
             let category = snapshotDict["category"]
-            self.activities.append(Activity(nameDeal: nameDeal!, nameCompany: nameCompany!, address: address!, category: category!))
-            self.displayedActivities.append(Activity(nameDeal: nameDeal!, nameCompany: nameCompany!, address: address!, category: category!))
-            self.addAllPins()
+            let date = snapshotDict["date"]
+            let currentDate = Date().timeIntervalSince1970
+            
+            if date as! Double >= currentDate {
+                self.activities.append(Activity(nameDeal: nameDeal! as! String, nameCompany: nameCompany! as! String, address: address! as! String, category: category! as! String, date: date as! Double))
+                self.displayedActivities.append(Activity(nameDeal: nameDeal! as! String, nameCompany: nameCompany! as! String, address: address! as! String, category: category! as! String, date: date as! Double))
+                self.addAllPins()
+            } else {
+                // delete activity in Firebase
+                self.ref.child("activities").child(nameDeal as! String).removeValue { (error, ref) in
+                    if error != nil {
+                        print("error \(error)")
+                    }
+                }
+            }
         })
     }
     
@@ -117,8 +126,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         for activity in displayedActivities {
             addPin(activity: activity)
         }
-        
-//        mapView.reloadInputViews()
     }
     
     func addPin(activity: Activity) {
@@ -149,15 +156,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func placeAnnotation(activity: Activity, coordinate: CLLocationCoordinate2D) {
-//        let annotation = CustomAnnotation()
-//        annotation.imageName = activity.category
-//        annotation.coordinate = coordinate
-//        annotation.title = activity.nameDeal
-//        annotation.subtitle = activity.nameCompany
-//        pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-//        mapView.addAnnotation(pinAnnotationView.annotation!)
-
-//      // NOTE: Als je geen custom annotations wil gebruik je deze code!! 
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
         annotation.title = activity.nameDeal
@@ -233,24 +231,5 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         return annotationView
     }
-        
-//        let reuseIdentifier = "pin"
-//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier:reuseIdentifier)
-//        
-//        if annotationView == nil {
-//            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-//            annotationView?.canShowCallout = true
-//        } else {
-//            annotationView?.annotation = annotation
-//        }
-//        
-//        let customAnnotation = annotation as! CustomAnnotation
-//        annotationView?.image = UIImage(named: customAnnotation.imageName)
-//        annotationView?.bounds.size.height /= 5.0
-//        annotationView?.bounds.size.width /= 5.0
-//        
-//        return annotationView
-
-    
 
 }
