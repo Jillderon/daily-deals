@@ -64,15 +64,14 @@ http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-
 ## Wednesday day 13 - 25/01/2017 
 - Custom annotation on the MapView, but not for different categories different images per pin -> http://stackoverflow.com/questions/38274115/ios-swift-mapkit-custom-annotation -> I did the excact same thing but it doens't work!! 
 - set Navigation Bar to transparent and back button to white. Thanks to Femke van Son!
-- DATE references: 
-    * http://stackoverflow.com/questions/36476826/how-to-deal-with-nsdate-and-firebase
-    * http://stackoverflow.com/questions/29502186/get-just-the-date-no-time-from-uidatepicker
-    Working! Only thing that bothers me is that the date of deals only gets checked in viewDidLoad
-
+- The company who is adding a deal can now indicate till when a deal is valid. When the current date is past the valid date the deal will be deleted from Firebase. 
+    DATE references: 
+        * http://stackoverflow.com/questions/36476826/how-to-deal-with-nsdate-and-firebase
+        * http://stackoverflow.com/questions/29502186/get-just-the-date-no-time-from-uidatepicker
+        Working! Only thing that bothers me is that the date of deals only gets checked in viewDidLoad
 
 TO DO: 
-- Pickerview with dates in AddDealViewController, so you can remove annotations after some given time (added by the company as a date + time). I find this really difficult! Only instructions on this I can find in stack overflow are written in javascript. 
-- Make it possible to click on a event and to reserve a place. 
+- Make it possible to click on a event and to reserve a place!! 
 
 
 
