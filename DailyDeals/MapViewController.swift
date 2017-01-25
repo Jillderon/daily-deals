@@ -17,8 +17,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     // MARK: Variables
     var locationManager = CLLocationManager()
-    var annotation: CustomAnnotation!
-    var pinAnnotationView: MKPinAnnotationView!
+//    var annotation: CustomAnnotation!
+//    var pinAnnotationView: MKPinAnnotationView!
     
     var ref = FIRDatabase.database().reference()
     var activities = [Activity]()
@@ -149,20 +149,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func placeAnnotation(activity: Activity, coordinate: CLLocationCoordinate2D) {
-        let annotation = CustomAnnotation()
-        annotation.imageName = activity.category
-        annotation.coordinate = coordinate
-        annotation.title = activity.nameDeal
-        annotation.subtitle = activity.nameCompany
-        pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
-        mapView.addAnnotation(pinAnnotationView.annotation!)
-
-//      // NOTE: Als je geen custom annotations wil gebruik je deze code!! 
-//        let annotation = MKPointAnnotation()
+//        let annotation = CustomAnnotation()
+//        annotation.imageName = activity.category
 //        annotation.coordinate = coordinate
 //        annotation.title = activity.nameDeal
 //        annotation.subtitle = activity.nameCompany
-//        self.mapView.addAnnotation(annotation)
+//        pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+//        mapView.addAnnotation(pinAnnotationView.annotation!)
+
+//      // NOTE: Als je geen custom annotations wil gebruik je deze code!! 
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        annotation.title = activity.nameDeal
+        annotation.subtitle = activity.nameCompany
+        self.mapView.addAnnotation(annotation)
     }
  
     func determineMyCurrentLocation() {
@@ -210,20 +210,47 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let reuseIdentifier = "pin"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier:reuseIdentifier)
-        
-        if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-            annotationView?.canShowCallout = true
-        } else {
-            annotationView?.annotation = annotation
+        guard !(annotation is MKUserLocation) else {
+            return nil
         }
         
-        let customAnnotation = annotation as! CustomAnnotation
-        annotationView?.image = UIImage(named: customAnnotation.imageName)
+        let annotationIdentifier = "AnnotationIdentifier"
+        var annotationView: MKAnnotationView?
+        if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) {
+            annotationView = dequeuedAnnotationView
+            annotationView?.annotation = annotation
+        } else {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        
+        if let annotationView = annotationView {
+            annotationView.canShowCallout = true
+            annotationView.image = UIImage(named: "Other")
+            annotationView.bounds.size.height /= 5
+            annotationView.bounds.size.width /= 5
+        }
         
         return annotationView
     }
+        
+//        let reuseIdentifier = "pin"
+//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier:reuseIdentifier)
+//        
+//        if annotationView == nil {
+//            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+//            annotationView?.canShowCallout = true
+//        } else {
+//            annotationView?.annotation = annotation
+//        }
+//        
+//        let customAnnotation = annotation as! CustomAnnotation
+//        annotationView?.image = UIImage(named: customAnnotation.imageName)
+//        annotationView?.bounds.size.height /= 5.0
+//        annotationView?.bounds.size.width /= 5.0
+//        
+//        return annotationView
+
+    
 
 }
