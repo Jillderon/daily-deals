@@ -17,8 +17,8 @@ class InformationDealViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        readInformation()
+        print(nameDealReceiver)
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,16 +27,7 @@ class InformationDealViewController: UIViewController {
     }
     
     func readInformation() {
-        ref.child(nameDealReceiver).observe(.value, with: { (snapshot) in
-            guard let snapshotDict = snapshot.value as? [String: AnyObject] else {
-                return
-            }
-            
-            let nameDeal = snapshotDict["nameDeal"]
-            let nameCompany = snapshotDict["nameCompany"]
-            print(nameDeal!)
-            print(nameCompany!)
-        })
+        
     }
 
 }

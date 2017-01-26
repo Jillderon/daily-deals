@@ -59,7 +59,7 @@ class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPick
         filterDeals()
         
         NotificationCenter.default.post(name: Notification.Name(rawValue: "pinsFiltered"), object: activities)
-        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popViewController(animated: true)
         
     }
     

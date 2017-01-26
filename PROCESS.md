@@ -71,10 +71,20 @@ http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-
         Working! Only thing that bothers me is that the date of deals only gets checked in viewDidLoad
 
 ## Thursday day 14 - 26/01/2017
-- Make it possible to click on a event and to reserve a place!! 
+- Make it possible to click on an event and to reserve a place!! 
   http://stackoverflow.com/questions/40478120/mkannotationview-swift-adding-info-button
+  But there are some problems with this, because I want to add more information to the InformationDealViewController than there is in the annotation. How to get information from Firebase? You can do this by name of the deal, but what happens if there are two deals who have the samen name? Than Firebase will 
 
 ## Friday day 15 - 27/01/2017 
 
+
+
+
+TO DO: 
+- Make it possible to click on an deal and reserve this deal. 
+- add maximum capacity to a deal and hide deal when maximum capacity is reached 
+- forget password 
+- validate email 
+- opschonen van code 
 
 

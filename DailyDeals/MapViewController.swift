@@ -22,7 +22,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var activities = [Activity]()
     var displayedActivities = [Activity]()
     var receivedCategory = String()
-//    var annotationTitle = String()
+    var annotationTitle = String()
     
     // MARK: Outlets
     @IBOutlet weak var mapView: MKMapView!
@@ -233,12 +233,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
 
     
-//    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-//        
-//        if let annotation = view.annotation as? MKPointAnnotation {
-//            annotationTitle = annotation.title!
-//        }
-//    }
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        if let annotation = view.annotation as? MKPointAnnotation {
+            annotationTitle = annotation.title!
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toFilterDeals" {
@@ -246,11 +246,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             destination?.activities = self.activities
         }
         
-//        if segue.identifier == "toDealInformation" {
-//            let destination = segue.destination as? InformationDealViewController
-//            // Define variables you want to sent to next ViewController
-//            destination?.nameDealReceiver = self.annotationTitle
-//        }
+        if segue.identifier == "toDealInformation" {
+            let destination = segue.destination as? InformationDealViewController
+            // Define variables you want to sent to next ViewController
+            destination?.nameDealReceiver = self.annotationTitle
+        }
     }
 
 }

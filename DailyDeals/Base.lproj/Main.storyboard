@@ -435,12 +435,31 @@
                     <view key="view" contentMode="scaleToFill" id="Rme-ZV-g99">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Logomakr_1WHzSQ" translatesAutoresizingMaskIntoConstraints="NO" id="Fm6-ce-cgV">
+                                <rect key="frame" x="62" y="195" width="196" height="179"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6O-KJ-Tkr">
+                                <rect key="frame" x="30" y="515" width="260" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93020476009999997" green="0.44483524099999999" blue="0.24282582010000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Save money, reserve this deal!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="AddDeal:" destination="Gjo-QP-3C3" eventType="touchUpInside" id="yyC-nf-tQX"/>
+                                    <action selector="signUpDidTouch:" destination="laV-WP-FXC" eventType="touchUpInside" id="wvH-E2-rWI"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.94509803920000002" green="0.64313725489999995" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lDh-UV-djg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3887" y="1210"/>
+            <point key="canvasLocation" x="3886.875" y="1209.5070422535211"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="czT-dD-a8A">
@@ -463,6 +482,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Logomakr_1WHzSQ" width="198" height="202"/>
         <image name="Logomakr_3Ogh5S" width="307" height="203"/>
     </resources>
     <inferredMetricsTieBreakers>
