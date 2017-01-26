@@ -70,8 +70,11 @@ http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-
         * http://stackoverflow.com/questions/29502186/get-just-the-date-no-time-from-uidatepicker
         Working! Only thing that bothers me is that the date of deals only gets checked in viewDidLoad
 
-TO DO: 
+## Thursday day 14 - 26/01/2017
 - Make it possible to click on a event and to reserve a place!! 
+  http://stackoverflow.com/questions/40478120/mkannotationview-swift-adding-info-button
+
+## Friday day 15 - 27/01/2017 
 
 
 

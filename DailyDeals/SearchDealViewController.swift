@@ -68,8 +68,6 @@ class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPick
         var filteredActivities = [Activity]()
 
         if self.category == "All Deals" {
-            print("ALL DEALS")
-            print(self.activities)
             filteredActivities = self.activities
         } else {
             for activity in activities {

@@ -22,6 +22,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var activities = [Activity]()
     var displayedActivities = [Activity]()
     var receivedCategory = String()
+//    var annotationTitle = String()
     
     // MARK: Outlets
     @IBOutlet weak var mapView: MKMapView!
@@ -54,13 +55,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toFilterDeals" {
-            let destination = segue.destination as? SearchDealViewController
-            destination?.activities = self.activities
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -230,6 +224,33 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         
         return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            performSegue(withIdentifier: "toDealInformation", sender: nil)
+        }
+    }
+
+    
+//    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+//        
+//        if let annotation = view.annotation as? MKPointAnnotation {
+//            annotationTitle = annotation.title!
+//        }
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toFilterDeals" {
+            let destination = segue.destination as? SearchDealViewController
+            destination?.activities = self.activities
+        }
+        
+//        if segue.identifier == "toDealInformation" {
+//            let destination = segue.destination as? InformationDealViewController
+//            // Define variables you want to sent to next ViewController
+//            destination?.nameDealReceiver = self.annotationTitle
+//        }
     }
 
 }
