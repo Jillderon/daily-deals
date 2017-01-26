@@ -424,10 +424,10 @@
             </objects>
             <point key="canvasLocation" x="3020.625" y="1209.5070422535211"/>
         </scene>
-        <!--View Controller-->
+        <!--Information Deal View Controller-->
         <scene sceneID="lSI-zB-M0c">
             <objects>
-                <viewController id="ClC-ot-KUH" sceneMemberID="viewController">
+                <viewController id="ClC-ot-KUH" customClass="InformationDealViewController" customModule="DailyDeals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lyl-JM-nHp"/>
                         <viewControllerLayoutGuide type="bottom" id="TUB-i0-WSN"/>
