@@ -9,11 +9,13 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class SignUpViewController: UIViewController {
 
     // MARK: Variables.
     let ref = FIRDatabase.database().reference(withPath: "Users")
+    let user = FIRAuth.auth()?.currentUser
     
     // MARK: Outlets.
     @IBOutlet weak var textFieldEmail: UITextField!
@@ -78,7 +80,6 @@ class SignUpViewController: UIViewController {
             let userRef = self.ref.child((user.uid))
             userRef.setValue(user.toAnyObject())
             
-            // Automatically login after signing up.
             FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
                 if user != nil {
                     self.performSegue(withIdentifier: "toMap", sender: nil)

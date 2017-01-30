@@ -28,29 +28,28 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addDealButton: UIButton!
     
-    // MARK: Actions
+    // MARK: Actions.
     @IBAction func signOutDidTouch(_ sender: Any) {
-        signOut()
+        let firebaseAuth = FIRAuth.auth()
+        do {
+            try firebaseAuth?.signOut()
+            dismiss(animated: true, completion: nil)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
         self.performSegue(withIdentifier: "toLoginAgain", sender: self)
     }
     
-    // MARK: Functions
+    // MARK: Standard functions.
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.reloadPins), name: Notification.Name(rawValue: "pinsFiltered"), object: nil)
         
-        showButtons()
+        typeOfUserVerification()
         readDatabase()
         checkLocationAuthorizationStatus()
-    }
-    
-    func checkLocationAuthorizationStatus() {
-        if CLLocationManager.authorizationStatus() == .authorizedAlways {
-            mapView.showsUserLocation = false
-        } else {
-            locationManager.requestWhenInUseAuthorization()
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,19 +60,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.viewWillAppear(animated)
         determineMyCurrentLocation()
         
-        // Hide the navigation bar on the this view controller
+        // Hide the navigation bar on the this view controller.
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        // Show the navigation bar on other view controllers
+        // Show the navigation bar on other view controllers.
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    func showButtons() {
-        // Retrieve data from Firebase.
+    // MARK:
+    func typeOfUserVerification() {
+        // Check type of user account.
         ref.child("Users").observe(.value, with: { snapshot in
             for item in snapshot.children {
                 let userData = User(snapshot: item as! FIRDataSnapshot)
@@ -88,6 +88,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         })
     }
     
+    // MARK: Load deals data from firebase and place on map. 
     func readDatabase() {
         ref.child("activities").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
             guard let snapshotDict = snapshot.value as? [String: AnyObject] else {
@@ -156,27 +157,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         annotation.subtitle = activity.nameCompany
         self.mapView.addAnnotation(annotation)
     }
- 
-    func determineMyCurrentLocation() {
-        self.mapView.delegate = self
-        locationManager = CLLocationManager()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        locationManager.delegate = self
-        DispatchQueue.main.async {
-            self.locationManager.startUpdatingLocation()
-        }
-    }
-
-    func signOut() {
-        let firebaseAuth = FIRAuth.auth()
-        do {
-            try firebaseAuth?.signOut()
-            dismiss(animated: true, completion: nil)
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-    }
     
     func reloadPins(notification: NSNotification) {
         mapView.removeAnnotations(mapView.annotations)
@@ -199,6 +179,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error \(error)")
+    }
+    
+    func checkLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedAlways {
+            mapView.showsUserLocation = false
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    func determineMyCurrentLocation() {
+        self.mapView.delegate = self
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.delegate = self
+        DispatchQueue.main.async {
+            self.locationManager.startUpdatingLocation()
+        }
     }
     
     // MARK: MapView
@@ -234,26 +233,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
         if let annotation = view.annotation as? MKPointAnnotation {
             annotationTitle = annotation.title!
             annotationSubtitle = annotation.subtitle!
         }
     }
     
-    // MARK: Segues
+    // MARK: Segues.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toFilterDeals" {
             let destination = segue.destination as? SearchDealViewController
             
-            // Define variabeles you want to sent to next ViewController
+            // Define variabeles you want to sent to next ViewController.
             destination?.activities = self.activities
         }
         
         if segue.identifier == "toDealInformation" {
             let destination = segue.destination as? InformationDealViewController
             
-            // Define variables you want to sent to next ViewController
+            // Define variables you want to sent to next ViewController.
             destination?.nameDealReceiver = self.annotationTitle
             destination?.nameCompanyReceiver = self.annotationSubtitle
         }

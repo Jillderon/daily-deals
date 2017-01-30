@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
                                password: textFieldLoginPassword.text!) {
             (user, error) in
             if error != nil {
-                    self.alert(title: "Error with loggig in", message: "Enter a valid email and password.")
+                self.alert(title: "Error with loggig in", message: "Enter a valid email and password.")
             }
             self.defaults.set(self.textFieldLoginEmail.text, forKey: "email")
             self.performSegue(withIdentifier: "toMap", sender: self)
@@ -40,24 +40,24 @@ class LoginViewController: UIViewController {
             alert(title: "Invalid entry", message: "Fill in your email to reset your password")
         }
     }
-    
+        
     // MARK: Functions
+    func alert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+        self.present(alertController, animated: true, completion: nil)
+    }
+        
     func resetPassword(email: String) {
         FIRAuth.auth()!.sendPasswordReset(withEmail: email, completion: {(error) in
             if error == nil {
-                self.alert(title: "Yay", message: "You received an email to reset your password")
+                self.alert(title: "Resetting password", message: "You received an email to reset your password")
             } else {
                 self.alert(title: "Oops", message: (error?.localizedDescription)!)
             }
             
         })
-    }
-    
-    func alert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-        
-        self.present(alertController, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -74,32 +74,7 @@ class LoginViewController: UIViewController {
         }
         textFieldLoginPassword.text = ""
     }
-    
-    // MARK: State restoration.
-    // Cited from: https://www.raywenderlich.com/117471/state-restoration-tutorial
-    override func encodeRestorableState(with coder: NSCoder) {
-        
-        // Only saving email and not password, because of security reasons.
-        if let email = textFieldLoginEmail.text {
-            coder.encode(email, forKey: "email")
-        }
-        
-        super.encodeRestorableState(with: coder)
-    }
-    
-    override func decodeRestorableState(with coder: NSCoder) {
-        textFieldLoginEmail.text = coder.decodeObject(forKey: "email") as! String?
-        super.decodeRestorableState(with: coder)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        textFieldLoginEmail.text = self.defaults.string(forKey: "email")
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
- 
+
 }
 
 extension LoginViewController: UITextFieldDelegate {

@@ -76,7 +76,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="ResettingPassword:" destination="Hmz-2K-UuH" eventType="touchUpInside" id="odE-z2-rGd"/>
+                                    <action selector="resettingPasswordDidTouch:" destination="Hmz-2K-UuH" eventType="touchUpInside" id="hZ3-zH-ji0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -190,12 +190,12 @@
                         <outlet property="textFieldConfirm" destination="6sj-vH-FWt" id="dBj-AE-6kn"/>
                         <outlet property="textFieldEmail" destination="aeO-UX-7S4" id="RkE-Bp-sxr"/>
                         <outlet property="textFieldPassword" destination="M4a-Mw-7aS" id="Ybc-pY-aj9"/>
-                        <segue destination="etp-l4-0cR" kind="show" identifier="toMap" id="Gbb-D2-nhN"/>
+                        <segue destination="etp-l4-0cR" kind="show" identifier="toMap" id="fUF-1K-Z5b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3iv-Fm-fWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1215" y="1209.5070422535211"/>
+            <point key="canvasLocation" x="1215" y="1307"/>
         </scene>
         <!--Search Deal View Controller-->
         <scene sceneID="zlt-Eb-kGu">
@@ -516,7 +516,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Apn-vh-axF"/>
-        <segue reference="SI7-Eg-IyZ"/>
-        <segue reference="CGf-LG-X13"/>
+        <segue reference="fUF-1K-Z5b"/>
+        <segue reference="BDa-BB-ouW"/>
     </inferredMetricsTieBreakers>
 </document>

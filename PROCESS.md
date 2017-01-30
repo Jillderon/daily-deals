@@ -82,9 +82,6 @@ http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-
 
 ## Monday day 16 - 30/01/2017 
 - Cleaning up my code trhough the advice of better code hub
-- Adding in the function to reset your password (http://stackoverflow.com/questions/35808352/firebase-reset-password-swift)
-
-TO DO: 
-- validate email 
+- Adding in the function to reset your password (http://stackoverflow.com/questions/35808352/firebase-reset-password-swift). Validation email didn't work out
 
 
