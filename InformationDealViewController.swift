@@ -13,12 +13,17 @@ class InformationDealViewController: UIViewController {
     
     // MARK: Variables.
     var nameDealReceiver = String()
+    var nameCompanyReceiver = String()
     let ref = FIRDatabase.database().reference(withPath: "activities")
-
+    
+    // MARK: Outlets
+    @IBOutlet weak var nameDeal: UILabel!
+    @IBOutlet weak var nameCompany: UILabel!
+    
+    // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        readInformation()
-        print(nameDealReceiver)
+        displayInformation()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,8 +31,8 @@ class InformationDealViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func readInformation() {
-        
+    func displayInformation() {
+        nameDeal.text = nameDealReceiver
+        nameCompany.text = nameCompanyReceiver
     }
-
 }

@@ -15,19 +15,26 @@ import FirebaseAuth
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
-    // MARK: Variables
+    // MARK: Variables.
     var locationManager = CLLocationManager()
-
     var ref = FIRDatabase.database().reference()
     var activities = [Activity]()
     var displayedActivities = [Activity]()
     var receivedCategory = String()
     var annotationTitle = String()
+    var annotationSubtitle = String()
     
-    // MARK: Outlets
+    // MARK: Outlets.
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addDealButton: UIButton!
     
+    // MARK: Actions
+    @IBAction func signOutDidTouch(_ sender: Any) {
+        signOut()
+        self.performSegue(withIdentifier: "toLoginAgain", sender: self)
+    }
+    
+    // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,13 +45,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         checkLocationAuthorizationStatus()
     }
     
-    // MARK: Actions
-    @IBAction func signOutDidTouch(_ sender: Any) {
-        signOut()
-        self.performSegue(withIdentifier: "toLoginAgain", sender: self)
-    }
-    
-    // MARK: Functions
     func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedAlways {
             mapView.showsUserLocation = false
@@ -168,21 +168,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
 
-    func locationManager(_  manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations[0]
-        
-        let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
-        let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-        let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
-        mapView.setRegion(region, animated: true)
-        manager.stopUpdatingLocation()
-        self.mapView.showsUserLocation = true
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Error \(error)")
-    }
-    
     func signOut() {
         let firebaseAuth = FIRAuth.auth()
         do {
@@ -200,7 +185,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         addAllPins()
     }
     
+    // MARK: Location Manager
+    func locationManager(_  manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[0]
+        
+        let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+        let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
+        mapView.setRegion(region, animated: true)
+        manager.stopUpdatingLocation()
+        self.mapView.showsUserLocation = true
+    }
     
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error \(error)")
+    }
+    
+    // MARK: MapView
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else {
             return nil
@@ -231,25 +232,30 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             performSegue(withIdentifier: "toDealInformation", sender: nil)
         }
     }
-
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
         if let annotation = view.annotation as? MKPointAnnotation {
             annotationTitle = annotation.title!
+            annotationSubtitle = annotation.subtitle!
         }
     }
     
+    // MARK: Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toFilterDeals" {
             let destination = segue.destination as? SearchDealViewController
+            
+            // Define variabeles you want to sent to next ViewController
             destination?.activities = self.activities
         }
         
         if segue.identifier == "toDealInformation" {
             let destination = segue.destination as? InformationDealViewController
+            
             // Define variables you want to sent to next ViewController
             destination?.nameDealReceiver = self.annotationTitle
+            destination?.nameCompanyReceiver = self.annotationSubtitle
         }
     }
 

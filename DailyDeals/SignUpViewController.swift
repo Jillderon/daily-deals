@@ -21,9 +21,16 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var textFieldConfirm: UITextField!
     @IBOutlet weak var ControllerType: UISegmentedControl!
     
+    // MARK: Actions
+    @IBAction func signUpDidTouch(_ sender: Any) {
+        errorChecking()
+        addUserFirebase()
+    }
+    
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,10 +44,7 @@ class SignUpViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    // MARK: Actions
-    @IBAction func signUpDidTouch(_ sender: Any) {
-
-        // Check input for Sign Up.
+    func errorChecking() {
         guard textFieldEmail.text! != "" && textFieldPassword.text! != "" && textFieldConfirm.text! != "" else {
             self.alert(title: "Error to register", message: "Enter a valid email, password and confirm password. \n Your password should be at least 6 characters long")
             return
@@ -55,7 +59,9 @@ class SignUpViewController: UIViewController {
             self.alert(title: "Error to register", message: "The passwords do not match")
             return
         }
-        
+    }
+    
+    func addUserFirebase() {
         // Save user in Firebase.
         FIRAuth.auth()!.createUser(withEmail: self.textFieldEmail.text!, password: textFieldPassword.text!) { (user, error) in
             if error != nil {
@@ -79,7 +85,5 @@ class SignUpViewController: UIViewController {
                 }
             }
         }
-        
     }
-    
 }

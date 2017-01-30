@@ -18,15 +18,15 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var textfieldAddress: UITextField!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var datePicker: UIDatePicker!
-    var interval = Double()
-    var dateDeal = NSDate()
- 
-    
+
     // MARK: Variables
     let activities = ["Shopping", "Food", "Hotels", "Activities", "Party", "Other"]
     let reference = FIRDatabase.database().reference(withPath: "activities")
     var PlacementAnswer = 0
+    var interval = Double()
+    var dateDeal = NSDate()
     
+    // MARK: PickerView
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -44,28 +44,15 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         PlacementAnswer = row
     }
     
+    // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         informationPickers()
+        hideKeyboardWhenTappedAround()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    // MARK: Actions
-    @IBAction func AddDeal(_ sender: Any) {
-        guard textfieldNameDeal.text != "" && textfieldNameCompany.text != "" && textfieldAddress.text != "" else {
-            self.alert(title: "Error with adding deal", message: "Enter the title of the deal and the name and address of the company")
-            return
-        }
-
-        dateDeal = datePicker.date as NSDate
-        interval = dateDeal.timeIntervalSince1970
-        let activity = Activity(nameDeal: textfieldNameDeal.text!, nameCompany: textfieldNameCompany.text!, address: textfieldAddress.text!, category: activities[PlacementAnswer], date: interval)
-        let activityRef = self.reference.child(self.textfieldNameDeal.text!.lowercased())
-        activityRef.setValue(activity.toAnyObject())
-        self.performSegue(withIdentifier: "toMapAgain", sender: self)
     }
     
     func informationPickers() {
@@ -82,5 +69,19 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    // MARK: Actions
+    @IBAction func AddDeal(_ sender: Any) {
+        guard textfieldNameDeal.text != "" && textfieldNameCompany.text != "" && textfieldAddress.text != "" else {
+            self.alert(title: "Error with adding deal", message: "Enter the title of the deal and the name and address of the company")
+            return
+        }
 
+        dateDeal = datePicker.date as NSDate
+        interval = dateDeal.timeIntervalSince1970
+        let activity = Activity(nameDeal: textfieldNameDeal.text!, nameCompany: textfieldNameCompany.text!, address: textfieldAddress.text!, category: activities[PlacementAnswer], date: interval)
+        let activityRef = self.reference.child(self.textfieldNameDeal.text!.lowercased())
+        activityRef.setValue(activity.toAnyObject())
+        self.performSegue(withIdentifier: "toMapAgain", sender: self)
+    }
 }

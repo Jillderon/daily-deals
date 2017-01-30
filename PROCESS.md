@@ -76,13 +76,12 @@ http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-
   But there are some problems with this, because I want to add more information to the InformationDealViewController than there is in the annotation. How to get information from Firebase? You can do this by name of the deal, but what happens if there are two deals who have the samen name? Than Firebase will 
 
 ## Friday day 15 - 27/01/2017 
+- Presentations
+- I did the codebetter analysis 
+- I think it, timewise, it is not realistic to add a maximum capacity to the deal and hide the deal when maximum capactiy is reached. This makes my InformationDealViewController right now a little bit unneccessary, but it is still nice to have so I don't need to make it when I'm expanding the app with extra features
 
-
-
-
+## Monday day 16 - 30/01/2017 
 TO DO: 
-- Make it possible to click on an deal and reserve this deal. 
-- add maximum capacity to a deal and hide deal when maximum capacity is reached 
 - forget password 
 - validate email 
 - opschonen van code 

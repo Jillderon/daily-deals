@@ -43,7 +43,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        segueToMap()
+        hideKeyboardWhenTappedAround()
+    }
+    
+    func segueToMap() {
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user != nil {
                 self.performSegue(withIdentifier: "toMap", sender: nil)
@@ -52,9 +56,11 @@ class LoginViewController: UIViewController {
         textFieldLoginPassword.text = ""
     }
     
-    // State restoration. Only saving email and not password, because of security reasons.
+    // MARK: State restoration.
     // Cited from: https://www.raywenderlich.com/117471/state-restoration-tutorial
     override func encodeRestorableState(with coder: NSCoder) {
+        
+        // Only saving email and not password, because of security reasons.
         if let email = textFieldLoginEmail.text {
             coder.encode(email, forKey: "email")
         }
@@ -69,7 +75,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         textFieldLoginEmail.text = self.defaults.string(forKey: "email")
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -91,3 +96,15 @@ extension LoginViewController: UITextFieldDelegate {
     }
     
 }
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
