@@ -23,13 +23,13 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var textFieldConfirm: UITextField!
     @IBOutlet weak var ControllerType: UISegmentedControl!
     
-    // MARK: Actions
+    // MARK: Actions.
     @IBAction func signUpDidTouch(_ sender: Any) {
         errorChecking()
         addUserFirebase()
     }
     
-    // MARK: Functions
+    // MARK: Standard functions.
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
@@ -39,6 +39,7 @@ class SignUpViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: Functions needed for checking in (adding user and error checking).
     func alert(title: String, message: String) {
         let alertController = UIAlertController(title: title , message: message, preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))

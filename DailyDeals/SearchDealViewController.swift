@@ -15,42 +15,26 @@ class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var pickerView: UIPickerView!
     
     // MARK: Variables. 
-    let activitiesCategories = ["All Deals", "Shopping", "Food", "Hotels", "Activities", "Party", "Other"]
+    let dealsCategories = ["All Deals", "Shopping", "Food", "Hotels", "Activities", "Party", "Other"]
     var category = String()
-    var activities = [Activity]()
-
-    // MARK: Functions.
+    var deals = [Deal]()
+    
+    // MARK: Actions
+    @IBAction func didTouchSearch(_ sender: UIButton) {
+        filterDeals()
+        
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "pinsFiltered"), object: deals)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: Standard functions.
     override func viewDidLoad() {
         super.viewDidLoad()
         informationPickers()
     }
     
-    func informationPickers() {
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        let middleOfPicker = activitiesCategories.count / 2
-        pickerView.selectRow(middleOfPicker, inComponent: 0, animated: true)
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    func filterDeals() {
-        
-        var filteredActivities = [Activity]()
-        
-        if self.category == "All Deals" {
-            filteredActivities = self.activities
-        } else {
-            for activity in activities {
-                if activity.category == category {
-                    filteredActivities.append(activity)
-                }
-            }
-        }
-        
-        self.activities = filteredActivities
     }
     
     // MARK: PickerView Functions.
@@ -59,23 +43,42 @@ class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let str = activitiesCategories[row]
+        let str = dealsCategories[row]
         return NSAttributedString(string: str, attributes: [NSForegroundColorAttributeName:UIColor.white])
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return activitiesCategories.count
+        return dealsCategories.count
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.category = activitiesCategories[row]
+        self.category = dealsCategories[row]
     }
     
-    // MARK: Actions
-    @IBAction func didTouchSearch(_ sender: UIButton) {
-        filterDeals()
+    func informationPickers() {
+        pickerView.delegate = self
+        pickerView.dataSource = self
         
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "pinsFiltered"), object: activities)
-        self.navigationController?.popViewController(animated: true)
+        // Let the picker start on the middlest category 
+        let middleOfPicker = dealsCategories.count / 2
+        pickerView.selectRow(middleOfPicker, inComponent: 0, animated: true)
+    }
+    
+    func filterDeals() {
+        
+        // Temporary variable to store filtered deals in.
+        var filteredDeals = [Deal]()
+        
+        if self.category == "All Deals" {
+            filteredDeals = self.deals
+        } else {
+            for deal in deals {
+                if deal.category == category {
+                    filteredDeals.append(deal)
+                }
+            }
+        }
+        
+        self.deals = filteredDeals
     }
 }

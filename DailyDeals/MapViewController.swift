@@ -10,16 +10,17 @@
 import UIKit
 import MapKit
 import CoreLocation
-import FirebaseDatabase
+import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     // MARK: Variables.
     var locationManager = CLLocationManager()
     var ref = FIRDatabase.database().reference()
-    var activities = [Activity]()
-    var displayedActivities = [Activity]()
+    var deals = [Deal]()
+    var displayedDeals = [Deal]()
     var receivedCategory = String()
     var annotationTitle = String()
     var annotationSubtitle = String()
@@ -71,7 +72,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    // MARK:
+    // MARK: 
     func typeOfUserVerification() {
         // Check type of user account.
         ref.child("Users").observe(.value, with: { snapshot in
@@ -88,9 +89,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         })
     }
     
-    // MARK: Load deals data from firebase and place on map. 
+    // MARK: Load deals data from firebase and place on map.
     func readDatabase() {
-        ref.child("activities").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
+        ref.child("deals").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
             guard let snapshotDict = snapshot.value as? [String: AnyObject] else {
                 return
             }
@@ -103,12 +104,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let currentDate = Date().timeIntervalSince1970
             
             if date as! Double >= currentDate {
-                self.activities.append(Activity(nameDeal: nameDeal! as! String, nameCompany: nameCompany! as! String, address: address! as! String, category: category! as! String, date: date as! Double))
-                self.displayedActivities.append(Activity(nameDeal: nameDeal! as! String, nameCompany: nameCompany! as! String, address: address! as! String, category: category! as! String, date: date as! Double))
+                self.deals.append(Deal(nameDeal: nameDeal! as! String, nameCompany: nameCompany! as! String, address: address! as! String, category: category! as! String, date: date as! Double))
+                self.displayedDeals.append(Deal(nameDeal: nameDeal! as! String, nameCompany: nameCompany! as! String, address: address! as! String, category: category! as! String, date: date as! Double))
                 self.addAllPins()
             } else {
-                // delete activity in Firebase
-                self.ref.child("activities").child(nameDeal as! String).removeValue { (error, ref) in
+                // delete deal in Firebase
+                self.ref.child("deals").child(nameDeal as! String).removeValue { (error, ref) in
                     if error != nil {
                         print("error \(error)")
                     }
@@ -118,14 +119,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func addAllPins() {
-        for activity in displayedActivities {
-            addPin(activity: activity)
+        for deal in displayedDeals {
+            addPin(deal: deal)
         }
     }
     
-    func addPin(activity: Activity) {
+    func addPin(deal: Deal) {
         // Create address string
-        let location = "Netherlands, Amsterdam," + activity.address
+        let location = "Netherlands, Amsterdam," + deal.address
         var coordinate = CLLocationCoordinate2D()
         
         
@@ -143,25 +144,24 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 
                 if let locationPin = locationPin {
                     coordinate = locationPin.coordinate
-                    self.placeAnnotation(activity: activity, coordinate: coordinate)
+                    self.placeAnnotation(deal: deal, coordinate: coordinate)
                 }
             }
         }
-        
     }
     
-    func placeAnnotation(activity: Activity, coordinate: CLLocationCoordinate2D) {
+    func placeAnnotation(deal: Deal, coordinate: CLLocationCoordinate2D) {
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
-        annotation.title = activity.nameDeal
-        annotation.subtitle = activity.nameCompany
+        annotation.title = deal.nameDeal
+        annotation.subtitle = deal.nameCompany
         self.mapView.addAnnotation(annotation)
     }
     
     func reloadPins(notification: NSNotification) {
         mapView.removeAnnotations(mapView.annotations)
 
-        displayedActivities = notification.object as! [Activity]
+        displayedDeals = notification.object as! [Deal]
         addAllPins()
     }
     
@@ -245,7 +245,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let destination = segue.destination as? SearchDealViewController
             
             // Define variabeles you want to sent to next ViewController.
-            destination?.activities = self.activities
+            destination?.deals = self.deals
         }
         
         if segue.identifier == "toDealInformation" {

@@ -1,16 +1,17 @@
 //
-//  Activity.swift
+//  Deal.swift
 //  DailyDeals
 //
-//  Created by practicum on 16/01/17.
+//  Created by practicum on 30/01/17.
 //  Copyright © 2017 Jill de Ron. All rights reserved.
 //
 
 import Foundation
 import MapKit
 import Firebase
+import FirebaseDatabase
 
-struct Activity {
+struct Deal {
     let key: String
     let nameDeal: String
     let nameCompany: String
@@ -50,5 +51,6 @@ struct Activity {
             "date" : date
         ]
     }
-
+    
 }
+

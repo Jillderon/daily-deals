@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="WZg-4s-47t">
             <objects>
-                <viewController id="Hmz-2K-UuH" customClass="LoginViewController" customModule="DailyDeals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="login" id="Hmz-2K-UuH" customClass="LoginViewController" customModule="DailyDeals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PRr-m0-He5"/>
                         <viewControllerLayoutGuide type="bottom" id="Nkg-MB-X0q"/>
@@ -102,7 +102,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="UOG-6c-gWn">
             <objects>
-                <viewController id="laV-WP-FXC" customClass="SignUpViewController" customModule="DailyDeals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="signUp" id="laV-WP-FXC" customClass="SignUpViewController" customModule="DailyDeals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lwN-ap-96e"/>
                         <viewControllerLayoutGuide type="bottom" id="Nbf-AV-OoF"/>
@@ -200,7 +200,7 @@
         <!--Search Deal View Controller-->
         <scene sceneID="zlt-Eb-kGu">
             <objects>
-                <viewController id="giV-HS-0hP" customClass="SearchDealViewController" customModule="DailyDeals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SearchDeal" id="giV-HS-0hP" customClass="SearchDealViewController" customModule="DailyDeals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yMD-T2-Prn"/>
                         <viewControllerLayoutGuide type="bottom" id="z4M-v5-Ofu"/>
@@ -261,7 +261,7 @@
         <!--Map View Controller-->
         <scene sceneID="O8d-Hq-xKt">
             <objects>
-                <viewController id="5oh-4v-Ndg" customClass="MapViewController" customModule="DailyDeals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="Map" id="5oh-4v-Ndg" customClass="MapViewController" customModule="DailyDeals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hic-Ll-Cqy"/>
                         <viewControllerLayoutGuide type="bottom" id="QDT-Yh-AUL"/>
@@ -338,7 +338,7 @@
         <!--Add Deal View Controller-->
         <scene sceneID="FIK-Jn-epg">
             <objects>
-                <viewController id="Gjo-QP-3C3" customClass="AddDealViewController" customModule="DailyDeals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="AddDeal" id="Gjo-QP-3C3" customClass="AddDealViewController" customModule="DailyDeals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yfc-mz-m3r"/>
                         <viewControllerLayoutGuide type="bottom" id="0aT-j1-kZP"/>
@@ -438,7 +438,7 @@
         <!--Information Deal View Controller-->
         <scene sceneID="lSI-zB-M0c">
             <objects>
-                <viewController id="ClC-ot-KUH" customClass="InformationDealViewController" customModule="DailyDeals" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="InformationDeal" id="ClC-ot-KUH" customClass="InformationDealViewController" customModule="DailyDeals" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lyl-JM-nHp"/>
                         <viewControllerLayoutGuide type="bottom" id="TUB-i0-WSN"/>
@@ -451,19 +451,6 @@
                                 <rect key="frame" x="62" y="237" width="196" height="179"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6O-KJ-Tkr">
-                                <rect key="frame" x="62" y="473" width="196" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.93020476009999997" green="0.44483524099999999" blue="0.24282582010000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
-                                <state key="normal" title="Reserve this deal!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="AddDeal:" destination="Gjo-QP-3C3" eventType="touchUpInside" id="yyC-nf-tQX"/>
-                                    <action selector="signUpDidTouch:" destination="laV-WP-FXC" eventType="touchUpInside" id="wvH-E2-rWI"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAM-eX-BkJ">
                                 <rect key="frame" x="16" y="131" width="288" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -493,7 +480,7 @@
         <!--Navigation Controller-->
         <scene sceneID="czT-dD-a8A">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="etp-l4-0cR" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="Navigation" automaticallyAdjustsScrollViewInsets="NO" id="etp-l4-0cR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="i5s-xo-Ukq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -517,6 +504,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Apn-vh-axF"/>
         <segue reference="fUF-1K-Z5b"/>
-        <segue reference="BDa-BB-ouW"/>
+        <segue reference="CGf-LG-X13"/>
     </inferredMetricsTieBreakers>
 </document>

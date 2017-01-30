@@ -12,15 +12,15 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
-    // MARK: User defaults
+    // MARK: User defaults.
     let defaults = UserDefaults.standard
     
-    // MARK: Outlets
+    // MARK: Outlets.
     @IBOutlet weak var textFieldLoginEmail: UITextField!
     @IBOutlet weak var textFieldLoginPassword: UITextField!
     @IBOutlet weak var ButtonLogin: UIButton!
     
-    // MARK: Actions
+    // MARK: Actions.
     @IBAction func loginDidTouch(_ sender: Any) {
         FIRAuth.auth()!.signIn(withEmail: textFieldLoginEmail.text!,
                                password: textFieldLoginPassword.text!) {
@@ -41,7 +41,14 @@ class LoginViewController: UIViewController {
         }
     }
         
-    // MARK: Functions
+    // MARK: Standard functions.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        segueToMap()
+        hideKeyboardWhenTappedAround()
+    }
+
+    // MARK: 
     func alert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
@@ -58,12 +65,6 @@ class LoginViewController: UIViewController {
             }
             
         })
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        segueToMap()
-        hideKeyboardWhenTappedAround()
     }
     
     func segueToMap() {
@@ -101,4 +102,3 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
-
