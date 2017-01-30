@@ -81,9 +81,10 @@ http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-
 - I think it, timewise, it is not realistic to add a maximum capacity to the deal and hide the deal when maximum capactiy is reached. This makes my InformationDealViewController right now a little bit unneccessary, but it is still nice to have so I don't need to make it when I'm expanding the app with extra features
 
 ## Monday day 16 - 30/01/2017 
+- Cleaning up my code trhough the advice of better code hub
+- Adding in the function to reset your password (http://stackoverflow.com/questions/35808352/firebase-reset-password-swift)
+
 TO DO: 
-- forget password 
 - validate email 
-- opschonen van code 
 
 

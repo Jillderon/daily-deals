@@ -68,6 +68,17 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXN-Oj-WZy">
+                                <rect key="frame" x="34" y="324" width="253" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Forgot your password?">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="ResettingPassword:" destination="Hmz-2K-UuH" eventType="touchUpInside" id="odE-z2-rGd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274509803926" green="0.6470588235294118" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>

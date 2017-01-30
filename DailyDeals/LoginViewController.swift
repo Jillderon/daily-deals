@@ -33,7 +33,26 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func resettingPasswordDidTouch(_ sender: Any) {
+        if textFieldLoginEmail.text != "" {
+            resetPassword(email: textFieldLoginEmail.text!)
+        } else {
+            alert(title: "Invalid entry", message: "Fill in your email to reset your password")
+        }
+    }
+    
     // MARK: Functions
+    func resetPassword(email: String) {
+        FIRAuth.auth()!.sendPasswordReset(withEmail: email, completion: {(error) in
+            if error == nil {
+                self.alert(title: "Yay", message: "You received an email to reset your password")
+            } else {
+                self.alert(title: "Oops", message: (error?.localizedDescription)!)
+            }
+            
+        })
+    }
+    
     func alert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
