@@ -83,6 +83,7 @@ http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-
 ## Monday day 16 - 30/01/2017 
 - Cleaning up my code trhough the advice of better code hub
 - Adding in the function to reset your password (http://stackoverflow.com/questions/35808352/firebase-reset-password-swift). Validation email didn't work out. 
-- Found a bug: With my pickerView if I select nothing (and standard it stands on the category 'activities'), it will send an 0 and shopping will be selected!! 
+- Found a bug -> With my pickerView if I select nothing (and standard it stands on the category 'activities'), it will send an 0 and shopping will be selected!! 
+- Found another bug :( -> Sometimes you have to log out twice. I really don't know why this is happening. 
 
 

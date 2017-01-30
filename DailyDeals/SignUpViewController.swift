@@ -83,7 +83,7 @@ class SignUpViewController: UIViewController {
             
             FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
                 if user != nil {
-                    self.performSegue(withIdentifier: "toMap", sender: nil)
+                    self.performSegue(withIdentifier: "toMapView", sender: nil)
                 }
             }
         }
