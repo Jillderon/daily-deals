@@ -84,6 +84,6 @@ http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-
 - Cleaning up my code trhough the advice of better code hub
 - Adding in the function to reset your password (http://stackoverflow.com/questions/35808352/firebase-reset-password-swift). Validation email didn't work out. 
 - Found a bug -> With my pickerView if I select nothing (and standard it stands on the category 'activities'), it will send an 0 and shopping will be selected!! 
-- Found another bug :( -> Sometimes you have to log out twice. I really don't know why this is happening. 
+- Found another bug :( -> Sometimes you have to log out twice. I really don't know why this is happening. I think I fixed this one!! It has to do with preforming segues. I had a segue that was on 'show' and I changed it to 'present modally'
 
 
