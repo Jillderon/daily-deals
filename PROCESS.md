@@ -86,4 +86,9 @@ http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-
 - Found a bug -> With my pickerView if I select nothing (and standard it stands on the category 'activities'), it will send an 0 and shopping will be selected!! 
 - Found another bug :( -> Sometimes you have to log out twice. I really don't know why this is happening. I think I fixed this one!! It has to do with preforming segues. I had a segue that was on 'show' and I changed it to 'present modally'
 
+## Tuesday day 17 - 31/01/2017 
+- add alert for the right date format
+- Today I'm going to add my last functionality. For the '
+
+
 

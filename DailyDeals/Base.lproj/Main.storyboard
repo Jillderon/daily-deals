@@ -124,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="61n-UY-uIC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="624" y="248"/>
+            <point key="canvasLocation" x="623" y="248"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="UOG-6c-gWn">
@@ -317,7 +317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rBP-kw-hLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4489" y="249"/>
+            <point key="canvasLocation" x="4489" y="247"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="O8d-Hq-xKt">
@@ -394,7 +394,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="54x-lz-o2T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3304" y="249"/>
+            <point key="canvasLocation" x="3272" y="247"/>
         </scene>
         <!--Add Deal View Controller-->
         <scene sceneID="FIK-Jn-epg">
@@ -442,16 +442,6 @@
                                 </date>
                                 <locale key="locale" localeIdentifier="nl"/>
                             </datePicker>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oL6-f8-Bdd">
-                                <rect key="frame" x="0.0" y="281" width="320" height="79"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="79" id="PSi-TL-Aer"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="Gjo-QP-3C3" id="Tpb-YQ-fTO"/>
-                                    <outlet property="delegate" destination="Gjo-QP-3C3" id="A5S-qb-SyS"/>
-                                </connections>
-                            </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valid until: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgd-ru-lUU">
                                 <rect key="frame" x="119" y="368" width="83" height="21"/>
                                 <constraints>
@@ -492,6 +482,16 @@
                                     <action selector="signUpDidTouch:" destination="laV-WP-FXC" eventType="touchUpInside" id="xYe-Gu-q2V"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oL6-f8-Bdd">
+                                <rect key="frame" x="0.0" y="267" width="320" height="79"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="79" id="PSi-TL-Aer"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="Gjo-QP-3C3" id="Tpb-YQ-fTO"/>
+                                    <outlet property="delegate" destination="Gjo-QP-3C3" id="A5S-qb-SyS"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274510000002" green="0.64705882349999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -544,7 +544,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AMU-wy-il5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4489" y="1131"/>
+            <point key="canvasLocation" x="4489" y="1129"/>
         </scene>
         <!--Information Deal View Controller-->
         <scene sceneID="lSI-zB-M0c">
@@ -558,10 +558,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logomakr_1WHzSQ" translatesAutoresizingMaskIntoConstraints="NO" id="Fm6-ce-cgV">
-                                <rect key="frame" x="62" y="237" width="196" height="179"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Logomakr_1WHzSQ" translatesAutoresizingMaskIntoConstraints="NO" id="Fm6-ce-cgV">
+                                <rect key="frame" x="62" y="237" width="196" height="181"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="179" id="5u6-VA-kzy"/>
+                                    <constraint firstAttribute="width" constant="196" id="Ith-Yh-GQV"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAM-eX-BkJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cAM-eX-BkJ">
                                 <rect key="frame" x="16" y="131" width="288" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="CIR-GV-LrI"/>
@@ -570,7 +574,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3J-rt-0rZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="T3J-rt-0rZ">
                                 <rect key="frame" x="16" y="78" width="288" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="IfJ-xm-O5D"/>
@@ -604,7 +608,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lDh-UV-djg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2123" y="1130"/>
+            <point key="canvasLocation" x="2075.625" y="1128.1690140845071"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="czT-dD-a8A">
@@ -623,7 +627,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWc-kv-u6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2123" y="250"/>
+            <point key="canvasLocation" x="2076" y="247"/>
         </scene>
     </scenes>
     <resources>
@@ -632,7 +636,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="aln-Ej-pyU"/>
-        <segue reference="Z2Z-P0-JRP"/>
-        <segue reference="BDa-BB-ouW"/>
+        <segue reference="CGf-LG-X13"/>
+        <segue reference="SI7-Eg-IyZ"/>
     </inferredMetricsTieBreakers>
 </document>

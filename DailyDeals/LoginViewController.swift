@@ -48,14 +48,7 @@ class LoginViewController: UIViewController {
         hideKeyboardWhenTappedAround()
     }
 
-    // MARK: 
-    func alert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-            
-        self.present(alertController, animated: true, completion: nil)
-    }
-        
+    // MARK: Functions needed for loggin in.
     func resetPassword(email: String) {
         FIRAuth.auth()!.sendPasswordReset(withEmail: email, completion: {(error) in
             if error == nil {
@@ -67,6 +60,14 @@ class LoginViewController: UIViewController {
         })
     }
     
+    func alert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: Segues.
     func segueToMap() {
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user != nil {

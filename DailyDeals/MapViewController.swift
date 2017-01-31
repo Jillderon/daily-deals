@@ -72,7 +72,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    // MARK: 
+    // MARK: Function to check user account.
     func typeOfUserVerification() {
         // Check type of user account.
         ref.child("Users").observe(.value, with: { snapshot in
@@ -165,7 +165,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         addAllPins()
     }
     
-    // MARK: Location Manager
+    // MARK: Location Manager.
     func locationManager(_  manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
         
@@ -200,7 +200,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-    // MARK: MapView
+    // MARK: MapView.
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else {
             return nil

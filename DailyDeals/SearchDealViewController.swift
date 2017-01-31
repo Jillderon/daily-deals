@@ -19,7 +19,7 @@ class SearchDealViewController: UIViewController, UIPickerViewDataSource, UIPick
     var category = String()
     var deals = [Deal]()
     
-    // MARK: Actions
+    // MARK: Actions.
     @IBAction func didTouchSearch(_ sender: UIButton) {
         filterDeals()
         
