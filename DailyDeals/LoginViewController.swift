@@ -38,13 +38,13 @@ class LoginViewController: UIViewController {
             resetPassword(email: textFieldLoginEmail.text!)
         } else {
             alert(title: "Invalid entry", message: "Fill in your email to reset your password")
-        }
+        } 
     }
         
     // MARK: Standard functions.
     override func viewDidLoad() {
         super.viewDidLoad()
-        segueToMap() 
+        segueToMap()
         hideKeyboardWhenTappedAround()
     }
 
