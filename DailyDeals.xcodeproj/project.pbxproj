@@ -11,6 +11,7 @@
 		2125EE791E40ABC300AD2657 /* REPORT.md in Sources */ = {isa = PBXBuildFile; fileRef = 2125EE781E40ABC300AD2657 /* REPORT.md */; };
 		2125EE7B1E40AC9200AD2657 /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2125EE7A1E40AC9200AD2657 /* Deal.swift */; };
 		2125EE7D1E40ACA100AD2657 /* InformationDealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2125EE7C1E40ACA100AD2657 /* InformationDealViewController.swift */; };
+		2125EE7F1E40B50800AD2657 /* MyDealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2125EE7E1E40B50800AD2657 /* MyDealsViewController.swift */; };
 		21BD54E81E3B6A2900924F0C /* AUDIT.md in Sources */ = {isa = PBXBuildFile; fileRef = 21BD54E71E3B6A2900924F0C /* AUDIT.md */; };
 		21C0476A1E27CAA600FD8964 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C047691E27CAA600FD8964 /* CoreLocation.framework */; };
 		21CBBCE41E28F8C50025B6A3 /* AddDealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBCD91E28F8C50025B6A3 /* AddDealViewController.swift */; };
@@ -34,6 +35,7 @@
 		2125EE781E40ABC300AD2657 /* REPORT.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = REPORT.md; sourceTree = "<group>"; };
 		2125EE7A1E40AC9200AD2657 /* Deal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Deal.swift; path = DailyDeals/Deal.swift; sourceTree = "<group>"; };
 		2125EE7C1E40ACA100AD2657 /* InformationDealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationDealViewController.swift; path = DailyDeals/InformationDealViewController.swift; sourceTree = "<group>"; };
+		2125EE7E1E40B50800AD2657 /* MyDealsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyDealsViewController.swift; path = DailyDeals/MyDealsViewController.swift; sourceTree = "<group>"; };
 		21BD54E71E3B6A2900924F0C /* AUDIT.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = AUDIT.md; sourceTree = "<group>"; };
 		21C047461E27B63F00FD8964 /* DailyDeals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyDeals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C047691E27CAA600FD8964 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -110,6 +112,7 @@
 				21CBBCDF1E28F8C50025B6A3 /* LoginViewController.swift */,
 				21CBBCD91E28F8C50025B6A3 /* AddDealViewController.swift */,
 				21CBBCE01E28F8C50025B6A3 /* MapViewController.swift */,
+				2125EE7E1E40B50800AD2657 /* MyDealsViewController.swift */,
 				2125EE7C1E40ACA100AD2657 /* InformationDealViewController.swift */,
 				21CBBCE11E28F8C50025B6A3 /* SearchDealViewController.swift */,
 				21CBBCE21E28F8C50025B6A3 /* SignUpViewController.swift */,
@@ -286,6 +289,7 @@
 				21BD54E81E3B6A2900924F0C /* AUDIT.md in Sources */,
 				2125EE791E40ABC300AD2657 /* REPORT.md in Sources */,
 				2125EE7B1E40AC9200AD2657 /* Deal.swift in Sources */,
+				2125EE7F1E40B50800AD2657 /* MyDealsViewController.swift in Sources */,
 				21CBBCED1E28F8C50025B6A3 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

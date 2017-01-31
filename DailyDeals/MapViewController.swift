@@ -28,6 +28,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // MARK: Outlets.
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var addDealButton: UIButton!
+    @IBOutlet weak var myDealsButton: UIButton!
     
     // MARK: Actions.
     @IBAction func signOutDidTouch(_ sender: Any) {
@@ -45,11 +46,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // MARK: Standard functions.
     override func viewDidLoad() {
         super.viewDidLoad()
+        determineMyCurrentLocation()
         
         NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.reloadPins), name: Notification.Name(rawValue: "pinsFiltered"), object: nil)
         
         typeOfUserVerification()
-        readDatabase()
         checkLocationAuthorizationStatus()
     }
     
@@ -59,7 +60,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        determineMyCurrentLocation()
+        readDatabase()
         
         // Hide the navigation bar on the this view controller.
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -81,8 +82,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 if userData.uid == (FIRAuth.auth()?.currentUser?.uid)! {
                     if userData.type! == 1 {
                         self.addDealButton.isHidden = false
+                        self.myDealsButton.isHidden = false
                     } else {
                         self.addDealButton.isHidden = true
+                        self.myDealsButton.isHidden = true
                     }
                 }
             }
@@ -101,11 +104,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let address = snapshotDict["address"]
             let category = snapshotDict["category"]
             let date = snapshotDict["date"]
+            let uid = snapshotDict["uid"]
             let currentDate = Date().timeIntervalSince1970
             
             if date as! Double >= currentDate {
-                self.deals.append(Deal(nameDeal: nameDeal! as! String, nameCompany: nameCompany! as! String, address: address! as! String, category: category! as! String, date: date as! Double))
-                self.displayedDeals.append(Deal(nameDeal: nameDeal! as! String, nameCompany: nameCompany! as! String, address: address! as! String, category: category! as! String, date: date as! Double))
+                self.deals.append(Deal(nameDeal: nameDeal! as! String, nameCompany: nameCompany! as! String, address: address! as! String, category: category! as! String, date: date as! Double, uid: uid as! String))
+                self.displayedDeals.append(Deal(nameDeal: nameDeal! as! String, nameCompany: nameCompany! as! String, address: address! as! String, category: category! as! String, date: date as! Double, uid: uid as! String))
                 self.addAllPins()
             } else {
                 // delete deal in Firebase

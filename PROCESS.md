@@ -88,7 +88,7 @@ http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-
 
 ## Tuesday day 17 - 31/01/2017 
 - add alert for the right date format
-- Today I'm going to add my last functionality. For the '
-
+- Today I'm going to add my last functionality. If you have a business account, you are able to see all your deals (in a table view) and delete deals over here! 
+- turn off landscape 
 
 

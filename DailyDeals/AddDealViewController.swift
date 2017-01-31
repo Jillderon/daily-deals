@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FirebaseAuth
 
 class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -92,7 +93,7 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         dateDeal = datePicker.date as NSDate
         interval = dateDeal.timeIntervalSince1970
-        let deal = Deal(nameDeal: textfieldNameDeal.text!, nameCompany: textfieldNameCompany.text!, address: textfieldAddress.text!, category: deals[PlacementAnswer], date: interval)
+        let deal = Deal(nameDeal: textfieldNameDeal.text!, nameCompany: textfieldNameCompany.text!, address: textfieldAddress.text!, category: deals[PlacementAnswer], date: interval, uid: (FIRAuth.auth()?.currentUser?.uid)!)
         let dealRef = self.reference.child(self.textfieldNameDeal.text!.lowercased())
         dealRef.setValue(deal.toAnyObject())
     }
