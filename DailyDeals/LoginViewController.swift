@@ -44,7 +44,7 @@ class LoginViewController: UIViewController {
     // MARK: Standard functions.
     override func viewDidLoad() {
         super.viewDidLoad()
-        segueToMap()
+        segueToMap() 
         hideKeyboardWhenTappedAround()
     }
 
