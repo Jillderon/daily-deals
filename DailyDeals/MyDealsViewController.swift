@@ -18,6 +18,8 @@ class MyDealsViewController: UIViewController, UITableViewDelegate, UITableViewD
     var ref = FIRDatabase.database().reference(withPath: "deals")
     let currentUser = (FIRAuth.auth()?.currentUser?.uid)!
     @IBOutlet weak var myDealsTableView: UITableView!
+    var nameDeal = String()
+    var nameCompany = String()
  
     
     // MARK: Standard functions. 
@@ -34,7 +36,13 @@ class MyDealsViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: TableView functions. 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return(dealsOfUser.count)
-
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let deal = dealsOfUser[indexPath.row]
+        nameDeal = deal.nameDeal
+        nameCompany = deal.nameCompany
+        self.performSegue(withIdentifier: "toMoreInformation", sender: self)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,6 +84,18 @@ class MyDealsViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.myDealsTableView.reloadData()
         })
             
+    }
+    
+    // MARK: Segues. 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toMoreInformation" {
+            let destination = segue.destination as? InformationDealViewController
+            
+            // Define variables you want to sent to next ViewController.
+            destination?.nameDealReceiver = self.nameDeal
+            destination?.nameCompanyReceiver = self.nameCompany
+        }
+
     }
     
 

@@ -439,9 +439,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L9j-9B-DKW">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L9j-9B-DKW">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.95686274510000002" green="0.64705882349999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" red="0.95686274510000002" green="0.64705882349999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="63" id="Nc7-81-gE9">
                                         <rect key="frame" x="0.0" y="28" width="320" height="63"/>
@@ -449,8 +452,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nc7-81-gE9" id="jn2-9h-g48">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.95686274510000002" green="0.64705882349999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.93020476009999997" green="0.44483524099999999" blue="0.24282582010000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.95686274510000002" green="0.64705882349999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -459,21 +463,16 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="L9j-9B-DKW" firstAttribute="leading" secondItem="O8u-hx-m1H" secondAttribute="leading" id="8tM-E8-Llb"/>
-                            <constraint firstAttribute="trailing" secondItem="L9j-9B-DKW" secondAttribute="trailing" id="OWp-4z-vf3"/>
-                            <constraint firstItem="wZm-5r-IwO" firstAttribute="top" secondItem="L9j-9B-DKW" secondAttribute="bottom" id="PEZ-QS-1IK"/>
-                            <constraint firstItem="L9j-9B-DKW" firstAttribute="top" secondItem="O8u-hx-m1H" secondAttribute="top" id="xo2-hH-H5N"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.95686274510000002" green="0.64705882349999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="myDealsTableView" destination="L9j-9B-DKW" id="dTd-IM-7g9"/>
+                        <segue destination="ClC-ot-KUH" kind="show" identifier="toMoreInformation" id="KOD-eu-nxL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y5J-e5-l0R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3272" y="1128"/>
+            <point key="canvasLocation" x="3330" y="1128.1690140845071"/>
         </scene>
         <!--Add Deal View Controller-->
         <scene sceneID="FIK-Jn-epg">
@@ -722,6 +721,7 @@
         <segue reference="aln-Ej-pyU"/>
         <segue reference="CGf-LG-X13"/>
         <segue reference="SI7-Eg-IyZ"/>
+        <segue reference="KOD-eu-nxL"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.93020476009999997" green="0.44483524099999999" blue="0.24282582010000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>
