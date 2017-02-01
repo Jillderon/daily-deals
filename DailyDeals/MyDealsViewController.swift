@@ -17,10 +17,11 @@ class MyDealsViewController: UIViewController, UITableViewDelegate, UITableViewD
     var dealsOfUser = [Deal]()
     var ref = FIRDatabase.database().reference(withPath: "deals")
     let currentUser = (FIRAuth.auth()?.currentUser?.uid)!
-    @IBOutlet weak var myDealsTableView: UITableView!
     var nameDeal = String()
     var nameCompany = String()
- 
+    
+    // MARK: Outlet.
+    @IBOutlet weak var myDealsTableView: UITableView!
     
     // MARK: Standard functions. 
     override func viewDidLoad() {
@@ -65,6 +66,8 @@ class MyDealsViewController: UIViewController, UITableViewDelegate, UITableViewD
             let deal = dealsOfUser[indexPath.row]
             deal.ref?.removeValue()
         }
+        
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "deletedDeals"), object: nil)
     }
 
     // MARK: Get deals of user.

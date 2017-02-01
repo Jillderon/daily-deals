@@ -52,6 +52,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         typeOfUserVerification()
         checkLocationAuthorizationStatus()
+        readDatabase()
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,7 +61,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        readDatabase()
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.readDatabaseAgain), name: Notification.Name(rawValue: "deletedDeals"), object: nil)
         
         // Hide the navigation bar on the this view controller.
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -122,11 +123,24 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         })
     }
     
+    func readDatabaseAgain(notification: NSNotification) {
+        mapView.removeAnnotations(mapView.annotations)
+        readDatabase()
+    }
+    
+    func reloadPins(notification: NSNotification) {
+        mapView.removeAnnotations(mapView.annotations)
+        
+        displayedDeals = notification.object as! [Deal]
+        addAllPins()
+    }
+    
     func addAllPins() {
         for deal in displayedDeals {
             addPin(deal: deal)
         }
     }
+    
     
     func addPin(deal: Deal) {
         // Create address string
@@ -160,13 +174,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         annotation.title = deal.nameDeal
         annotation.subtitle = deal.nameCompany
         self.mapView.addAnnotation(annotation)
-    }
-    
-    func reloadPins(notification: NSNotification) {
-        mapView.removeAnnotations(mapView.annotations)
-
-        displayedDeals = notification.object as! [Deal]
-        addAllPins()
     }
     
     // MARK: Location Manager.

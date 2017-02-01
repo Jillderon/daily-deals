@@ -2,7 +2,7 @@
 This document will provide as a logbook for the overall process of the final project for Minor Programming
 
 ## Monday day 1 - 09/01/2017: 
-- Brainstorming about idea for final project. One of the supervisors helped me a lot with working out my idea. 
+- Brainstorming about idea for final project. 
 - Setup Github repository. 
 - Add README.md.
 - Setup xcode project.
@@ -10,6 +10,7 @@ This document will provide as a logbook for the overall process of the final pro
 ## Tuesday day 2 - 10/01/2017: 
 - First meeting with the IOS group. 
 - Desiging lay-out project - making sketches of UI. 
+- I first wanted to used the Amsterdam API to load in activities and thing to do. But the API didn't consist of enough information about an activity and I had to skip my idea about 'discount deals'. One of the supervisors helped me a lot with working out my idea. I decided that companies can add deals themselves so I don't have to work with an API. 
 
 ## Wednesday day 3 - 11/01/2017:
 - Setting up Firebase. Installing pods took hours! 
@@ -94,5 +95,6 @@ I looked both errors up on Stack overflow. [The first one](http://stackoverflow.
 ## Wednesday day 18 - 01/02/2017
 - Adding descriptions of functions 
 - Working on my REPORT.md
+- Found a bug! After deleting a deal in Filter Deals. The deal is still displayed on the map. After logging in again the deal is gone. I thought this would be fixed when I placed my readDatabase function in ViewWillAppear but this is still the case. Because I implemented this functionality quite late in the process I didn't find this bug until now. Eventually I fixed it by using NotificationCenter. I added a listener and when something is deleted the data gets loaded again.
 
 
