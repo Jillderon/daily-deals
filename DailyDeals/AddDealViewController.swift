@@ -27,7 +27,6 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     var interval = Double()
     var dateDeal = NSDate()
     
-    
     // MARK: Standard functions.
     override func viewDidLoad() {
         super.viewDidLoad()

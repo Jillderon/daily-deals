@@ -80,7 +80,6 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: UITextFieldDelegate {
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == textFieldLoginEmail {
             textFieldLoginPassword.becomeFirstResponder()
@@ -90,7 +89,6 @@ extension LoginViewController: UITextFieldDelegate {
         }
         return true
     }
-    
 }
 
 extension UIViewController {

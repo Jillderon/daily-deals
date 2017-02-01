@@ -19,7 +19,6 @@ struct User {
     let ref: FIRDatabaseReference?
     let key: String
 
-    
     init(authData: FIRUser) {
         uid = authData.uid
         email = authData.email!
