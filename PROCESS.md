@@ -13,7 +13,7 @@ This document will provide as a logbook for the overall process of the final pro
 
 ## Wednesday day 3 - 11/01/2017:
 - Setting up Firebase. Installing pods took hours! 
-- Making log in and sign up screen (and add functionality Firebase). This was relatively easy because I remember how it was done in pset 6 and Ray Wenderlich has this nice [Firebase tutorial](https://www.raywenderlich.com/139322/firebase-tutorial-getting-started-2)
+- Making log in and sign up screen (and add functionality Firebase). This was relatively easy because I remember how it was done in [pset 6](https://github.com/Jillderon/pset6) and Ray Wenderlich has this nice [Firebase tutorial](https://www.raywenderlich.com/139322/firebase-tutorial-getting-started-2)
 
 ## Thursday day 4 - 12/01/2017
 - Setup MapKit. 
@@ -28,7 +28,7 @@ This document will provide as a logbook for the overall process of the final pro
 
 ## Tuesday day 7 - 17/01/2017
 - Add content PROCESS.md 
-- Get addDeal data back from Firebase Database. I checked my pset 6 app to know how to get information back from Firebase. 
+- Get addDeal data back from Firebase Database. I checked my [pset 6](https://github.com/Jillderon/pset6) app to know how to get information back from Firebase. 
 - [Hide navigation bar at MapViewController](http://stackoverflow.com/questions/29209453/how-to-hide-a-navigation-bar-from-first-viewcontroller-in-swift)
 - From address to longitude and latitude. Rick and Martijn are working on geocoding as well, but they are doing it the other way around. I found two helpful websites: 
   ..* [Cocoacasts](https://cocoacasts.com/forward-and-reverse-geocoding-with-clgeocoder-part-1/)
@@ -42,7 +42,7 @@ This document will provide as a logbook for the overall process of the final pro
 ## Tuesday day 9 - 19/01/2017 
 - Working on stylebook with the group. 
 - Jasper helped me with some ideas of how to let the two account differ (user and business account). He told me I could simply check my account and hide some buttons for the user account. So today I [hide my addDealButton](http://stackoverflow.com/questions/30065010/how-to-hide-show-a-button-in-swift) for user account. This is an easy way to make sure only people with a business acount can add deals. 
-- [State restoration](https://www.raywenderlich.com/117471/state-restoration-tutorial) and adding sign out. For both functionalities I checked my pset 6. 
+- [State restoration](https://www.raywenderlich.com/117471/state-restoration-tutorial) and adding sign out. For both functionalities I checked my [pset 6](https://github.com/Jillderon/pset6). 
 - Segue information form the SearchDealViewController to the MapViewController. Is needed to filter deals later on. Aynel helped me with a segue because she already did this a lot in her app. 
 
 
@@ -91,7 +91,7 @@ I looked both errors up on Stack overflow. [The first one](http://stackoverflow.
 - Today I'm going to add my last functionality. If you have a business account, you are able to see all your deals (in a table view) and delete deals over here! Aynel worked a lot with tableViews so she helped me to implement this. 
 - Turn off landscape. Martijn told me how to do this. 
 
-## Whednesday day 18 - 01/02/2017
+## Wednesday day 18 - 01/02/2017
 - Adding descriptions of functions 
 - Working on my REPORT.md
 
