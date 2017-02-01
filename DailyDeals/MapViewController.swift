@@ -102,15 +102,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             let nameDeal = snapshotDict["nameDeal"]
             let nameCompany = snapshotDict["nameCompany"]
-            let address = snapshotDict["address"]
             let category = snapshotDict["category"]
+            let longitude = snapshotDict["longitude"]
+            let latitude = snapshotDict["latitude"]
             let date = snapshotDict["date"]
             let uid = snapshotDict["uid"]
             let currentDate = Date().timeIntervalSince1970
             
             if date as! Double >= currentDate {
-                self.deals.append(Deal(nameDeal: nameDeal! as! String, nameCompany: nameCompany! as! String, address: address! as! String, category: category! as! String, date: date as! Double, uid: uid as! String))
-                self.displayedDeals.append(Deal(nameDeal: nameDeal! as! String, nameCompany: nameCompany! as! String, address: address! as! String, category: category! as! String, date: date as! Double, uid: uid as! String))
+                self.deals.append(Deal(nameDeal: nameDeal! as! String, nameCompany: nameCompany! as! String, longitude: longitude! as! Double, latitude: latitude! as! Double, category: category! as! String, date: date as! Double, uid: uid as! String))
+                self.displayedDeals.append(Deal(nameDeal: nameDeal! as! String, nameCompany: nameCompany! as! String, longitude: longitude! as! Double, latitude: latitude! as! Double, category: category! as! String, date: date as! Double, uid: uid as! String))
                 self.addAllPins()
             } else {
                 // delete deal in Firebase
@@ -143,29 +144,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     
     func addPin(deal: Deal) {
-        // Create address string
-        let location = "Netherlands, Amsterdam," + deal.address
-        var coordinate = CLLocationCoordinate2D()
-        
-        
-        // Geocode Address String
-        let geoCoder = CLGeocoder()
-        
-        geoCoder.geocodeAddressString(location) { (placemarks, error) in
-            if let error = error {
-                print("Unable to Forward Geocode Address (\(error))")
-            } else {
-                var locationPin: CLLocation?
-                if let placemarks = placemarks, placemarks.count > 0 {
-                    locationPin = placemarks.first?.location
-                }
-                
-                if let locationPin = locationPin {
-                    coordinate = locationPin.coordinate
-                    self.placeAnnotation(deal: deal, coordinate: coordinate)
-                }
-            }
-        }
+        let coordinate = CLLocationCoordinate2DMake(deal.latitude, deal.longitude)
+        self.placeAnnotation(deal: deal, coordinate: coordinate)
+
     }
     
     func placeAnnotation(deal: Deal, coordinate: CLLocationCoordinate2D) {

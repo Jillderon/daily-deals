@@ -15,20 +15,22 @@ struct Deal {
     let key: String
     let nameDeal: String
     let nameCompany: String
-    let address: String
     let category: String
     let date: Double
     let uid: String
+    let longitude: Double
+    let latitude: Double
     let ref: FIRDatabaseReference?
     
-    init(nameDeal: String, nameCompany: String, address: String, category: String, date: Double, uid: String,
+    init(nameDeal: String, nameCompany: String, longitude: Double, latitude: Double, category: String, date: Double, uid: String,
          key: String = "") {
         self.key = key
         self.nameDeal = nameDeal
         self.nameCompany = nameCompany
-        self.address = address
         self.category = category
         self.uid = uid
+        self.longitude = longitude
+        self.latitude = latitude
         self.date = date
         self.ref = nil
     }
@@ -38,10 +40,11 @@ struct Deal {
         let snapshotValue = snapshot.value! as! [String: AnyObject]
         nameDeal = snapshotValue["nameDeal"] as! String
         nameCompany = snapshotValue["nameCompany"] as! String
-        address = snapshotValue["address"] as! String
         category = snapshotValue["category"] as! String
         date = snapshotValue["date"] as! Double
         uid = snapshotValue["uid"] as! String
+        longitude = snapshotValue["longitude"] as! Double
+        latitude = snapshotValue["latitude"] as! Double
         ref = snapshot.ref
     }
     
@@ -49,9 +52,10 @@ struct Deal {
         return [
             "nameDeal" : nameDeal,
             "nameCompany" : nameCompany,
-            "address" : address,
             "category" : category,
             "date" : date,
+            "longitude" : longitude,
+            "latitude" : latitude,
             "uid" : uid
         ]
     }

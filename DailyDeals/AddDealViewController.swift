@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
+import CoreLocation
 
 class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -26,6 +27,8 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     var PlacementAnswer = 0
     var interval = Double()
     var dateDeal = NSDate()
+    var longitude = Double()
+    var latitude = Double()
     
     // MARK: Standard functions.
     override func viewDidLoad() {
@@ -89,11 +92,48 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
 
         alertAdressFormat()
+        geocodeAddress()
         
+    }
+    
+    func geocodeAddress() {
+        // Create address string
+        let location = "Netherlands, Amsterdam," + textfieldAddress.text!
+        var coordinate = CLLocationCoordinate2D()
+        
+        // Geocode Address String
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(location) { (placemarks, error) in
+            if let error = error {
+                print("Unable to Forward Geocode Address (\(error))")
+            } else {
+                var locationPin: CLLocation?
+                if let placemarks = placemarks, placemarks.count > 0 {
+                    locationPin = placemarks.first?.location
+                }
+                
+                if let locationPin = locationPin {
+                    coordinate = locationPin.coordinate
+                    print("coordinate")
+                    print(coordinate)
+                    self.latitude = coordinate.latitude
+                    self.longitude = coordinate.longitude
+                    
+                    self.addDealInFirebase()
+                }
+            }
+        }
+    }
+    
+    func addDealInFirebase() {
+        // Make sure valid until date is a Double (because Firebase can't save a NSDATE)
         dateDeal = datePicker.date as NSDate
         interval = dateDeal.timeIntervalSince1970
-        let deal = Deal(nameDeal: textfieldNameDeal.text!, nameCompany: textfieldNameCompany.text!, address: textfieldAddress.text!, category: deals[PlacementAnswer], date: interval, uid: (FIRAuth.auth()?.currentUser?.uid)!)
+        
+        // Place Deal in Firebase
+        let deal = Deal(nameDeal: self.textfieldNameDeal.text!, nameCompany: self.textfieldNameCompany.text!, longitude: self.longitude, latitude: self.latitude, category: self.deals[self.PlacementAnswer], date: self.interval, uid: (FIRAuth.auth()?.currentUser?.uid)!)
         let dealRef = self.reference.child(self.textfieldNameDeal.text!.lowercased())
         dealRef.setValue(deal.toAnyObject())
     }
 }
+

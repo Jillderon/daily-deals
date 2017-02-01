@@ -95,10 +95,14 @@ I looked both errors up on Stack overflow. [The first one](http://stackoverflow.
 ## Wednesday day 18 - 01/02/2017
 - Adding descriptions of functions 
 - Working on my REPORT.md
-- Found a bug! After deleting a deal in Filter Deals. The deal is still displayed on the map. After logging in again the deal is gone. I thought this would be fixed when I placed my readDatabase function in ViewWillAppear but this is still the case. Because I implemented this functionality quite late in the process I didn't find this bug until now. Eventually I fixed it by using NotificationCenter. I added a listener and when something is deleted the data gets loaded again.
+- Found a bug! After deleting a deal in My Deals. The deal is still displayed on the map. After logging in again the deal is gone. I thought this would be fixed when I placed my readDatabase function in ViewWillAppear but this is still the case. Because I implemented this functionality quite late in the process I didn't find this bug until now. Eventually I think I fixed it by using NotificationCenter. I added a listener to ViewDidAppear and when a deal is deleted the data gets loaded again.
+- Put not the address as a string in Firebase, but latitude en longitude! To work around the bug you can only apply to geocoder 3 times every minute. This is about the bug I found on Tuesday day 12 - 24/01/2017. 
 
 TO DO: 
 - report 
 - constraints 
+- add example deals 
+- fix README.
+- fix design 
 
 
