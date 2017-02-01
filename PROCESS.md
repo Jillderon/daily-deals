@@ -97,4 +97,8 @@ I looked both errors up on Stack overflow. [The first one](http://stackoverflow.
 - Working on my REPORT.md
 - Found a bug! After deleting a deal in Filter Deals. The deal is still displayed on the map. After logging in again the deal is gone. I thought this would be fixed when I placed my readDatabase function in ViewWillAppear but this is still the case. Because I implemented this functionality quite late in the process I didn't find this bug until now. Eventually I fixed it by using NotificationCenter. I added a listener and when something is deleted the data gets loaded again.
 
+TO DO: 
+- report 
+- constraints 
+
 
