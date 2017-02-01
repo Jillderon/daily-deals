@@ -27,7 +27,6 @@ class MyDealsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         loadDealsUser()
-        print(dealsOfUser)
     }
 
     override func didReceiveMemoryWarning() {
