@@ -12,7 +12,6 @@ Another benefit DailyDeals offers in comparison to sites as Groupon is that comp
 <p align="center">
 <img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0050.PNG" width="300">
 <img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0051.PNG" width="300">
-<img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0059.PNG" width="300">
 <i><b>Left to right:</b> Log in screen, Sign Up screen</i>
 </p>
 
