@@ -14,16 +14,16 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class MyDealsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
+    // MARK: Outlet.
+    @IBOutlet weak var myDealsTableView: UITableView!
+    
     // MARK: Variables. 
     var dealsOfUser = [Deal]()
     var ref = FIRDatabase.database().reference(withPath: "deals")
     let currentUser = (FIRAuth.auth()?.currentUser?.uid)!
     var nameDeal = String()
     var nameCompany = String()
-    
-    // MARK: Outlet.
-    @IBOutlet weak var myDealsTableView: UITableView!
     
     // MARK: Standard functions. 
     override func viewDidLoad() {
@@ -71,7 +71,7 @@ class MyDealsViewController: UIViewController, UITableViewDelegate, UITableViewD
         NotificationCenter.default.post(name: Notification.Name(rawValue: "deletedDeals"), object: nil)
     }
 
-    // MARK: Get deals of user.
+    // MARK: Get deals of the company account from the current user.
     private func loadDealsUser() {
         ref.observe(.value, with: { snapshot in
             var ownDeals: [Deal] = []
@@ -87,7 +87,6 @@ class MyDealsViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.dealsOfUser = ownDeals
             self.myDealsTableView.reloadData()
         })
-            
     }
     
     // MARK: Segues. 
