@@ -15,14 +15,14 @@ import UIKit
 import FirebaseAuth
 
 class LoginViewController: UIViewController {
-
-    // MARK: User defaults.
-    let defaults = UserDefaults.standard
     
     // MARK: Outlets.
     @IBOutlet weak var textFieldLoginEmail: UITextField!
     @IBOutlet weak var textFieldLoginPassword: UITextField!
     @IBOutlet weak var ButtonLogin: UIButton!
+    
+    // MARK: User defaults.
+    let defaults = UserDefaults.standard
     
     // MARK: Actions.
     @IBAction func loginDidTouch(_ sender: Any) {
@@ -44,7 +44,7 @@ class LoginViewController: UIViewController {
         hideKeyboardWhenTappedAround()
     }
 
-    // MARK: Functions needed for loggin in.
+    // MARK: Functions needed for the functionality buttons.
     private func resetPassword(email: String) {
         FIRAuth.auth()!.sendPasswordReset(withEmail: email, completion: {(error) in
             if error == nil {
@@ -52,7 +52,6 @@ class LoginViewController: UIViewController {
             } else {
                 self.alert(title: "Oops", message: (error?.localizedDescription)!)
             }
-            
         })
     }
     
@@ -68,6 +67,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    // MARK: Alert
     private func alert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
