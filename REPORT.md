@@ -28,6 +28,11 @@ Due to a lack of space I didn’t work out my functions from the MapViewControll
 
 ### Models
 [**User**](https://github.com/Jillderon/daily-deals/blob/master/DailyDeals/User.swift)
+| **User**        | **Values**           |
+| ------------- |:------------------:|
+| uid           | String!            |
+| email         | String!            |
+| type          | Int?               |
 
 [**Deal**](https://github.com/Jillderon/daily-deals/blob/master/DailyDeals/Deal.swift)
 
