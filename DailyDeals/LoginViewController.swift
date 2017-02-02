@@ -2,6 +2,11 @@
 //  LoginViewController.swift
 //  DailyDeals
 //
+//  Description:
+//  In this ViewController the user can log in (with email and password) to enter the rest of the app.
+//  If the user doesn't have their is a button to go to a sign up screen. 
+//  If the user forgot his or her password their is a button that will send a reset password email.
+//
 //  Created by practicum on 12/01/17.
 //  Copyright © 2017 Jill de Ron. All rights reserved.
 //
@@ -41,7 +46,7 @@ class LoginViewController: UIViewController {
     }
 
     // MARK: Functions needed for loggin in.
-    func resetPassword(email: String) {
+    private func resetPassword(email: String) {
         FIRAuth.auth()!.sendPasswordReset(withEmail: email, completion: {(error) in
             if error == nil {
                 self.alert(title: "Resetting password", message: "You received an email to reset your password")
@@ -52,7 +57,7 @@ class LoginViewController: UIViewController {
         })
     }
     
-    func LogInFirebase() {
+    private func LogInFirebase() {
         FIRAuth.auth()!.signIn(withEmail: textFieldLoginEmail.text!,
                                password: textFieldLoginPassword.text!) {
                                 (user, error) in
@@ -64,7 +69,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func alert(title: String, message: String) {
+    private func alert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
             
@@ -72,7 +77,7 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: Segues.
-    func segueToMap() {
+    private func segueToMap() {
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
             if user != nil {
                 self.performSegue(withIdentifier: "toMap", sender: nil)

@@ -2,6 +2,10 @@
 //  MapViewController.swift
 //  DailyDeals
 //
+//  Description:
+//  This is the main screen of the app, where all the deals are displayed as pin annotations on the map. 
+//  Pin Annotations can be clicked so information about the selected deal is displayed.
+//  Their are four buttons redirecting the user to other ViewControllers.
 //
 //  Created by practicum on 12/01/17.
 //  Copyright © 2017 Jill de Ron. All rights reserved.
@@ -75,7 +79,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     // MARK: Function to check user account.
-    func typeOfUserVerification() {
+    private func typeOfUserVerification() {
         // Check type of user account.
         ref.child("Users").observe(.value, with: { snapshot in
             for item in snapshot.children {
@@ -94,7 +98,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     // MARK: Load deals data from firebase and place on map.
-    func readDatabase() {
+    private func readDatabase() {
         ref.child("deals").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
             guard let snapshotDict = snapshot.value as? [String: AnyObject] else {
                 return
@@ -136,14 +140,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         addAllAnnotations()
     }
     
-    func addAllAnnotations() {
+    private func addAllAnnotations() {
         for deal in displayedDeals {
             addAnnotation(deal: deal)
         }
     }
     
-    
-    func addAnnotation(deal: Deal) {
+   private func addAnnotation(deal: Deal) {
         let coordinate = CLLocationCoordinate2DMake(deal.latitude, deal.longitude)
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
@@ -177,7 +180,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-    func determineMyCurrentLocation() {
+    private func determineMyCurrentLocation() {
         self.mapView.delegate = self
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest

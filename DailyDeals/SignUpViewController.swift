@@ -2,6 +2,11 @@
 //  SignUpViewController.swift
 //  DailyDeals
 //
+//  Description: 
+//  This ViewController let a user sign up. 
+//  The user has to fill in his/her email, password, password confirmation 
+//  and type of user account (costumer or company).
+//
 //  Created by practicum on 12/01/17.
 //  Copyright © 2017 Jill de Ron. All rights reserved.
 //
@@ -40,14 +45,14 @@ class SignUpViewController: UIViewController {
     }
     
     // MARK: Functions needed for checking in (adding user and error checking).
-    func alert(title: String, message: String) {
+    private func alert(title: String, message: String) {
         let alertController = UIAlertController(title: title , message: message, preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
         
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func errorChecking() {
+    private func errorChecking() {
         guard textFieldEmail.text! != "" && textFieldPassword.text! != "" && textFieldConfirm.text! != "" else {
             self.alert(title: "Error to register", message: "Enter a valid email, password and confirm password. \n Your password should be at least 6 characters long")
             return
@@ -64,7 +69,7 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    func addUserFirebase() {
+    private func addUserFirebase() {
         // Save user in Firebase.
         FIRAuth.auth()!.createUser(withEmail: self.textFieldEmail.text!, password: textFieldPassword.text!) { (user, error) in
             if error != nil {

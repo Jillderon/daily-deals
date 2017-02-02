@@ -2,6 +2,10 @@
 //  FilterDealViewController.swift
 //  DailyDeals
 //
+//  Description: 
+//  This ViewController displays a pickerView where the user can select a category. 
+//  Only deals of this category will be showed in the MapViewController.
+// 
 //  Created by practicum on 12/01/17.
 //  Copyright © 2017 Jill de Ron. All rights reserved.
 //
@@ -57,12 +61,10 @@ class FilterDealViewController: UIViewController, UIPickerViewDataSource, UIPick
         self.category = dealsCategories[row]
     }
     
-    func filterDeals() {
+    private func filterDeals() {
         
         // Temporary variable to store filtered deals in.
         var filteredDeals = [Deal]()
-        print("HOOIII")
-        print(self.category)
         
         if self.category == "All Deals" || self.category == "" {
             filteredDeals = self.deals

@@ -1,6 +1,10 @@
 //
 //  InformationDealViewController.swift
+//  DailyDeals
 //  
+//  Description:
+//  The user will see this view when clicked on a pin annotation or when clicked 
+//  on a deal in the my deals tableView. Only the name of the deal and the name of the company is displayed.
 //
 //  Created by practicum on 26/01/17.
 //
@@ -30,7 +34,7 @@ class InformationDealViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func displayInformation() {
+    private func displayInformation() {
         nameDeal.text = nameDealReceiver
         nameCompany.text = nameCompanyReceiver
     }

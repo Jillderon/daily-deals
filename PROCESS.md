@@ -99,13 +99,13 @@ I looked both errors up on Stack overflow. [The first one](http://stackoverflow.
 - Put not the address as a string in Firebase, but latitude en longitude! To work around the bug you can only apply to geocoder 3 times every minute. This is about the bug I found on Tuesday day 12 - 24/01/2017. 
 
 ## Thursday day 19 - 02/02/2017
-- Writing report 
+- Writing report
+- Constraints fixed, so you can run the app perfectly on an iphone 5, iphone 6 and iphone 7. 
 - Noticed still one minor bug. If you select nothing when you click on filtered deals and than click on the button 'filter' in stead of on the button 'back', no pins are shown on the map. Yay, fixed it by adding an extra condition where it checks if the value of category is empty (self.category == "")!
-- Constraints
+- Found a bug. After deleting a deal, it won't be shown on the map, but when you directly filter on all deals you can see it again. I don't know why this is happening and unfortunately I don't have time to figure this out.
+- Adding example deals around the Amsterdam centre. 
 
 TO DO: 
-- report 
-- constraints 
 - add example deals 
 - fix README.
 - fix design 

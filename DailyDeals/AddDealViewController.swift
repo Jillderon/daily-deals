@@ -2,6 +2,10 @@
 //  AddDealViewController.swift
 //  DailyDeals
 //
+//  Description:
+//  In this ViewController an user with a company account can add a deal to the map
+//  by entering the name of the deal, name of the company, category and valid until date. 
+//
 //  Created by practicum on 12/01/17.
 //  Copyright © 2017 Jill de Ron. All rights reserved.
 //
@@ -63,14 +67,14 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     // MARK: Alert functions. 
-    func alert(title: String, message: String) {
+    private func alert(title: String, message: String) {
         let alertController = UIAlertController(title: title , message: message, preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
         
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func alertAdressFormat() {
+    private func alertAdressFormat() {
         let alertController = UIAlertController(title: "The address must be formatted as streetname + number", message: "Is " + textfieldAddress.text! + " formatted this way? If not the deal won't be shown on the map", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "No, change Adress", style: UIAlertActionStyle.default,handler: nil))
         alertController.addAction(UIAlertAction(title: "Yes it is", style: UIAlertActionStyle.default)
@@ -93,7 +97,7 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
     }
     
-    func geocodeAddress() {
+    private func geocodeAddress() {
         // Create address string
         let location = "Netherlands, Amsterdam," + textfieldAddress.text!
         var coordinate = CLLocationCoordinate2D()
@@ -120,7 +124,7 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         }
     }
     
-    func addDealInFirebase() {
+    private func addDealInFirebase() {
         // Make sure valid until date is a Double (because Firebase can't save a NSDATE)
         dateDeal = datePicker.date as NSDate
         interval = dateDeal.timeIntervalSince1970

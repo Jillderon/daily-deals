@@ -2,6 +2,9 @@
 //  MyDealsViewController.swift
 //  DailyDeals
 //
+//  Description:
+//  In this ViewController an user with a company account can view their added deals and delete them if needed. 
+//
 //  Created by practicum on 31/01/17.
 //  Copyright © 2017 Jill de Ron. All rights reserved.
 //
@@ -70,7 +73,7 @@ class MyDealsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     // MARK: Get deals of user.
-    func loadDealsUser() {
+    private func loadDealsUser() {
         ref.observe(.value, with: { snapshot in
             var ownDeals: [Deal] = []
             
@@ -97,8 +100,6 @@ class MyDealsViewController: UIViewController, UITableViewDelegate, UITableViewD
             destination?.nameDealReceiver = self.nameDeal
             destination?.nameCompanyReceiver = self.nameCompany
         }
-
     }
     
-
 }
