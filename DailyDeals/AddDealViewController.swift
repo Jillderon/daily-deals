@@ -73,6 +73,7 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         self.present(alertController, animated: true, completion: nil)
     }
     
+    // Special alert function to inform the user about the address format.
     private func alertAdressFormat() {
         let alertController = UIAlertController(title: "The address must be formatted as streetname + number", message: "Is " + textfieldAddress.text! + " formatted this way? If not the deal won't be shown on the map", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "No, change Adress", style: UIAlertActionStyle.default,handler: nil))
@@ -97,11 +98,11 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     private func geocodeAddress() {
-        // Create address string
+        // Create address string.
         let location = "Netherlands, Amsterdam," + textfieldAddress.text!
         var coordinate = CLLocationCoordinate2D()
         
-        // Geocode Address String
+        // Geocode Address String to latitude and longitude. 
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(location) { (placemarks, error) in
             if let error = error {
@@ -117,6 +118,7 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                     self.latitude = coordinate.latitude
                     self.longitude = coordinate.longitude
                     
+                    // After address is formatted to long and lat call addDealInFirebase().
                     self.addDealInFirebase()
                 }
             }
