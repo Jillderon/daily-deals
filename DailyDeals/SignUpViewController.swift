@@ -62,7 +62,7 @@ class SignUpViewController: UIViewController {
     }
     
     private func addUserFirebase() {
-        // Save user in Firebase.
+        // Create user in Firebase.
         FIRAuth.auth()!.createUser(withEmail: self.textFieldEmail.text!, password: textFieldPassword.text!) { (user, error) in
             if error != nil {
                 self.alert(title: "Error to register", message: "Error with database")
@@ -78,6 +78,7 @@ class SignUpViewController: UIViewController {
             let userRef = self.ref.child((user.uid))
             userRef.setValue(user.toAnyObject())
             
+            // Autorization of user. If autorized send user to MapViewController. 
             FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
                 if user != nil {
                     self.performSegue(withIdentifier: "toMapView", sender: nil)
@@ -86,6 +87,7 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    // MARK: Alert.
     private func alert(title: String, message: String) {
         let alertController = UIAlertController(title: title , message: message, preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
