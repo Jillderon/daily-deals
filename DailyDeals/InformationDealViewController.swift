@@ -8,21 +8,20 @@
 //
 //  Created by practicum on 26/01/17.
 //
-//
 
 import UIKit
 import FirebaseDatabase
 
 class InformationDealViewController: UIViewController {
     
+    // MARK: Outlets.
+    @IBOutlet weak var nameDeal: UILabel!
+    @IBOutlet weak var nameCompany: UILabel!
+    
     // MARK: Variables.
     var nameDealReceiver = String()
     var nameCompanyReceiver = String()
     let ref = FIRDatabase.database().reference(withPath: "deals")
-    
-    // MARK: Outlets.
-    @IBOutlet weak var nameDeal: UILabel!
-    @IBOutlet weak var nameCompany: UILabel!
     
     // MARK: Standard functions.
     override func viewDidLoad() {
@@ -34,6 +33,7 @@ class InformationDealViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: Function to display information about deal.
     private func displayInformation() {
         nameDeal.text = nameDealReceiver
         nameCompany.text = nameCompanyReceiver
