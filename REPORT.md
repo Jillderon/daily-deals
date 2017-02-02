@@ -14,7 +14,7 @@ To use the app you need to be logged in. So when you first start the app you sta
 When you are a company you have two extra features on the Map screen (shown as buttons on the map). One is that you can add a deal by entering a name, the name of your company, the location, a category to which the deal belongs and the date till when the discount is valid. An annotation will be placed on the map. Available for every user to see. Another extra feature is that the company can see it's deals in a table view and delete them if they mistyped something or if you just don’t want you deal on the app anymore. 
 
 ### ViewControllers and functions
-[![Untitled Diagram.png](https://s23.postimg.org/asll7jlyj/Untitled_Diagram.png)](https://postimg.org/image/6jgv5dip3/)
+[![Diagram.png](https://s28.postimg.org/saryvoulp/Diagram.png)](https://postimg.org/image/7qn4x7euh/)
 
 Due to a lack of space I didn’t work out my functions from the MapViewController in the diagram. So the functions included description are listed over here.
 - **TypeOfUserVerification()** This function checks if the current user is a costumer or a company. When the current users signed up with a company account, two extra buttons get visible (add deal and my deals). 
