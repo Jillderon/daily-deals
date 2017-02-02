@@ -12,23 +12,22 @@ Another benefit DailyDeals offers in comparison to sites as Groupon is that comp
 <p align="center">
 <img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0050.PNG" width="300">
 <img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0051.PNG" width="300">
-<i><b>Left to right:</b> Log in screen, Sign Up screen</i>
 </p>
+Left to right: Log in screen, Sign Up screen
 
 <p align="center">
 <img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0059.PNG" width="300">
 <img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0053.PNG" width="300">
-<i><b>Left to right:</b> Main screen where the map is displayed and filtering the deals on category </i>
 </p>
+Left to right: Main screen where the map is displayed and filtering the deals on category
 
 <p align="center">
-
 <img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0055.PNG" width="300">
 <img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0056.PNG" width="300">
-<i><b>Left to right:</b> more information you see when a pin annotation is clicked and list with all the deals the user with a company account added</i>
 </p>
+Left to right: more information you see when a pin annotation is clicked and list with all the deals the user with a company account added
 
 <p align="center">
 <img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0052.PNG" width="300">
-<i>Someone with a company user account can add a deal at this screen</i>
 </p>
+Someone with a company user account can add a deal at this screen
