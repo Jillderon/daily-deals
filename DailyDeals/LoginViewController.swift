@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
         }
     }
         
-    // MARK: Standard functions.
+    // MARK: Standard function.
     override func viewDidLoad() {
         super.viewDidLoad()
         segueToMap()
