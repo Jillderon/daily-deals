@@ -10,7 +10,7 @@ This document will provide as a logbook for the overall process of the final pro
 ## Tuesday day 2 - 10/01/2017: 
 - First meeting with the IOS group. 
 - Desiging lay-out project - making sketches of UI. 
-- I first wanted to used the Amsterdam API to load in activities and thing to do. But the API didn't consist of enough information about an activity and I had to skip my idea about 'discount deals'. One of the supervisors helped me a lot with working out my idea. I decided that companies can add deals themselves so I don't have to work with an API. 
+- I first wanted to used the [Amsterdam API](https://data.amsterdam.nl/index.html#?dsd=catalogus&dsp=1&dsv=CARDS&mpb=topografie&mpz=9&mpv=52.3719:4.9012) to load in activities and thing to do. But the API didn't consist of enough information about an activity and I had to skip my idea about 'discount deals'. One of the supervisors helped me a lot with working out my idea. I decided that companies can add deals themselves so I don't have to work with an API. 
 
 ## Wednesday day 3 - 11/01/2017:
 - Setting up Firebase. Installing pods took hours! 
@@ -36,25 +36,24 @@ This document will provide as a logbook for the overall process of the final pro
   ..* [Stack overflow](http://stackoverflow.com/questions/38156145/mapkit-swift-converting-address-to-coordinated)
 
 ## Wednesday day 8 - 18/01/2017
-- Two different accounts needed. One for the users and one for companies. You need a [segmented controller](https://www.ioscreator.com/tutorials/segmented-control-tutorial-ios8-swift) in the register 
+- Two different accounts needed. One for the users and one for companies. You need a [segmented controller](https://www.ioscreator.com/tutorials/segmented-control-tutorial-ios8-swift) in the register.
 - Working on stylebook with the group. 
--  Wanting to add a new functionality: [Pickerview](https://www.ioscreator.com/tutorials/display-date-date-picker-ios8-swift) with dates in AddDealViewController, so you can [remove annotations after some given time](http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-it-after-some-time/3213605. Added by the company as a date + time through the pickerView. Didn't work out yet. I will leave it for now I will later continue trying to implement this).
+-  Wanting to add a new functionality: [Pickerview](https://www.ioscreator.com/tutorials/display-date-date-picker-ios8-swift) with dates in AddDealViewController, so you can [remove annotations after some given time](http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-it-after-some-time/3213605. Added by the company as a date + time through the pickerView. Didn't work out yet. I will leave it for now I will later continue trying to implement this.
 
 ## Tuesday day 9 - 19/01/2017 
 - Working on stylebook with the group. 
-- Jasper helped me with some ideas of how to let the two account differ (user and business account). He told me I could simply check my account and hide some buttons for the user account. So today I [hide my addDealButton](http://stackoverflow.com/questions/30065010/how-to-hide-show-a-button-in-swift) for user account. This is an easy way to make sure only people with a business acount can add deals. 
+- Jasper helped me with some ideas of how to let the two account differ (consument and company account). He told me I could simply check my account type and hide some buttons for the consument account. So today I [hide my addDealButton](http://stackoverflow.com/questions/30065010/how-to-hide-show-a-button-in-swift) for consument account. This is an easy way to make sure only people with a company acount can add deals. 
 - [State restoration](https://www.raywenderlich.com/117471/state-restoration-tutorial) and adding sign out. For both functionalities I checked my [pset 6](https://github.com/Jillderon/pset6). 
 - Segue information form the SearchDealViewController to the MapViewController. Is needed to filter deals later on. Aynel helped me with a segue because she already did this a lot in her app. 
 
-
 ## Friday day 10 - 20/01/2017
-- I want to filter different deals trough categories. So I need to know how to [filter data I get from Firebase](http://stackoverflow.com/questions/39647742/how-to-filter-firebase-data-in-swift). This goes wrong!! When you click on filter and the map opens again, the first time only two pins are displayed and the second time you filter and go to the map again, zero pins are displayed!! I don't seem to understand why this happens. I will ask this on Julian on monday or tuesday and go on with other things right now, because I really tried and nothing seems to work. 
-- [Change color of the pickerView to white](http://stackoverflow.com/questions/40928383/how-to-change-the-font-color-inside-a-picker-view-swift) and also of the [datePicker](http://stackoverflow.com/questions/28417217/set-text-color-and-font-for-uidatepicker-in-ios8-swift)
+- I want to filter different deals trough categories. So I need to know how to [filter data I get from Firebase](http://stackoverflow.com/questions/39647742/how-to-filter-firebase-data-in-swift). This goes wrong!! When you click on filter and the map opens again, the first time only two pins are displayed and the second time you filter and go to the map again, zero pin annotations are displayed!! I don't seem to understand why this happens. I will ask this on Julian on monday or tuesday and go on with other things right now, because I really tried and nothing seems to work. 
+- [Change color of the pickerView to white](http://stackoverflow.com/questions/40928383/how-to-change-the-font-color-inside-a-picker-view-swift) and also of the [datePicker](http://stackoverflow.com/questions/28417217/set-text-color-and-font-for-uidatepicker-in-ios8-swift). I got both helpful websites from Femke. 
 
 ## Monday day 11 - 23/01/2017 
 - I'm creating an app icon with the help of Rick. On a site called [makeappicon](https://makeappicon.com/) 
 - Add pictures to my storyboard (the four little canal houses). I made this picture with https://logomakr.com/
-- After filtering different deals by category, new pins don't get displayed on the map. I think 'remove all annotations' is the problem. Probably you can't reuse an already used and removed pin. How to fix this? Fixed this with help from Julian (NotificationCenter and popping things of the view)!!
+- After filtering different deals by category, new pin annotations don't get displayed on the map. I think 'remove all annotations' is the problem. Probably you can't reuse an already used and removed pin. How to fix this? Fixed this with help from Julian (NotificationCenter and popping things of the view). So it had nothing to do with removing pins from the map. 
 
 ## Tuesday day 12 - 24/01/2017
 - Filtering deals isn't working correctly! HELP!!!! Sometimes it does and than it doens't. Driving me crazy. After a while of testing filtering it shows two errors: 
