@@ -6,24 +6,25 @@ Websites such as Groupon, NuDeal, AmigoAmigo are tremendously popular. They offe
 
 Another benefit DailyDeals offers in comparison to sites as Groupon is that companies don't pay a high percentage of their income just to advertise their deal on the website. Every company can sign up and start adding specials deals. They can upload a deal immediately and enjoy all benefits the minute they post their special offer because deals and discounts are being added by companies themselves. These discount deals boost the amount of clients visiting your company. Just select the location, a time slot and the discount deal. So when a restaurant has a quiet Monday evening, they can just log in to the app, enter a deal (such as second main course for free) and wait for the costumers to come!
 
+[![Screen Shot 2017-02-01 at 14.12.35 copy.png](https://s30.postimg.org/gf431drfl/Screen_Shot_2017_02_01_at_14_12_35_copy.png)](https://postimg.org/image/fctwiu8m5/)
+
 ## Design - How does the app work? 
 To give a global idea about my app. To use the app you need to be logged in. So when you first start the app you start of at the log in. If you don’t have an account on Daily Deals, you can sign up. After signing up or logging in you will be send to a map centered around your current location. All the current discount deals are displayed on the map as pins. When clicked there will appear some information about the deal. Still interest? Than you can click on the annotation and the information about the deal will be loaded in another screen. 
 
 When you are a company you have two extra features (shown as buttons on the map). One is that you can add a deal by entering a name, the name of your company, the location, a category to which the deal belongs and the date till when the discount is valid. A pin will be placed on the map. Available for every user to see. Another extra features is that you can see you deals in a table view and delete them if you mistyped something or if you just don’t want you deal on the app anymore. 
 
 ### Modules
-
-
+[![Untitled Diagram.png](https://s23.postimg.org/asll7jlyj/Untitled_Diagram.png)](https://postimg.org/image/6jgv5dip3/)
 
 * Due to a lack of space I didn’t work out my functions from the MapViewController in the diagram. So the functions included description are listed over here.
-- TypeOfUserVerification() 
-- readDatabase()
-- readDatabaseAgain()
-- reloadPins()
-- addAllPins()
-- placeAnnotation()
-- determineMyCurrentLocation()
-- checkLocationAuthorizationStatus()
+- **TypeOfUserVerification()**
+- **readDatabase()**
+- **readDatabaseAgain()**
+- **reloadPins()**
+- **addAllPins()**
+- **placeAnnotation()**
+- **determineMyCurrentLocation()**
+- **checkLocationAuthorizationStatus()**
 
 ### Classes
 
