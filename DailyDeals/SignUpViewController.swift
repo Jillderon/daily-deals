@@ -16,16 +16,16 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class SignUpViewController: UIViewController {
-
-    // MARK: Variables.
-    let ref = FIRDatabase.database().reference(withPath: "Users")
-    let user = FIRAuth.auth()?.currentUser
     
     // MARK: Outlets.
     @IBOutlet weak var textFieldEmail: UITextField!
     @IBOutlet weak var textFieldPassword: UITextField!
     @IBOutlet weak var textFieldConfirm: UITextField!
     @IBOutlet weak var ControllerType: UISegmentedControl!
+    
+    // MARK: Variables.
+    let ref = FIRDatabase.database().reference(withPath: "Users")
+    let user = FIRAuth.auth()?.currentUser
     
     // MARK: Actions.
     @IBAction func signUpDidTouch(_ sender: Any) {
