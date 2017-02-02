@@ -8,3 +8,22 @@ Websites such as Groupon, NuDeal, AmigoAmigo are tremendously popular. They offe
 
 Another benefit DailyDeals offers in comparison to sites as Groupon is that companies don't pay a high percentage of their income just to advertise their deal on the website. Every company can sign up and start adding specials deals. They can upload a deal immediately and enjoy all benefits the minute they post their special offer because deals and discounts are being added by companies themselves. These discount deals boost the amount of clients visiting your company. Just select the location, a time slot and the discount deal. So when a restaurant has a quiet Monday evening, they can just log in to the app, enter a deal (such as second main course for free) and wait for the costumers to come!
 
+## Screenshots ##
+<p align="center">
+<img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0050.PNG" width="300">
+<img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0051.PNG" width="300">
+<img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0059.PNG" width="300">
+<i><b>Left to right:</b> Log in screen, Sign Up screen and main screen where the map is displayed</i>
+</p>
+
+<p align="center">
+<img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0053.PNG" width="300">
+<img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0055.PNG" width="300">
+<img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0056.PNG" width="300">
+<i><b>Left to right:</b> filtering the deals on category, more information you see when a pin annotation is clicked and list with all the deals the user with a company account added</i>
+</p>
+
+<p align="center">
+<img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0052.PNG" width="300">
+<i>Someone with a company user account can add a deal at this screen</i>
+</p>
