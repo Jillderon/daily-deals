@@ -14,6 +14,8 @@ To use the app you need to be logged in. So when you first start the app you sta
 When you are a company you have two extra features on the Map screen (shown as buttons on the map). One is that you can add a deal by entering a name, the name of your company, the location, a category to which the deal belongs and the date till when the discount is valid. An annotation will be placed on the map. Available for every user to see. Another extra feature is that the company can see it's deals in a table view and delete them if they mistyped something or if you just don’t want you deal on the app anymore. 
 
 ### ViewControllers and functions
+This flowchart image displays all import functions per view controller (take notice that not all functions are in the diagram) and how the view controllers work together. 
+
 [![Diagram.png](https://s28.postimg.org/saryvoulp/Diagram.png)](https://postimg.org/image/7qn4x7euh/)
 
 Due to a lack of space I didn’t work out my functions from the MapViewController in the diagram. So the functions included description are listed over here.
@@ -23,7 +25,7 @@ Due to a lack of space I didn’t work out my functions from the MapViewControll
 - **addAllAnnotations()** This function receives loops to all deal objects and places them on the map by calling placeAnnotation()
 - **reloadAnnotations()** This function needs to be there because after somebody filters deals on a certain category, only the annotations for that category need to be placed on the map. So this function deletes all excisting annotations and only reload the annotations of that category. 
 - **placeAnnotation()** This function is placing an annotation on the map.
-- **determineMyCurrentLocation()** 
+- **determineMyCurrentLocation()** This functions does as it's name already suggests; it locates the location of the current user. It also calls the ceckLocationAuthorizationStatus() function to check if the user gave permission to use his or her location. 
 - **checkLocationAuthorizationStatus()**
 
 ### Models
