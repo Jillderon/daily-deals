@@ -18,7 +18,12 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-
+    
+    // MARK: Outlets.
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var addDealButton: UIButton!
+    @IBOutlet weak var myDealsButton: UIButton!
+    
     // MARK: Variables.
     var locationManager = CLLocationManager()
     var ref = FIRDatabase.database().reference()
@@ -28,12 +33,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var annotationTitle = String()
     var annotationSubtitle = String()
     
-    // MARK: Outlets.
-    @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var addDealButton: UIButton!
-    @IBOutlet weak var myDealsButton: UIButton!
-    
-    // MARK: Actions.
+    // MARK: Action.
     @IBAction func signOutDidTouch(_ sender: Any) {
         let firebaseAuth = FIRAuth.auth()
         do {
@@ -84,6 +84,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             for item in snapshot.children {
                 let userData = User(snapshot: item as! FIRDataSnapshot)
                 if userData.uid == (FIRAuth.auth()?.currentUser?.uid)! {
+                    // If user has company account make buttons visible, otherwise hide buttons.
                     if userData.type! == 1 {
                         self.addDealButton.isHidden = false
                         self.myDealsButton.isHidden = false
@@ -96,13 +97,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         })
     }
     
-    // MARK: Load deals data from firebase and place on map.
+    // MARK: Load deals from firebase and place on map.
     private func readDatabase() {
         ref.child("deals").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
             guard let snapshotDict = snapshot.value as? [String: AnyObject] else {
                 return
             }
             
+            // Read all information about a deal from Firebase. 
             let nameDeal = snapshotDict["nameDeal"]
             let nameCompany = snapshotDict["nameCompany"]
             let category = snapshotDict["category"]
@@ -112,12 +114,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let uid = snapshotDict["uid"]
             let currentDate = Date().timeIntervalSince1970
             
+            // Check if the deal isn't already expired. If not add the deal, if it is delete from Firebase.
             if date as! Double >= currentDate {
                 self.deals.append(Deal(nameDeal: nameDeal! as! String, nameCompany: nameCompany! as! String, longitude: longitude! as! Double, latitude: latitude! as! Double, category: category! as! String, date: date as! Double, uid: uid as! String))
                 self.displayedDeals.append(Deal(nameDeal: nameDeal! as! String, nameCompany: nameCompany! as! String, longitude: longitude! as! Double, latitude: latitude! as! Double, category: category! as! String, date: date as! Double, uid: uid as! String))
                 self.addAllAnnotations()
             } else {
-                // delete deal in Firebase
                 self.ref.child("deals").child(nameDeal as! String).removeValue { (error, ref) in
                     if error != nil {
                         print("error \(error)")
@@ -125,18 +127,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 }
             }
         })
-    }
-    
-    func readDatabaseAgain(notification: NSNotification) {
-        mapView.removeAnnotations(mapView.annotations)
-        readDatabase()
-    }
-    
-    func reloadAnnotations(notification: NSNotification) {
-        mapView.removeAnnotations(mapView.annotations)
-        
-        displayedDeals = notification.object as! [Deal]
-        addAllAnnotations()
     }
     
     private func addAllAnnotations() {
@@ -153,6 +143,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         annotation.subtitle = deal.nameCompany
         self.mapView.addAnnotation(annotation)
 
+    }
+    
+    // MARK: Notification center functions.
+    func readDatabaseAgain(notification: NSNotification) {
+        mapView.removeAnnotations(mapView.annotations)
+        readDatabase()
+    }
+    
+    func reloadAnnotations(notification: NSNotification) {
+        mapView.removeAnnotations(mapView.annotations)
+        
+        displayedDeals = notification.object as! [Deal]
+        addAllAnnotations()
     }
     
     // MARK: Location Manager.
