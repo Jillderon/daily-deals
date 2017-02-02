@@ -13,14 +13,20 @@ Another benefit DailyDeals offers in comparison to sites as Groupon is that comp
 <img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0050.PNG" width="300">
 <img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0051.PNG" width="300">
 <img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0059.PNG" width="300">
-<i><b>Left to right:</b> Log in screen, Sign Up screen and main screen where the map is displayed</i>
+<i><b>Left to right:</b> Log in screen, Sign Up screen</i>
 </p>
 
 <p align="center">
+<img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0059.PNG" width="300">
 <img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0053.PNG" width="300">
+<i><b>Left to right:</b> Main screen where the map is displayed and filtering the deals on category </i>
+</p>
+
+<p align="center">
+
 <img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0055.PNG" width="300">
 <img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0056.PNG" width="300">
-<i><b>Left to right:</b> filtering the deals on category, more information you see when a pin annotation is clicked and list with all the deals the user with a company account added</i>
+<i><b>Left to right:</b> more information you see when a pin annotation is clicked and list with all the deals the user with a company account added</i>
 </p>
 
 <p align="center">
