@@ -31,3 +31,16 @@ Left to right: more information you see when a pin annotation is clicked and lis
 <img src="https://github.com/Jillderon/daily-deals/blob/master/doc/IMG_0052.PNG" width="300">
 </p>
 Someone with a company user account can add a deal at this screen
+
+## References ##
+* Firebase: https://www.raywenderlich.com/139322/firebase-tutorial-getting-started-2
+* MapKit: https://www.raywenderlich.com/90971/introduction-mapkit-swift-tutorial
+* PickerViews: https://www.youtube.com/watch?v=oHkEUibsShM
+* Navigation bar hidden, cited Amr ElAdawy; http://stackoverflow.com/questions/29209453/how-to-hide-a-navigation-bar-from-first-viewcontroller-in-swift
+* Geocoding: https://cocoacasts.com/forward-and-reverse-geocoding-with-clgeocoder-part-1/
+* Change color pickerview: http://stackoverflow.com/questions/40928383/how-to-change-the-font-color-inside-a-picker-view-swift
+* Change color datePicker: http://stackoverflow.com/questions/28417217/set-text-color-and-font-for-uidatepicker-in-ios8-swift
+* For making my logos: https://logomakr.com/
+* Custom annotations: https://littlebitesofcocoa.com/70-custom-map-view-pins
+* Segue from annotation to other screen: http://stackoverflow.com/questions/40478120/mkannotationview-swift-adding-info-button
+
