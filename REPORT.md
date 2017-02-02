@@ -28,11 +28,6 @@ Due to a lack of space I didn’t work out my functions from the MapViewControll
 
 ### Models
 [**User**](https://github.com/Jillderon/daily-deals/blob/master/DailyDeals/User.swift)
-| **User**| **Values**|
-| ----|----|
-| uid | String! |
-| email | String! |
-| type | Int? 
 
 | User          | Values        |
 | ------------- |:-------------:|
@@ -41,6 +36,16 @@ Due to a lack of space I didn’t work out my functions from the MapViewControll
 | type          | Int?          |
 
 [**Deal**](https://github.com/Jillderon/daily-deals/blob/master/DailyDeals/Deal.swift)
+
+| Deal          | Values        |
+| ------------- |:-------------:|
+| nameDeal      | String!       |
+| nameCompany   | String!       |
+| category      | String!       |
+| date          | Double!       |
+| uid           | String!       |
+| longitude     | Double!       |
+| latitude      | Double!       |
 
 ## Process - Which decisions were made?
 Clearly describe challenges that you have met during development. Document all important changes that you have made with regard to your design document (from the PROCESS.md). Here, we can see how much you have learned in the past month.
