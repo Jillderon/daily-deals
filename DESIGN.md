@@ -22,3 +22,13 @@ Because this app is centered both around clients as around companies, there are 
 
 ## APIs and frameworks or plugins
 To create this app the UIKit and UIMapKit library will be used. UIMapKit will be used to determine the current location of the user and to place activities and deals on the map. Firebase will be used to save preferences of users. 
+
+## Possible limitations
+The result of a search are shown as pins on a map of Amsterdam. There are probably some difficulties with loading the pins on the map, because it has to be close to the current location of the user. And the user can navigate, zoom-in and zoom-out, still displaying and updating all the pins on the map.
+
+## Components used
+To visualize activities as marking points on a map of Amsterdam, one internal (built-in) component is used: Map Kit Framework
+To subsribe users Firebase will be used.
+
+## Similar application
+A similar application is the WeCity app. WeCity uses a specially designed algorithm to deliver tailored travel tips and recommendations. But it doesn't show (temporary) deals and as a business you can't add your company as an interesting activity!
