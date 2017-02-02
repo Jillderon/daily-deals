@@ -3,14 +3,13 @@
 //  DailyDeals
 //
 //  Description:
-//  In this ViewController an user with a company account can view their added deals and delete them if needed. 
+//  In this ViewController a user with a company account can view their added deals and delete them if needed. 
 //
 //  Created by practicum on 31/01/17.
 //  Copyright © 2017 Jill de Ron. All rights reserved.
 //
 
 import UIKit
-import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 

@@ -14,7 +14,6 @@
 import UIKit
 import MapKit
 import CoreLocation
-import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 

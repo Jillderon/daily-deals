@@ -12,7 +12,6 @@
 //
 
 import UIKit
-import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
@@ -45,13 +44,6 @@ class SignUpViewController: UIViewController {
     }
     
     // MARK: Functions needed for checking in (adding user and error checking).
-    private func alert(title: String, message: String) {
-        let alertController = UIAlertController(title: title , message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
     private func errorChecking() {
         guard textFieldEmail.text! != "" && textFieldPassword.text! != "" && textFieldConfirm.text! != "" else {
             self.alert(title: "Error to register", message: "Enter a valid email, password and confirm password. \n Your password should be at least 6 characters long")
@@ -92,5 +84,12 @@ class SignUpViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    private func alert(title: String, message: String) {
+        let alertController = UIAlertController(title: title , message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }

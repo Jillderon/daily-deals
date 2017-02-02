@@ -3,7 +3,7 @@
 //  DailyDeals
 //
 //  Description:
-//  In this ViewController an user with a company account can add a deal to the map
+//  In this ViewController a user with a company account can add a deal to the map
 //  by entering the name of the deal, name of the company, category and valid until date. 
 //
 //  Created by practicum on 12/01/17.
@@ -11,7 +11,6 @@
 //
 
 import UIKit
-import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 import CoreLocation
