@@ -15,7 +15,7 @@ import FirebaseDatabase
 
 class FilterDealViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
-    // MARK: Outlets.
+    // MARK: Outlet.
     @IBOutlet weak var pickerView: UIPickerView!
     
     // MARK: Variables. 
@@ -35,6 +35,7 @@ class FilterDealViewController: UIViewController, UIPickerViewDataSource, UIPick
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Needed to let pickerView function correctly.
         pickerView.delegate = self
         pickerView.dataSource = self
     }
@@ -62,8 +63,8 @@ class FilterDealViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     private func filterDeals() {
-        
         // Temporary variable to store filtered deals in.
+        // Filtered deals are deals that belong to the selected category.
         var filteredDeals = [Deal]()
         
         if self.category == "All Deals" || self.category == "" {
