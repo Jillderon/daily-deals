@@ -1,5 +1,3 @@
-DESIGN.md
-
 # Design DailyDeals 
 Because this app is centered both around clients as around companies, there are two kinds of accounts:
 1. Client account
