@@ -13,6 +13,8 @@ When you are a company you have two extra features (shown as buttons on the map)
 
 ### Modules
 
+
+
 * Due to a lack of space I didn’t work out my functions from the MapViewController in the diagram. So the functions included description are listed over here.
 - TypeOfUserVerification() 
 - readDatabase()
