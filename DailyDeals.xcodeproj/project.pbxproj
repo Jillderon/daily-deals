@@ -17,10 +17,9 @@
 		21CBBCE41E28F8C50025B6A3 /* AddDealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBCD91E28F8C50025B6A3 /* AddDealViewController.swift */; };
 		21CBBCE51E28F8C50025B6A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBCDA1E28F8C50025B6A3 /* AppDelegate.swift */; };
 		21CBBCE61E28F8C50025B6A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21CBBCDB1E28F8C50025B6A3 /* Assets.xcassets */; };
-		21CBBCE81E28F8C50025B6A3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21CBBCDE1E28F8C50025B6A3 /* Info.plist */; };
 		21CBBCE91E28F8C50025B6A3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBCDF1E28F8C50025B6A3 /* LoginViewController.swift */; };
 		21CBBCEA1E28F8C50025B6A3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBCE01E28F8C50025B6A3 /* MapViewController.swift */; };
-		21CBBCEB1E28F8C50025B6A3 /* SearchDealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBCE11E28F8C50025B6A3 /* SearchDealViewController.swift */; };
+		21CBBCEB1E28F8C50025B6A3 /* FilterDealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBCE11E28F8C50025B6A3 /* FilterDealViewController.swift */; };
 		21CBBCEC1E28F8C50025B6A3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBCE21E28F8C50025B6A3 /* SignUpViewController.swift */; };
 		21CBBCED1E28F8C50025B6A3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBCE31E28F8C50025B6A3 /* User.swift */; };
 		21CBBCEF1E28F9800025B6A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21CBBCEE1E28F9800025B6A3 /* Main.storyboard */; };
@@ -46,7 +45,7 @@
 		21CBBCDE1E28F8C50025B6A3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = DailyDeals/Info.plist; sourceTree = "<group>"; };
 		21CBBCDF1E28F8C50025B6A3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = DailyDeals/LoginViewController.swift; sourceTree = "<group>"; };
 		21CBBCE01E28F8C50025B6A3 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = DailyDeals/MapViewController.swift; sourceTree = "<group>"; };
-		21CBBCE11E28F8C50025B6A3 /* SearchDealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchDealViewController.swift; path = DailyDeals/SearchDealViewController.swift; sourceTree = "<group>"; };
+		21CBBCE11E28F8C50025B6A3 /* FilterDealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterDealViewController.swift; path = DailyDeals/FilterDealViewController.swift; sourceTree = "<group>"; };
 		21CBBCE21E28F8C50025B6A3 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = DailyDeals/SignUpViewController.swift; sourceTree = "<group>"; };
 		21CBBCE31E28F8C50025B6A3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = DailyDeals/User.swift; sourceTree = "<group>"; };
 		21CBBCEE1E28F9800025B6A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = DailyDeals/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,7 +113,7 @@
 				21CBBCE01E28F8C50025B6A3 /* MapViewController.swift */,
 				2125EE7E1E40B50800AD2657 /* MyDealsViewController.swift */,
 				2125EE7C1E40ACA100AD2657 /* InformationDealViewController.swift */,
-				21CBBCE11E28F8C50025B6A3 /* SearchDealViewController.swift */,
+				21CBBCE11E28F8C50025B6A3 /* FilterDealViewController.swift */,
 				21CBBCE21E28F8C50025B6A3 /* SignUpViewController.swift */,
 			);
 			name = Controllers;
@@ -215,7 +214,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21CBBCE81E28F8C50025B6A3 /* Info.plist in Resources */,
 				21CBBCE61E28F8C50025B6A3 /* Assets.xcassets in Resources */,
 				210E08791E28FE7800161828 /* GoogleService-Info.plist in Resources */,
 				21CBBCF11E28F9870025B6A3 /* LaunchScreen.storyboard in Resources */,
@@ -285,7 +283,7 @@
 				21CBBCE41E28F8C50025B6A3 /* AddDealViewController.swift in Sources */,
 				21CBBCEA1E28F8C50025B6A3 /* MapViewController.swift in Sources */,
 				21E658101E2E570100828EF9 /* PROCESS.md in Sources */,
-				21CBBCEB1E28F8C50025B6A3 /* SearchDealViewController.swift in Sources */,
+				21CBBCEB1E28F8C50025B6A3 /* FilterDealViewController.swift in Sources */,
 				21BD54E81E3B6A2900924F0C /* AUDIT.md in Sources */,
 				2125EE791E40ABC300AD2657 /* REPORT.md in Sources */,
 				2125EE7B1E40AC9200AD2657 /* Deal.swift in Sources */,

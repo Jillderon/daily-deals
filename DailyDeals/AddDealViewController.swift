@@ -33,8 +33,11 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     // MARK: Standard functions.
     override func viewDidLoad() {
         super.viewDidLoad()
-        informationPickers()
         hideKeyboardWhenTappedAround()
+        
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        datePicker.setValue(UIColor.white, forKey: "textColor")
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,12 +60,6 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         PlacementAnswer = row
-    }
-    
-    func informationPickers() {
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        datePicker.setValue(UIColor.white, forKey: "textColor")
     }
     
     // MARK: Alert functions. 
@@ -107,15 +104,13 @@ class AddDealViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             if let error = error {
                 print("Unable to Forward Geocode Address (\(error))")
             } else {
-                var locationPin: CLLocation?
+                var locationAnnotation: CLLocation?
                 if let placemarks = placemarks, placemarks.count > 0 {
-                    locationPin = placemarks.first?.location
+                    locationAnnotation = placemarks.first?.location
                 }
                 
-                if let locationPin = locationPin {
-                    coordinate = locationPin.coordinate
-                    print("coordinate")
-                    print(coordinate)
+                if let locationAnnotation = locationAnnotation {
+                    coordinate = locationAnnotation.coordinate
                     self.latitude = coordinate.latitude
                     self.longitude = coordinate.longitude
                     

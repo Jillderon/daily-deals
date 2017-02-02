@@ -48,7 +48,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         super.viewDidLoad()
         determineMyCurrentLocation()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.reloadPins), name: Notification.Name(rawValue: "pinsFiltered"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.reloadAnnotations), name: Notification.Name(rawValue: "annotationsFiltered"), object: nil)
         
         typeOfUserVerification()
         checkLocationAuthorizationStatus()
@@ -112,7 +112,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             if date as! Double >= currentDate {
                 self.deals.append(Deal(nameDeal: nameDeal! as! String, nameCompany: nameCompany! as! String, longitude: longitude! as! Double, latitude: latitude! as! Double, category: category! as! String, date: date as! Double, uid: uid as! String))
                 self.displayedDeals.append(Deal(nameDeal: nameDeal! as! String, nameCompany: nameCompany! as! String, longitude: longitude! as! Double, latitude: latitude! as! Double, category: category! as! String, date: date as! Double, uid: uid as! String))
-                self.addAllPins()
+                self.addAllAnnotations()
             } else {
                 // delete deal in Firebase
                 self.ref.child("deals").child(nameDeal as! String).removeValue { (error, ref) in
@@ -129,32 +129,28 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         readDatabase()
     }
     
-    func reloadPins(notification: NSNotification) {
+    func reloadAnnotations(notification: NSNotification) {
         mapView.removeAnnotations(mapView.annotations)
         
         displayedDeals = notification.object as! [Deal]
-        addAllPins()
+        addAllAnnotations()
     }
     
-    func addAllPins() {
+    func addAllAnnotations() {
         for deal in displayedDeals {
-            addPin(deal: deal)
+            addAnnotation(deal: deal)
         }
     }
     
     
-    func addPin(deal: Deal) {
+    func addAnnotation(deal: Deal) {
         let coordinate = CLLocationCoordinate2DMake(deal.latitude, deal.longitude)
-        self.placeAnnotation(deal: deal, coordinate: coordinate)
-
-    }
-    
-    func placeAnnotation(deal: Deal, coordinate: CLLocationCoordinate2D) {
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
         annotation.title = deal.nameDeal
         annotation.subtitle = deal.nameCompany
         self.mapView.addAnnotation(annotation)
+
     }
     
     // MARK: Location Manager.
@@ -234,7 +230,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // MARK: Segues.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toFilterDeals" {
-            let destination = segue.destination as? SearchDealViewController
+            let destination = segue.destination as? FilterDealViewController
             
             // Define variabeles you want to sent to next ViewController.
             destination?.deals = self.deals

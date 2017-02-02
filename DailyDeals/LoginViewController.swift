@@ -22,15 +22,7 @@ class LoginViewController: UIViewController {
     
     // MARK: Actions.
     @IBAction func loginDidTouch(_ sender: Any) {
-        FIRAuth.auth()!.signIn(withEmail: textFieldLoginEmail.text!,
-                               password: textFieldLoginPassword.text!) {
-            (user, error) in
-            if error != nil {
-                self.alert(title: "Error with loggig in", message: "Enter a valid email and password.")
-            }
-            self.defaults.set(self.textFieldLoginEmail.text, forKey: "email")
-            self.performSegue(withIdentifier: "toMap", sender: self)
-        }
+        LogInFirebase()
     }
     
     @IBAction func resettingPasswordDidTouch(_ sender: Any) {
@@ -58,6 +50,18 @@ class LoginViewController: UIViewController {
             }
             
         })
+    }
+    
+    func LogInFirebase() {
+        FIRAuth.auth()!.signIn(withEmail: textFieldLoginEmail.text!,
+                               password: textFieldLoginPassword.text!) {
+                                (user, error) in
+                                if error != nil {
+                                    self.alert(title: "Error with loggig in", message: "Enter a valid email and password.")
+                                }
+                                self.defaults.set(self.textFieldLoginEmail.text, forKey: "email")
+                                self.performSegue(withIdentifier: "toMap", sender: self)
+        }
     }
     
     func alert(title: String, message: String) {

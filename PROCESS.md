@@ -100,6 +100,7 @@ I looked both errors up on Stack overflow. [The first one](http://stackoverflow.
 
 ## Thursday day 19 - 02/02/2017
 - Writing report 
+- Noticed still one minor bug. If you select nothing when you click on filtered deals and than click on the button 'filter' in stead of on the button 'back', no pins are shown on the map. Fixed it by adding an extra condition where it checks if the value of category is empty (self.category == "")
 
 TO DO: 
 - report 

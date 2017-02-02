@@ -13,12 +13,12 @@ To use the app you need to be logged in. So when you first start the app you sta
 
 When you are a company you have two extra features on the Map screen (shown as buttons on the map). One is that you can add a deal by entering a name, the name of your company, the location, a category to which the deal belongs and the date till when the discount is valid. A pin will be placed on the map. Available for every user to see. Another extra feature is that the company can see it's deals in a table view and delete them if they mistyped something or if you just don’t want you deal on the app anymore. 
 
-### Modules
+### ViewControllers and functions
 [![Untitled Diagram.png](https://s23.postimg.org/asll7jlyj/Untitled_Diagram.png)](https://postimg.org/image/6jgv5dip3/)
 
-* Due to a lack of space I didn’t work out my functions from the MapViewController in the diagram. So the functions included description are listed over here.
-- **TypeOfUserVerification()**
-- **readDatabase()**
+Due to a lack of space I didn’t work out my functions from the MapViewController in the diagram. So the functions included description are listed over here.
+- **TypeOfUserVerification()** This function checks if the current user is a costumer or a company. When the current users signed up with a company account, two extra buttons get visible (add deal and my deals). 
+- **readDatabase()** Reads in the FireDatabase and saves all the data in it. It also calls the addAllPins() functions to place the deals on the map as well. 
 - **readDatabaseAgain()**
 - **reloadPins()**
 - **addAllPins()**
@@ -26,12 +26,17 @@ When you are a company you have two extra features on the Map screen (shown as b
 - **determineMyCurrentLocation()**
 - **checkLocationAuthorizationStatus()**
 
-### Classes
+### Models
+[**User**](https://github.com/Jillderon/daily-deals/blob/master/DailyDeals/User.swift)
+
+[**Deal**](https://github.com/Jillderon/daily-deals/blob/master/DailyDeals/Deal.swift)
 
 ## Process - Which decisions were made?
 Clearly describe challenges that you have met during development. Document all important changes that you have made with regard to your design document (from the PROCESS.md). Here, we can see how much you have learned in the past month.
 
 Defend your decisions by writing an argument of a most a single paragraph. Why was it good to do it different than you thought before? Are there trade-offs for your current solution? In an ideal world, given much more time, would you choose another solution?
+
+A detailed logbook of the whole process in found in [PROCESS.md](https://github.com/Jillderon/daily-deals/blob/master/PROCESS.md)
 
 ## Conclusions and future of the app - What have I learned and what happens next? 
 I will go on with this app by further expanding it with nice features. Because there is so much to add to it! The first thing I will do is to let the company add a description, a maximum capacity, opening times and a picture. So when customer clicks on the annotation they will see more information and  a button saying ‘Reserve this deal’. Now the company knows how many new customers are coming. When the maximum capacity is reached the deal should be deleted from the map. 
