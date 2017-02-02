@@ -38,7 +38,7 @@ This document will provide as a logbook for the overall process of the final pro
 ## Wednesday day 8 - 18/01/2017
 - Two different accounts needed. One for the users and one for companies. You need a [segmented controller](https://www.ioscreator.com/tutorials/segmented-control-tutorial-ios8-swift) in the register.
 - Working on stylebook with the group. 
--  Wanting to add a new functionality: [Pickerview](https://www.ioscreator.com/tutorials/display-date-date-picker-ios8-swift) with dates in AddDealViewController, so you can [remove annotations after some given time](http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-it-after-some-time/3213605. Added by the company as a date + time through the pickerView. Didn't work out yet. I will leave it for now I will later continue trying to implement this.
+-  Wanting to add a new functionality: [Pickerview](https://www.ioscreator.com/tutorials/display-date-date-picker-ios8-swift) with dates in AddDealViewController, so you can [remove annotations after some given time](http://stackoverflow.com/questions/32135771/mkmapview-add-annotation-and-remove-it-after-some-time/3213605). Added by the company as a date + time through the pickerView. Didn't work out yet. I will leave it for now I will later continue trying to implement this.
 
 ## Tuesday day 9 - 19/01/2017 
 - Working on stylebook with the group. 
