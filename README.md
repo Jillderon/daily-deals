@@ -44,3 +44,6 @@ Someone with a company user account can add a deal at this screen
 * Custom annotations: https://littlebitesofcocoa.com/70-custom-map-view-pins
 * Segue from annotation to other screen: http://stackoverflow.com/questions/40478120/mkannotationview-swift-adding-info-button
 
+## Built With
+* swift 3 
+* xcode Version 8.2 (8C38)
