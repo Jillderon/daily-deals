@@ -57,19 +57,24 @@ This document will provide as a logbook for the overall process of the final pro
 
 ## Tuesday day 12 - 24/01/2017
 - Filtering deals isn't working correctly! HELP!!!! Sometimes it does and than it doens't. Driving me crazy. After a while of testing filtering it shows two errors: 
-..* Unable to Forward Geocode Address (Error Domain=kCLErrorDomain Code=2 "(null)")
-..* ERROR /BuildRoot/Library/Caches/com.apple.xbs/Sources/VectorKit_Sim/VectorKit-1230.32.8.29.9/GeoGL/GeoGL/GLCoreContext.cpp 1764: WARNING: Output of vertex shader 'v_gradient' not read by fragment shader  
+
+Unable to Forward Geocode Address (Error Domain=kCLErrorDomain Code=2 "(null)")
+
+ERROR /BuildRoot/Library/Caches/com.apple.xbs/Sources/VectorKit_Sim/VectorKit-1230.32.8.29.9/GeoGL/GeoGL/GLCoreContext.cpp 1764: WARNING: Output of vertex shader 'v_gradient' not read by fragment shader  
 
 I looked both errors up on Stack overflow. [The first one](http://stackoverflow.com/questions/17867422/kclerrordomain-error-2-after-geocoding-repeatedly-with-clgeocoder) is a problem with geocoding itself. You just can request so many locations in a minute. [The other one](http://stackoverflow.com/questions/39608231/warning-output-of-vertex-shader-v-gradient-not-read-by-fragment-shader) is due to the fact that I'm testing my app on a simulator. So, both warnings don't seem to be due to uncorrect coding but are other problems. So I won't bother too much.
 
 ## Wednesday day 13 - 25/01/2017 
 - I want custom annotation on the MapView. This worked out a bit, but not for different categories different images per pin. I did the excact same as [this tutorial](https://littlebitesofcocoa.com/70-custom-map-view-pins) and the same thing as [this site](http://stackoverflow.com/questions/38274115/ios-swift-mapkit-custom-annotation) recommended but it doens't work!! So I changed it to just one costum annotation for all the pins. When I had more time I would definitely try to implement this as well. Unfortunately I already made the custom pins on logomakr.
 - Set Navigation Bar to transparent and back button to white. Thanks to Femke van Son who already had this feature integrated in her app. 
-- The company who is adding a deal can now indicate till when a deal is valid. When the current date is past the valid date the deal will be deleted from Firebase. 
-    DATE references: 
-..* (http://stackoverflow.com/questions/36476826/how-to-deal-with-nsdate-and-firebase)
-..* (http://stackoverflow.com/questions/29502186/get-just-the-date-no-time-from-uidatepicker)
-    Working! Only thing that bothers me is that the date of deals only gets checked in viewDidLoad. 
+- The company who is adding a deal can now indicate till when a deal is valid. When the current date is past the valid date the deal will be deleted from Firebase. I had some trouble with this because in Firebase you can't save a NSDATE. Dax gave me the advise to transform the NSDate to a Double by the function timeIntervalSince1970. This is a functions that counts the seconds from 1970 till the given date. Now I can compare the given date with the current date and check if it is not already expired yet. 
+    Two helpful DATE references: 
+
+(http://stackoverflow.com/questions/36476826/how-to-deal-with-nsdate-and-firebase)
+
+(http://stackoverflow.com/questions/29502186/get-just-the-date-no-time-from-uidatepicker)
+
+Working! Only thing that bothers me is that the date of deals only gets checked in viewDidLoad. 
 
 ## Thursday day 14 - 26/01/2017
 - When a deal is clicked I want to go to another deal with more information on it. Maybe a description or something else. So I need to [add a button to my annotation](http://stackoverflow.com/questions/40478120/mkannotationview-swift-adding-info-button)
@@ -87,7 +92,7 @@ I looked both errors up on Stack overflow. [The first one](http://stackoverflow.
 - Found another bug :( Sometimes you have to log out twice. I really don't know why this is happening. On slack a lot of other people (Dax, Jasper and Martijn) also have this problem. I think I fixed the solution to this problem. I think it has to do with preforming segues. I had a segue that was on 'show' and I changed it to 'present modally' and since I changed this it didn't happen. I put my solution on slack. '
 
 ## Tuesday day 17 - 31/01/2017 
-- Add alert for the right date format
+- Add alert for the right address format
 - Today I'm going to add my last functionality. If you have a business account, you are able to see all your deals (in a table view) and delete deals over here! Aynel worked a lot with tableViews so she helped me to implement this. 
 - Turn off landscape. Martijn told me how to do this. 
 
